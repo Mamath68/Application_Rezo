@@ -32,6 +32,7 @@ export default function RootLayout() {
             <Stack>
                 <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
                 <Stack.Screen name="+not-found"/>
+                <Stack.Screen name="addArticles" options={{headerTitle: "Ajouter un Article"}}/>
             </Stack>
             <StatusBar style="auto"/>
         </ThemeProvider>

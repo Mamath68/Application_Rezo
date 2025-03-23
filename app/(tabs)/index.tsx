@@ -6,10 +6,6 @@ import {ThemedText} from '@/components/ThemedText';
 import {ThemedView} from '@/components/ThemedView';
 import {HomeScreenStyles as styles} from "@/theme"
 
-export const meta = {
-    title: "Accueil - Mon App",
-};
-
 export default function HomeScreen() {
 
     return (
