@@ -1,4 +1,4 @@
-package fr.rezo.rezo_backend.model;
+package fr.rezo.backend.model;
 
 import jakarta.persistence.*;
 
@@ -16,7 +16,7 @@ public class Articles {
     private String author;
     @Column
     private String image;
-    private String link;
+    private String lien;
     private String description;
     @Column(columnDefinition = "TEXT")
     private String content;
@@ -89,12 +89,12 @@ public class Articles {
         this.updated_date = updated_date;
     }
 
-    public String getLink() {
-        return this.link;
+    public String getLien() {
+        return this.lien;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setLien(String lien) {
+        this.lien = lien;
     }
 
     public String getDescription() {

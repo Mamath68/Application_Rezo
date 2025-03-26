@@ -1,4 +1,4 @@
-package fr.rezo.rezo_backend.controller;
+package fr.rezo.backend.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

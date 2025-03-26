@@ -1,6 +1,6 @@
-package fr.rezo.rezo_backend.repository;
+package fr.rezo.backend.repository;
 
-import fr.rezo.rezo_backend.model.Articles;
+import fr.rezo.backend.model.Articles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

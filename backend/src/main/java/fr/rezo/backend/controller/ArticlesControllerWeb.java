@@ -1,7 +1,7 @@
-package fr.rezo.rezo_backend.controller;
+package fr.rezo.backend.controller;
 
-import fr.rezo.rezo_backend.model.Articles;
-import fr.rezo.rezo_backend.repository.ArticlesRepository;
+import fr.rezo.backend.model.Articles;
+import fr.rezo.backend.repository.ArticlesRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
