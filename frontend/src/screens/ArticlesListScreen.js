@@ -5,6 +5,7 @@ import {
     Image,
     Keyboard,
     KeyboardAvoidingView,
+    Linking,
     Modal,
     Platform,
     TouchableOpacity,
@@ -18,6 +19,7 @@ import {useTheme} from '@/context/ThemeProvider';
 import {CustomButtonText, CustomText, CustomView, Header} from '@/components';
 import {getAllArticles} from "@/utils";
 import {ArticleListScreenStyles as styles} from "@/theme";
+import {Link} from "@react-navigation/native";
 
 const ArticlesListScreen = ({navigation}) => {
     const {theme} = useTheme();
@@ -88,7 +90,8 @@ const ArticlesListScreen = ({navigation}) => {
                                         )}
                                         ListEmptyComponent={
                                             <CustomText style={styles.noArticles}>
-                                                No buildings found.
+                                                Nous n'avons pas encore d'articles, mais nous vous invitons à en creer
+                                                un.
                                             </CustomText>
                                         }
                                         keyboardShouldPersistTaps='handled'
@@ -107,17 +110,6 @@ const ArticlesListScreen = ({navigation}) => {
                                     onPress={() => navigation.navigate('AddArticlesScreen')}
                                 >
                                     Add Articles
-                                </CustomButtonText>
-
-                                <CustomButtonText
-                                    type='secondary'
-                                    onBackground={false}
-                                    withBackground={false}
-                                    withBorder={true}
-                                    buttonStyle={styles.button}
-                                    onPress={() => navigation.navigate("Home")}
-                                >
-                                    Go back to map
                                 </CustomButtonText>
                             </View>
                         </View>
@@ -148,7 +140,9 @@ const ArticlesListScreen = ({navigation}) => {
                                                 {selectedArticle.content}
                                             </CustomText>
                                             <CustomText level="p">
-                                                {selectedArticle.description}
+                                                <Link onPress={() => Linking.openURL(selectedArticle.lien)}>
+                                                    {selectedArticle.description}
+                                                </Link>
                                             </CustomText>
                                         </CustomView>
                                     )}

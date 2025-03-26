@@ -64,7 +64,7 @@ const AddArticlesScreen = ({navigation}) => {
     const handleArticleCreation = async () => {
         if (validateForm) {
             setLoading(true);
-            console.log("Creation d'un article:", {title, author, image, link, description, content});
+            console.log("Creation d'un article:", {title, author, image, lien, description, content});
 
             try {
                 const article = {title, author, image, link, description, content};
