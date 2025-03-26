@@ -14,12 +14,12 @@ const CustomText = ({
     const defStyle = {
         h1: styles.h1,
         h2: styles.h2,
+        h3: styles.h3,
         p: styles.p,
         note: styles.note,
         description: styles.description,
     };
 
-    // Récupération du style pour le niveau de texte
     const getComponentStyle = defStyle[level];
 
     return (

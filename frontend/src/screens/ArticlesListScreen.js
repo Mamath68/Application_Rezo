@@ -8,6 +8,7 @@ import {
     Linking,
     Modal,
     Platform,
+    ScrollView,
     TouchableOpacity,
     TouchableWithoutFeedback,
     View,
@@ -19,7 +20,6 @@ import {useTheme} from '@/context/ThemeProvider';
 import {CustomButtonText, CustomText, CustomView, Header} from '@/components';
 import {getAllArticles} from "@/utils";
 import {ArticleListScreenStyles as styles} from "@/theme";
-import {Link} from "@react-navigation/native";
 
 const ArticlesListScreen = ({navigation}) => {
     const {theme} = useTheme();
@@ -27,7 +27,28 @@ const ArticlesListScreen = ({navigation}) => {
     const [isLoading, setLoading] = useState(true);
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [isModalVisible, setModalVisible] = useState(false);
+    const formatDate = (dateString) => {
+        return new Date(dateString).toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        });
+    };
+    const openArticleLink = async (url) => {
+        if (!url) {
+            Alert.alert('Lien invalide', 'Aucun lien disponible pour cet article.');
+            return;
+        }
 
+        const supported = await Linking.canOpenURL(url);
+        if (supported) {
+            await Linking.openURL(url);
+        } else {
+            Alert.alert('Erreur', "Impossible d'ouvrir le lien.");
+        }
+    };
     useEffect(() => {
         const loadArticles = async () => {
             setLoading(true);
@@ -81,9 +102,8 @@ const ArticlesListScreen = ({navigation}) => {
                                                     <CustomText style={styles.articlesTitle}>
                                                         {item.title}
                                                     </CustomText>
-                                                    <CustomText numberOfLines={3} ellipsizeMode="tail"
-                                                                style={styles.articlesDescription}>
-                                                        {item.content}
+                                                    <CustomText style={styles.articlesDescription}>
+                                                        {formatDate(item.published_date)}
                                                     </CustomText>
                                                 </CustomView>
                                             </TouchableOpacity>
@@ -94,6 +114,8 @@ const ArticlesListScreen = ({navigation}) => {
                                                 un.
                                             </CustomText>
                                         }
+                                        numColumns={2}
+                                        columnWrapperStyle={{justifyContent: "space-evenly", width: '65%'}}
                                         keyboardShouldPersistTaps='handled'
                                         showsVerticalScrollIndicator={true}
                                         contentContainerStyle={{paddingBottom: 20}}
@@ -109,7 +131,7 @@ const ArticlesListScreen = ({navigation}) => {
                                     buttonStyle={styles.button}
                                     onPress={() => navigation.navigate('AddArticlesScreen')}
                                 >
-                                    Add Articles
+                                    Ajouter un Articles
                                 </CustomButtonText>
                             </View>
                         </View>
@@ -123,29 +145,50 @@ const ArticlesListScreen = ({navigation}) => {
                                 <CustomView style={styles.modalContainer}>
                                     <TouchableOpacity onPress={closeModal} style={styles.closeButton}>
                                         <CustomText
-                                            style={[styles.closeButtonText, {color: theme === 'dark' ? '#fff' : '#000'}]}>X</CustomText>
+                                            style={
+                                                [
+                                                    styles.closeButtonText, {
+                                                    color: theme === 'dark' ? '#fff' : '#000'
+                                                }
+                                                ]
+                                            }
+                                        >
+                                            X
+                                        </CustomText>
                                     </TouchableOpacity>
-                                    {selectedArticle && (
-                                        <CustomView>
-                                            <CustomText level="h2">
-                                                {selectedArticle.title}
-                                            </CustomText>
-                                            {selectedArticle.image && (
-                                                <Image
-                                                    source={{uri: selectedArticle.image}}
-                                                    style={styles.modalImage}
-                                                />
-                                            )}
-                                            <CustomText level="p">
-                                                {selectedArticle.content}
-                                            </CustomText>
-                                            <CustomText level="p">
-                                                <Link onPress={() => Linking.openURL(selectedArticle.lien)}>
-                                                    {selectedArticle.description}
-                                                </Link>
-                                            </CustomText>
-                                        </CustomView>
-                                    )}
+                                    <ScrollView contentContainerStyle={styles.modalScrollView}>
+                                        {selectedArticle && (
+                                            <CustomView>
+                                                <CustomText level="h1">
+                                                    {selectedArticle.title}
+                                                </CustomText>
+                                                <CustomText level="h3">
+                                                    Par {selectedArticle.author}
+                                                </CustomText>
+                                                <CustomText level="p">
+                                                    Le {formatDate(selectedArticle.published_date)}
+                                                </CustomText>
+                                                {selectedArticle.image && (
+                                                    <Image
+                                                        source={{uri: selectedArticle.image}}
+                                                        style={styles.modalImage}
+                                                    />
+                                                )}
+                                                <CustomText level="p">
+                                                    {selectedArticle.content}
+                                                </CustomText>
+                                                <CustomText level="p">
+                                                    <TouchableOpacity
+                                                        onPress={() => openArticleLink(selectedArticle.lien)}>
+                                                        <CustomText
+                                                            style={{color: 'blue', textDecorationLine: 'underline'}}>
+                                                            {selectedArticle.description || 'Lire plus'}
+                                                        </CustomText>
+                                                    </TouchableOpacity>
+                                                </CustomText>
+                                            </CustomView>
+                                        )}
+                                    </ScrollView>
                                 </CustomView>
                             </CustomView>
                         </Modal>

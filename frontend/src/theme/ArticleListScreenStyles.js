@@ -49,7 +49,7 @@ const ArticleListScreenStyles = StyleSheet.create({
         color: '#fff',
     },
     articlesDescription: {
-        fontSize: 14,
+        fontSize: 12,
         color: '#fff',
     },
     containerButtons: {
@@ -72,19 +72,26 @@ const ArticleListScreenStyles = StyleSheet.create({
     modalContainer: {
         borderRadius: 10,
         paddingHorizontal: 20,
-        width: '90%', // Largeur réduite
-        maxHeight: '90%', // Hauteur maximale
-        height: 800
+        width: '90%', // Largeur du modal
+        maxHeight: '80%', // Empêche le modal de prendre tout l'écran
+        backgroundColor: 'white',
+    },
+    modalScrollView: {
+        flexGrow: 1, // Permet au ScrollView de s'étendre
+        paddingBottom: 20, // Ajoute un espace en bas pour éviter les coupures
+    },
+    modalContent: {
+        paddingBottom: 20, // Sépare le contenu du bord inférieur
     },
     modalImage: {
-        width: '100%',
-        height: 290,
+        width: 250,
+        height: 250,
         resizeMode: 'cover',
         marginBottom: 10,
     },
     closeButton: {
         alignSelf: 'flex-end',
-        padding: 5,
+        paddingVertical: 15,
     },
     closeButtonText: {
         fontSize: 20, // Taille réduite
