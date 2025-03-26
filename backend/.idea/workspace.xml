@@ -5,24 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/dto/ArticlesDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/fr/rezo/backend/controller/ArticlesControllerApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/fr/rezo/backend/controller/ArticlesControllerWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/fr/rezo/backend/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/fr/rezo/backend/model/Articles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/fr/rezo/backend/repository/ArticlesRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/Articles/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/rezo_backend/RezoBackendApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/rezo_backend/controller/ArticlesControllerApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/rezo_backend/controller/ArticlesControllerWeb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/rezo_backend/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/rezo_backend/model/Articles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/rezo_backend/repository/ArticlesRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Articles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Articles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Articles/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Articles/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/fr/rezo/rezo_backend/RezoBackendApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/ArticlesListScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/screens/ArticlesListScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -136,7 +126,7 @@
       <workItem from="1742911972489" duration="39000" />
       <workItem from="1742912035432" duration="2020000" />
       <workItem from="1742975502290" duration="53000" />
-      <workItem from="1742979175028" duration="2771000" />
+      <workItem from="1742979175028" duration="8941000" />
     </task>
     <servers />
   </component>

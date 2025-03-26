@@ -22,7 +22,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="article : ${articles}">
+    <tr th:if="${!articles.isEmpty()}" th:each="article : ${articles}">
         <td th:text="${article.title}"></td>
         <td th:text="${article.author}"></td>
         <!-- Custom Date Format -->
@@ -34,6 +34,9 @@
         <td th:if="${article.image != null}">
             <img th:src="${article.image}" alt="Article Image">
         </td>
+    </tr>
+    <tr th:if="${articles.isEmpty()}">
+        <td colspan="5"><h2>Pas d'articles</h2></td>
     </tr>
     </tbody>
 </table>

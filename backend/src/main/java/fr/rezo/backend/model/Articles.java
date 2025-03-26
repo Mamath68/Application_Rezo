@@ -16,11 +16,14 @@ public class Articles {
     private String author;
     @Column
     private String image;
+    @Column
     private String lien;
+    @Column
     private String description;
     @Column(columnDefinition = "TEXT")
     private String content;
-    @Column(nullable = false, updatable = false)
+
+    @Column(nullable = false)
     private LocalDateTime published_date;
 
     @Column(nullable = false)
@@ -28,7 +31,9 @@ public class Articles {
 
     @PrePersist
     protected void onCreate() {
-        published_date = LocalDateTime.now();
+        if (published_date == null) {
+            published_date = LocalDateTime.now();
+        }
         updated_date = LocalDateTime.now();
     }
 
