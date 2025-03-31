@@ -14,7 +14,7 @@ import {CustomButtonText, CustomInput, CustomText, CustomTextarea, CustomView, H
 import {createArticles} from "@/utils/apiRouter";
 import {AddArticleScreenStyles as styles} from '@/theme';
 
-const AddArticlesScreen = ({navigation}) => {
+const EditArticlesScreen = ({navigation}) => {
     const {theme} = useTheme();
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
@@ -177,4 +177,4 @@ const AddArticlesScreen = ({navigation}) => {
     );
 };
 
-export default AddArticlesScreen;
+export default EditArticlesScreen;

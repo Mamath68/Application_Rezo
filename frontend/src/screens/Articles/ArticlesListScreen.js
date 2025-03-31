@@ -17,7 +17,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {useTheme} from '@/context/ThemeProvider';
 
-import {CustomButtonText, CustomText, CustomView, Header} from '@/components';
+import {CustomButtonLink, CustomButtonText, CustomText, CustomView, Header} from '@/components';
 import {getAllArticles} from "@/utils";
 import {ArticleListScreenStyles as styles} from "@/theme";
 
@@ -159,13 +159,14 @@ const ArticlesListScreen = ({navigation}) => {
                                     <ScrollView contentContainerStyle={styles.modalScrollView}>
                                         {selectedArticle && (
                                             <CustomView>
-                                                <CustomText level="h4" style={{textAlign: 'center', paddingHorizontal: 5}}>
+                                                <CustomText level="h4"
+                                                            style={{textAlign: 'center', paddingHorizontal: 5}}>
                                                     {selectedArticle.title}
                                                 </CustomText>
                                                 <CustomText level="h3" style={{textAlign: 'center'}}>
                                                     Par {selectedArticle.author}
                                                 </CustomText>
-                                                <CustomText level="p" >
+                                                <CustomText level="p">
                                                     Le {formatDate(selectedArticle.published_date)}
                                                 </CustomText>
                                                 {selectedArticle.image && (
@@ -188,6 +189,18 @@ const ArticlesListScreen = ({navigation}) => {
                                                                 }}>
                                                                 {selectedArticle.description || 'Lire plus'}
                                                             </CustomText>
+                                                            <CustomButtonLink
+                                                                type="primary"
+                                                                onBackground={true}
+                                                                withBackground={true}
+                                                                withBorder={true}
+                                                                textStyle={{color: "white"}}
+                                                                linkStyle={{color: "white"}}
+                                                                buttonStyle={styles.button}
+                                                                onPress={() => navigation.navigate('EditArticlesScreen')}
+                                                                text="Editer"
+                                                                linkText="cet Article"
+                                                            />
                                                         </TouchableOpacity>
                                                     }
                                                 </CustomText>

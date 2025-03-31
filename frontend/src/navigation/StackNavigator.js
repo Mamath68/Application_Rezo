@@ -12,6 +12,7 @@ const screens = [
     {name: 'SplashScreen', component: SplashScreen},
     {name: 'ArticlesListScreen', component: ArticlesListScreen},
     {name: 'AddArticlesScreen', component: AddArticlesScreen},
+    {name: 'EditArticlesScreen', component: AddArticlesScreen},
 ];
 
 const StackNavigator = () => {
