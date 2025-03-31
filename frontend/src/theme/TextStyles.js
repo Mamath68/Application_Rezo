@@ -21,8 +21,8 @@ const TextStyles = StyleSheet.create({
     },
     h4: {
         fontSize: 16, // Taille légèrement inférieure pour sous-titres
-        fontWeight: "600", // Semi-gras pour rester visible
-        lineHeight: 24,
+        fontWeight: "600",
+        lineHeight: 30,
         color: "#555",
     },
     h5: {

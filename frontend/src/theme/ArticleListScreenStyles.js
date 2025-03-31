@@ -85,9 +85,10 @@ const ArticleListScreenStyles = StyleSheet.create({
     },
     modalImage: {
         width: 250,
-        height: 250,
-        resizeMode: 'cover',
-        marginBottom: 10,
+        height: 350,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+        marginVertical: 10,
     },
     closeButton: {
         alignSelf: 'flex-end',

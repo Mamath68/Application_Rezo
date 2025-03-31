@@ -159,13 +159,13 @@ const ArticlesListScreen = ({navigation}) => {
                                     <ScrollView contentContainerStyle={styles.modalScrollView}>
                                         {selectedArticle && (
                                             <CustomView>
-                                                <CustomText level="h1">
+                                                <CustomText level="h4" style={{textAlign: 'center', paddingHorizontal: 5}}>
                                                     {selectedArticle.title}
                                                 </CustomText>
-                                                <CustomText level="h3">
+                                                <CustomText level="h3" style={{textAlign: 'center'}}>
                                                     Par {selectedArticle.author}
                                                 </CustomText>
-                                                <CustomText level="p">
+                                                <CustomText level="p" >
                                                     Le {formatDate(selectedArticle.published_date)}
                                                 </CustomText>
                                                 {selectedArticle.image && (
@@ -174,17 +174,22 @@ const ArticlesListScreen = ({navigation}) => {
                                                         style={styles.modalImage}
                                                     />
                                                 )}
-                                                <CustomText level="p">
+                                                <CustomText level="p" style={{textAlign: 'center'}}>
                                                     {selectedArticle.content}
                                                 </CustomText>
                                                 <CustomText level="p">
-                                                    <TouchableOpacity
-                                                        onPress={() => openArticleLink(selectedArticle.lien)}>
-                                                        <CustomText
-                                                            style={{color: 'blue', textDecorationLine: 'underline'}}>
-                                                            {selectedArticle.description || 'Lire plus'}
-                                                        </CustomText>
-                                                    </TouchableOpacity>
+                                                    {selectedArticle.lien &&
+                                                        <TouchableOpacity
+                                                            onPress={() => openArticleLink(selectedArticle.lien)}>
+                                                            <CustomText
+                                                                style={{
+                                                                    color: 'blue',
+                                                                    textDecorationLine: 'underline'
+                                                                }}>
+                                                                {selectedArticle.description || 'Lire plus'}
+                                                            </CustomText>
+                                                        </TouchableOpacity>
+                                                    }
                                                 </CustomText>
                                             </CustomView>
                                         )}
