@@ -7,10 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/articles")
+@RequestMapping("/api")
 public class ArticlesControllerApi {
 
     private final ArticlesRepository articlesRepository;
@@ -19,18 +20,62 @@ public class ArticlesControllerApi {
         this.articlesRepository = articlesRepository;
     }
 
-    @GetMapping
+    // De l'autre coté
+    @GetMapping("/articles")
     public List<Articles> getArticles() {
         return this.articlesRepository.findAll();
     }
 
-    @PostMapping
+    @GetMapping("/article/{id}")
+    public Optional<Articles> getArticlesById(@PathVariable Long id) {
+        return articlesRepository.findById(id);
+    }
+
+    // De l'autre coté
+    @PostMapping("/articles")
     public ResponseEntity<Articles> addArticles(@RequestBody Articles articles) {
         try {
             Articles saveArticles = articlesRepository.save(articles);
             return new ResponseEntity<>(saveArticles, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/article/{id}")
+    public ResponseEntity<Articles> updateArticles(@PathVariable Long id, @RequestBody Articles articles) {
+        try {
+            Optional<Articles> existingArticles = articlesRepository.findById(id);
+            if (existingArticles.isPresent()) {
+                Articles updatedArticles = existingArticles.get();
+                updatedArticles.setTitle(articles.getTitle());
+                updatedArticles.setDescription(articles.getContent());
+                updatedArticles.setImage(articles.getImage());
+                updatedArticles.setLien(articles.getLien());
+                updatedArticles.setContent(articles.getContent());
+                updatedArticles.setAuthor(articles.getAuthor());
+                updatedArticles.setUpdated_date(articles.getUpdated_date());
+                Articles saveArticles = articlesRepository.save(updatedArticles);
+                return new ResponseEntity<>(saveArticles, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/article/{id}")
+    public ResponseEntity<Void> deleteArticles(@PathVariable Long id) {
+        try {
+            if (articlesRepository.existsById(id)) {
+                articlesRepository.deleteById(id);
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

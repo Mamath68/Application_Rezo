@@ -20,14 +20,14 @@ const AddArticlesScreen = ({navigation}) => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [image, setImage] = useState("");
-    const [link, setLink] = useState("");
+    const [lien, setLien] = useState("");
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
 
     const [, setTitleError] = useState("");
     const [, setAuthorError] = useState("");
     const [, setImageError] = useState("");
-    const [, setLinkError] = useState("");
+    const [, setLienError] = useState("");
     const [, setDescriptionError] = useState("");
     const [, setContentError] = useState("");
 
@@ -39,7 +39,7 @@ const AddArticlesScreen = ({navigation}) => {
         setTitleError("");
         setAuthorError("");
         setImageError("");
-        setLinkError("");
+        setLienError("");
         setDescriptionError("");
         setContentError("");
 
@@ -67,7 +67,7 @@ const AddArticlesScreen = ({navigation}) => {
             console.log("Creation d'un article:", {title, author, image, lien, description, content});
 
             try {
-                const article = {title, author, image, link, description, content};
+                const article = {title, author, image, lien, description, content};
 
                 const response = await createArticles(article);
                 console.log("Reponse de l'api:", response);
@@ -124,8 +124,8 @@ const AddArticlesScreen = ({navigation}) => {
                                         <CustomText level="p">Lien (Optionnel)</CustomText>
                                         <CustomInput
                                             placeholder="Lien vers un site (Optionnel)"
-                                            value={link}
-                                            onChangeText={setLink}
+                                            value={lien}
+                                            onChangeText={setLien}
                                         />
                                     </CustomView>
                                     <CustomView>

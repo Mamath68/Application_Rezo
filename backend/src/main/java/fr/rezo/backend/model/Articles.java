@@ -14,9 +14,9 @@ public class Articles {
     private String title;
     @Column
     private String author;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String image;
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String lien;
     @Column
     private String description;

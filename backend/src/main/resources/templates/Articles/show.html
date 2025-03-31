@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head}"></head>
+<body class="container-fluid">
+<div th:replace="~{layout :: header}"></div>
+<main>
+    <table class="table table-bordered border-primary text-center">
+        <thead>
+        <tr>
+            <th class="col-2">Title</th>
+            <th class="col-2">Author</th>
+            <th class="col-2">Published Date</th>
+            <th class="col-2">Content</th>
+            <th class="col-2">Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${article.title}"></td>
+            <td th:text="${article.author}"></td>
+            <td th:text="${{article.published_date}}"></td>
+            <td>
+                <p th:text="${article.content}"></p>
+                <a th:href="${article.lien}" th:text="${article.description}" target="_blank"></a>
+            </td>
+            <td th:if="${article.image != null}">
+                <img th:src="${article.image}" alt="Article Image">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<div th:replace="~{layout :: footer}"></div>
 </body>
 </html>

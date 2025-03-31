@@ -10,6 +10,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("message", "Hello World!");
+        model.addAttribute("pageTitle", "Accueil"); // Titre de la page
         return "home";
     }
 }
