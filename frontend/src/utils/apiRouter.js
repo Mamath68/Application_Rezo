@@ -10,6 +10,15 @@ export const getAllArticles = async () => {
     }
 };
 
+export const getArticle = async (id) => {
+    try {
+        console.log(`L'article avec l'id ${id} a bien été récupéré`);
+        return await api.get(`article/${id}`);
+    } catch (error) {
+        throw new Error('Articles - getArticle | FAILED: ' + error.message);
+    }
+}
+
 export const createArticles = async (articlesData) => {
     try {
         console.log("L'article a bien été créé");
@@ -18,6 +27,14 @@ export const createArticles = async (articlesData) => {
         throw new Error('Articles - createArticles | FAILED: ' + error.message);
     }
 };
+
+export const deleteArticle = async (id) => {
+    try {
+        return await api.delete(`article/${id}`);
+    } catch (error) {
+        throw new Error('Articles - deleteArticle | FAILED: ' + error.message);
+    }
+}
 
 
 //---- VILLES ----\\

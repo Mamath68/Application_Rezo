@@ -20,6 +20,7 @@ import {useTheme} from '@/context/ThemeProvider';
 import {CustomButtonLink, CustomButtonText, CustomText, CustomView, Header} from '@/components';
 import {getAllArticles} from "@/utils";
 import {ArticleListScreenStyles as styles} from "@/theme";
+import {getArticle} from "../../utils";
 
 const ArticlesListScreen = ({navigation}) => {
     const {theme} = useTheme();
@@ -62,8 +63,15 @@ const ArticlesListScreen = ({navigation}) => {
                 setLoading(false);
             }
         };
-
+        const deleteArticle = async (id) => {
+            try {
+                await deleteArticle(id);
+            } catch (error){
+                console.error("Erreur lors du chargement des articles:", error);
+            }
+        }
         loadArticles();
+        deleteArticle()
     }, []);
 
     const openModal = (article) => {
@@ -189,20 +197,32 @@ const ArticlesListScreen = ({navigation}) => {
                                                                 }}>
                                                                 {selectedArticle.description || 'Lire plus'}
                                                             </CustomText>
-                                                            <CustomButtonLink
-                                                                type="primary"
-                                                                onBackground={true}
-                                                                withBackground={true}
-                                                                withBorder={true}
-                                                                textStyle={{color: "white"}}
-                                                                linkStyle={{color: "white"}}
-                                                                buttonStyle={styles.button}
-                                                                onPress={() => navigation.navigate('EditArticlesScreen')}
-                                                                text="Editer"
-                                                                linkText="cet Article"
-                                                            />
                                                         </TouchableOpacity>
                                                     }
+                                                    <CustomButtonLink
+                                                        type="primary"
+                                                        onBackground={true}
+                                                        withBackground={true}
+                                                        withBorder={true}
+                                                        textStyle={{color: "white"}}
+                                                        linkStyle={{color: "white"}}
+                                                        buttonStyle={styles.button}
+                                                        onPress={() => navigation.navigate('EditArticlesScreen')}
+                                                        text="Editer"
+                                                        linkText="cet Article"
+                                                    />
+                                                    <CustomButtonLink
+                                                        type="primary"
+                                                        onBackground={true}
+                                                        withBackground={true}
+                                                        withBorder={true}
+                                                        textStyle={{color: "white"}}
+                                                        linkStyle={{color: "white"}}
+                                                        buttonStyle={styles.button}
+                                                        onPress={deleteArticle(selectedArticle.id)}>
+                                                        text="Supprimer"
+                                                        linkText="cet Article"
+                                                    />
                                                 </CustomText>
                                             </CustomView>
                                         )}
