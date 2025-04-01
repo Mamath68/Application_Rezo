@@ -67,16 +67,23 @@ public class ArticlesControllerApi {
 
     @DeleteMapping("/article/{id}")
     public ResponseEntity<Void> deleteArticles(@PathVariable Long id) {
+        System.out.println("back delete article");
         try {
+            System.out.println("back delete article - OK");
             if (articlesRepository.existsById(id)) {
+                System.out.println("back delete article - OK - ARTICLE EXISTE");
                 articlesRepository.deleteById(id);
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                System.out.println("ResponseEntity<>(HttpStatus.NO_CONTENT);");
+                return new ResponseEntity<>(HttpStatus.OK);
             } else {
+                System.out.println("back delete article - OK - ARTICLE EXISTE PAS");
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
+            System.out.println("back delete article - ERREUR");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
 }
