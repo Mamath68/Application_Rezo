@@ -67,8 +67,10 @@ const ArticlesListScreen = ({navigation}) => {
     }, []);
 
     const handleDeleteArticle = async (id) => {
+        console.log("Suppression de l'article n°", id);
         try {
-            await deleteArticle(id);
+            const result = await deleteArticle(id);
+            console.log(result)
             setArticles(null);
             setModalVisible(false); // Ferme la modal après suppression
         } catch (error) {

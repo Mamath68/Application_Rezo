@@ -12,7 +12,7 @@ const api = {
                 const token = await AsyncStorage.getItem("userToken");
                 if (token) headers.Authorization = `Bearer ${token}`;
                 else {
-                    throw new Error("Token not found! Please log in again.");
+                    new Error("Token not found! Please log in again.");
                 }
             }
 
@@ -20,10 +20,10 @@ const api = {
             if (body) config.body = JSON.stringify(body);
 
             const response = await fetch(`${API_BASE_URL}${url}`, config);
-
+            console.log("API response:", response);
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message || errorData}`);
+                new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message || errorData}`);
             }
 
             return await response.json();
