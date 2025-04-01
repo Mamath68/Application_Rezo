@@ -20,7 +20,7 @@ public class ArticlesControllerApi {
         this.articlesRepository = articlesRepository;
     }
 
-    // De l'autre coté
+    // De l'autre côté
     @GetMapping("/articles")
     public List<Articles> getArticles() {
         return this.articlesRepository.findAll();
@@ -31,7 +31,7 @@ public class ArticlesControllerApi {
         return articlesRepository.findById(id);
     }
 
-    // De l'autre coté
+    // De l'autre côté
     @PostMapping("/articles")
     public ResponseEntity<Articles> addArticles(@RequestBody Articles articles) {
         try {
