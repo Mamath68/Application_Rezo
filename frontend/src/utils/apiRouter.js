@@ -30,6 +30,7 @@ export const createArticles = async (articlesData) => {
 
 export const deleteArticle = async (id) => {
     try {
+        console.log("L'article a bien été Supprimé");
         return await api.delete(`article/${id}`);
     } catch (error) {
         throw new Error('Articles - deleteArticle | FAILED: ' + error.message);

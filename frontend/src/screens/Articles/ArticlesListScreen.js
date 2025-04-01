@@ -18,9 +18,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTheme} from '@/context/ThemeProvider';
 
 import {CustomButtonLink, CustomButtonText, CustomText, CustomView, Header} from '@/components';
-import {getAllArticles} from "@/utils";
+import {deleteArticle, getAllArticles} from "@/utils";
 import {ArticleListScreenStyles as styles} from "@/theme";
-import {getArticle} from "../../utils";
 
 const ArticlesListScreen = ({navigation}) => {
     const {theme} = useTheme();
@@ -63,16 +62,19 @@ const ArticlesListScreen = ({navigation}) => {
                 setLoading(false);
             }
         };
-        const deleteArticle = async (id) => {
-            try {
-                await deleteArticle(id);
-            } catch (error){
-                console.error("Erreur lors du chargement des articles:", error);
-            }
-        }
+
         loadArticles();
-        deleteArticle()
     }, []);
+
+    const handleDeleteArticle = async (id) => {
+        try {
+            await deleteArticle(id);
+            setArticles(null);
+            setModalVisible(false); // Ferme la modal après suppression
+        } catch (error) {
+            console.error("Erreur lors de la suppression de l'article:", error);
+        }
+    };
 
     const openModal = (article) => {
         setSelectedArticle(article);
@@ -219,9 +221,9 @@ const ArticlesListScreen = ({navigation}) => {
                                                         textStyle={{color: "white"}}
                                                         linkStyle={{color: "white"}}
                                                         buttonStyle={styles.button}
-                                                        onPress={deleteArticle(selectedArticle.id)}>
                                                         text="Supprimer"
                                                         linkText="cet Article"
+                                                        onPress={() => handleDeleteArticle(selectedArticle.id)}
                                                     />
                                                 </CustomText>
                                             </CustomView>
