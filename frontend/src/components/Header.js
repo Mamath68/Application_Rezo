@@ -1,28 +1,30 @@
-import {HeaderStyles as styles} from "@/theme";
+import { HeaderStyles as styles } from "@/theme";
 
-import {useState} from "react";
-import {Image, View} from "react-native";
+import { useState } from "react";
+import { View, Text } from "react-native";
 
-import {useTheme} from "@/context/ThemeProvider";
-
-import logoImageDark from "@assets/dark/logo.png";
-import logoImageLight from "@assets/light/logo.png";
-
+import { useNavigation, useRoute } from "@react-navigation/native";
 import SettingsModal from "./SettingsModal";
 import CustomButtonIcon from "./CustomButtonIcon";
+import CustomText from "./CustomText";
 
-const Header = () => {
-    const {theme} = useTheme();
+const Header = ({title}) => {
+    const navigation = useNavigation();
     const [modalVisible, setModalVisible] = useState(false);
-
-    // Récupération du style
-    const getImageSource = theme === "dark" ? logoImageDark : logoImageLight;
 
     return (
         <View style={[styles.container]}>
-            <Image source={getImageSource} style={[styles.image]}/>
+            <CustomButtonIcon
+                type="primary"
+                withBackground={false}
+                icon="menu"
+                style={styles.button}
+                onPress={() => navigation.openDrawer()}
+            />
 
-            {/* Bouton pour ouvrir le modal */}
+            {/* Affichage dynamique du titre */}
+            <CustomText level="h2">{title}</CustomText>
+
             <CustomButtonIcon
                 type="primary"
                 withBackground={false}
@@ -31,8 +33,7 @@ const Header = () => {
                 onPress={() => setModalVisible(true)}
             />
 
-            {/* Modal des paramètres */}
-            <SettingsModal visible={modalVisible} onClose={() => setModalVisible(false)}/>
+            <SettingsModal visible={modalVisible} onClose={() => setModalVisible(false)} />
         </View>
     );
 };

@@ -39,7 +39,7 @@ const SettingsModalStyles = StyleSheet.create({
     },
     optionText: {
         fontWeight: "bold",
-        color: "#000",
+        color: "red",
     },
     button: {
         marginTop: 15,

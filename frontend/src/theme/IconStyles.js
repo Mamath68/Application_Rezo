@@ -16,6 +16,10 @@ const IconStyles = StyleSheet.create({
         height: "100%",
         width: 40,
     },
+    menu: {
+        height: "100%",
+        width: 40,
+    },
 });
 
 export default IconStyles;

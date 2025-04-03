@@ -5,6 +5,7 @@ import {useTheme} from "@/context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
 import {SettingsModalStyles as styles} from "@/theme";
+
 const SettingsModal = ({visible, onClose}) => {
     const {theme, toggleTheme} = useTheme();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,27 +29,20 @@ const SettingsModal = ({visible, onClose}) => {
                     <View style={styles.option}>
                         <CustomText>Language</CustomText>
                         <View style={styles.languageBadge}>
-                            <CustomText style={styles.optionText}>EN</CustomText>
+                            <CustomText style={styles.optionText}>En travaux</CustomText>
                         </View>
                     </View>
 
                     {/* Changement de mode du thème */}
                     <View style={styles.option}>
-                        <CustomText>Dark Mode</CustomText>
-                        <Switch value={theme === "dark"} onValueChange={toggleTheme}/>
+                        <CustomText>{theme === "dark" ? "Dark Mode" : "Light Mode"}</CustomText>
+                        <Switch value={theme === "dark"} onValueChange={toggleTheme}
+                                thumbColor={theme === "dark" ? "#fff" : "#1E90FF"}
+                                trackColor={{
+                                    false: "#ADD8E6",
+                                    true: "#EFEFEF",
+                                }}/>
                     </View>
-
-                    {/* Connexion / Déconnexion */}
-                    <CustomButtonText
-                        type="primary"
-                        onPress={handleAuth}
-                        onBackground={true}
-                        withBackground={true}
-                        withBorder={true}
-                        buttonStyle={styles.button}
-                    >
-                        {isAuthenticated ? "Logout" : "Login"}
-                    </CustomButtonText>
 
                     {/* Fermer la modal */}
                     <CustomButtonText

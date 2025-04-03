@@ -99,7 +99,7 @@ const ArticlesListScreen = ({navigation}) => {
             >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <View style={[styles.container, getViewBackgroundColorStyle]}>
-                        <Header/>
+                        <Header title="Les Actualités"/>
                         <View style={styles.containerContent}>
                             <View style={styles.containerList}>
                                 {isLoading ? (

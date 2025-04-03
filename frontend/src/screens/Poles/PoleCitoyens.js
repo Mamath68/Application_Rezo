@@ -4,7 +4,7 @@ import {HomeScreenStyles as styles} from "@/theme"
 import {useTheme} from '@/context/ThemeProvider';
 import {CustomText, Header} from "@/components";
 
-const HomeScreen = () => {
+const PoleCitoyens = () => {
     const {theme} = useTheme();
 
     const getViewBackgroundColorStyle = theme === 'dark' ? styles.containerDark : styles.containerLight;
@@ -12,12 +12,12 @@ const HomeScreen = () => {
     return (
         <SafeAreaView style={{flex: 1}}>
             <View style={[styles.container, getViewBackgroundColorStyle]}>
-                <Header title="Accueil"/>
-                <CustomText level="h2">Bienvenue au REZO</CustomText>
+                <Header title="Le Pôle Citoyen"/>
+                <CustomText level="h2">Bienvenue au Pôle Citoyen</CustomText>
                 <Image source={require('@assets/rezo-logo.png')} style={[styles.logo]}/>
             </View>
         </SafeAreaView>
     )
 };
 
-export default HomeScreen;
+export default PoleCitoyens;

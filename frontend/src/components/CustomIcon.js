@@ -10,6 +10,9 @@ import logoImageLight from "@assets/light/logo.png";
 import settingsDark from "@assets/dark/settings.png";
 import settingsLight from "@assets/light/settings.png";
 
+import menuDark from "@assets/dark/menu.png";
+import menuLight from "@assets/light/menu.png";
+
 const CustomIcon = ({
                         icon = "loading",
                         onBackground = false, // Maintenant un booléen
@@ -21,6 +24,7 @@ const CustomIcon = ({
     const defStyle = {
         loading: styles.loading,
         settings: styles.settings,
+        menu: styles.menu,
     };
 
     // Récupération du style
@@ -32,11 +36,13 @@ const CustomIcon = ({
             loading: onBackground ? loadingImageLight : loadingImageDark,
             logo: onBackground ? logoImageLight : logoImageDark,
             settings: onBackground ? settingsLight : settingsDark,
+            menu: onBackground ? menuLight : menuDark,
         },
         light: {
             loading: onBackground ? loadingImageDark : loadingImageLight,
             logo: onBackground ? logoImageDark : logoImageLight,
             settings: onBackground ? settingsDark : settingsLight,
+            menu: onBackground ? menuDark : menuLight,
         },
     };
 

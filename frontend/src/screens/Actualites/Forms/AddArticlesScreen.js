@@ -93,7 +93,7 @@ const AddArticlesScreen = ({navigation}) => {
                         keyboardShouldPersistTaps="handled"
                     >
                         <View style={[styles.container, getViewBackgroundColorStyle]}>
-                            <Header/>
+                            <Header title="Ajouter un Article"/>
                             <View style={[styles.containerContent]}>
                                 <CustomView style={[styles.containerForm]}>
                                     <CustomView>
