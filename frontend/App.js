@@ -3,7 +3,7 @@ import {SafeAreaProvider} from "react-native-safe-area-context";
 import {StatusBar} from "react-native";
 
 import {ThemeProvider} from "@/context/ThemeProvider";
-import AppNavigator from "@/navigation/StackNavigator";
+import StackNavigator from "@/navigation/StackNavigator";
 
 const App = () => {
     return (
@@ -11,7 +11,7 @@ const App = () => {
             <StatusBar hidden={false}/>
             <ThemeProvider>
                 <NavigationContainer>
-                    <AppNavigator/>
+                    <StackNavigator/>
                 </NavigationContainer>
             </ThemeProvider>
         </SafeAreaProvider>

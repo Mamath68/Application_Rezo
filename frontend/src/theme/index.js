@@ -10,3 +10,4 @@ export {default as ButtonStyles} from './ButtonStyles';
 export {default as InputStyles} from './InputStyles';
 export {default as ProgressBarStyles} from './ProgressBarStyles';
 export {default as SettingsModalStyles} from './SettingsModalStyles';
+export {default as PoleActiviteScreenStyles} from './PoleActiviteScreenStyles';

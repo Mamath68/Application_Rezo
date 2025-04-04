@@ -21,12 +21,24 @@ const api = {
 
             const response = await fetch(`${API_BASE_URL}${url}`, config);
             console.log("API response:", response);
+
             if (!response.ok) {
-                const errorData = await response.json();
-                new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message || errorData}`);
+                let errorMessage = `HTTP error! Status: ${response.status}`;
+                try {
+                    const errorData = await response.json();
+                    errorMessage += `, Message: ${errorData.message || JSON.stringify(errorData)}`;
+                } catch (jsonError) {
+                    console.warn("Response has no JSON body.");
+                }
+                new Error(errorMessage);
             }
 
-            return await response.json();
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                return await response.json();
+            }
+
+            return "Message correctement supprimé";
         } catch (error) {
             console.error("Fetch Error:", error);
             throw error;
@@ -38,5 +50,6 @@ const api = {
     put: (url, body) => api.fetchData(url, "PUT", body, false),
     delete: (url) => api.fetchData(url, "DELETE", null, false),
 };
+
 
 export default api;

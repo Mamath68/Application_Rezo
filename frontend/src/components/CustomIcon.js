@@ -1,8 +1,8 @@
 import {Image} from "react-native";
 import {useTheme} from "@/context/ThemeProvider";
 import {IconStyles as styles} from "@/theme";
-import loadingImageDark from "@assets/dark/loading.png";
-import loadingImageLight from "@assets/light/loading.png";
+import loadingImageDark from "@assets/dark/rezo-logo.png";
+import loadingImageLight from "@assets/light/rezo-logo.png";
 
 import logoImageDark from "@assets/dark/logo.png";
 import logoImageLight from "@assets/light/logo.png";

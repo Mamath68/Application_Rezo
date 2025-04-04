@@ -1,6 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {AddArticlesScreen, ArticlesListScreen, SplashScreen} from '@/screens';
+import {AddArticlesScreen, ArticlesListScreen, PoleCitoyens, PoleJeunes, SplashScreen} from '@/screens';
 import DrawerNavigator from "./DrawerNavigator";
 
 const Stack = createNativeStackNavigator();
@@ -8,11 +8,13 @@ const Stack = createNativeStackNavigator();
 const screenOptions = {headerShown: false};
 
 const screens = [
-    {name: 'Main', component: DrawerNavigator}, // Remplace BottomTabNavigator par DrawerNavigator
+    {name: 'Main', component: DrawerNavigator},
     {name: 'SplashScreen', component: SplashScreen},
     {name: 'ArticlesListScreen', component: ArticlesListScreen},
     {name: 'AddArticlesScreen', component: AddArticlesScreen},
     {name: 'EditArticlesScreen', component: AddArticlesScreen},
+    {name: "PoleCitoyen", component: PoleCitoyens},
+    {name: "PoleJeune", component: PoleJeunes},
 ];
 
 

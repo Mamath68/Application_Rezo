@@ -1,9 +1,9 @@
 import { HeaderStyles as styles } from "@/theme";
 
 import { useState } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import SettingsModal from "./SettingsModal";
 import CustomButtonIcon from "./CustomButtonIcon";
 import CustomText from "./CustomText";

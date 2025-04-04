@@ -71,8 +71,8 @@ const ArticlesListScreen = ({navigation}) => {
         try {
             const result = await deleteArticle(id);
             console.log(result)
-            setArticles(null);
-            setModalVisible(false); // Ferme la modal après suppression
+            setArticles((prevArticles) => prevArticles.filter((article) => article.id !== id));
+            setModalVisible(false);
         } catch (error) {
             console.error("Erreur lors de la suppression de l'article:", error);
         }

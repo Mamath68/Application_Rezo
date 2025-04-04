@@ -4,7 +4,7 @@ import {HomeScreenStyles as styles} from "@/theme"
 import {useTheme} from '@/context/ThemeProvider';
 import {CustomText, Header} from "@/components";
 
-const PoleCitoyens = () => {
+const PoleCitoyens = ({navigation}) => {
     const {theme} = useTheme();
 
     const getViewBackgroundColorStyle = theme === 'dark' ? styles.containerDark : styles.containerLight;

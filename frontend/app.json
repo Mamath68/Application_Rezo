@@ -4,7 +4,7 @@
     "slug": "le-rezo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/dark/loading.png",
+    "icon": "./assets/dark/rezo-logo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {

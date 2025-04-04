@@ -1,25 +1,30 @@
-import React from "react";
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import {ArticlesListScreen, HomeScreen, PoleActivites, PoleCitoyens, PoleJeunes,} from "@/screens";
+import {ArticlesListScreen, HomeScreen, PoleActivites, PoleCitoyens, PoleJeunes} from "@/screens";
+import {useTheme} from '@/context/ThemeProvider';
+import {StyleSheet} from "react-native";
 
 const Drawer = createDrawerNavigator();
+
 
 const screens = [
     {name: "Home", component: HomeScreen, options: {title: "Accueil"}},
     {name: "Actualites", component: ArticlesListScreen, options: {title: "Actualités"}},
-];
-
-const poles = [
-    {name: "PoleCitoyen", options: {title: "Pôle Citoyens"}, component: PoleCitoyens},
-    {name: "PoleJeune", options: {title: "Pôle Jeunes"}, component: PoleJeunes},
     {name: "PoleActivite", options: {title: "Pôles Activités"}, component: PoleActivites},
+    {name: "PoleCitoyen", options: {title: "Pôles Citoyen"}, component: PoleCitoyens},
+    {name: "PoleJeune", options: {title: "Pôles Jeunes"}, component: PoleJeunes},
 ];
 
 const DrawerNavigator = () => {
+    const {theme} = useTheme();
+    const getViewBackgroundColorStyle = theme === 'dark' ? styles.containerDark : styles.containerLight;
+    const getViewActiveColorStyle = theme === 'dark' ? "#2D46AF" : "#ECF0F1";
+    const getViewActiveBackgroundColorStyle = theme === 'dark' ? "#ECF0F1" : "#2D46AF";
+    const getViewInActiveColorStyle = theme === 'dark' ? "#ECF0F1" : "#2D46AF";
+
     return (
         <Drawer.Navigator
             screenOptions={{
-                drawerStyle: {backgroundColor: "#f5f5f5", width: 240, padding: 15},
+                drawerStyle: {...getViewBackgroundColorStyle, width: 240, padding: 15},
                 headerShown: false,
             }}
             id="main">
@@ -30,21 +35,9 @@ const DrawerNavigator = () => {
                     component={component}
                     options={{
                         title: options.title,
-                        drawerActiveTintColor: "white",
-                        drawerActiveBackgroundColor: "#003CB3",
-                    }}
-                />
-            ))}
-
-            {poles.map(({name, component, options}) => (
-                <Drawer.Screen
-                    key={name}
-                    name={name}
-                    component={component}
-                    options={{
-                        title: options.title,
-                        drawerActiveTintColor: "white",
-                        drawerActiveBackgroundColor: "#003CB3",
+                        drawerActiveTintColor: getViewActiveColorStyle,
+                        drawerActiveBackgroundColor: getViewActiveBackgroundColorStyle,
+                        drawerInactiveTintColor: getViewInActiveColorStyle,
                     }}
                 />
             ))}
@@ -53,3 +46,18 @@ const DrawerNavigator = () => {
 };
 
 export default DrawerNavigator;
+
+const styles = StyleSheet.create({
+    containerLight: {
+        backgroundColor: "#ECF0F1",
+    },
+    containerDark: {
+        backgroundColor: "#2D46AF",
+    },
+    activeLight: {
+        color: "#ECF0F1",
+    },
+    activeDark: {
+        color: "#2D46AF",
+    },
+})
