@@ -11,3 +11,5 @@ export {default as InputStyles} from './InputStyles';
 export {default as ProgressBarStyles} from './ProgressBarStyles';
 export {default as SettingsModalStyles} from './SettingsModalStyles';
 export {default as PoleActiviteScreenStyles} from './PoleActiviteScreenStyles';
+export {default as PoleCitoyenScreenStyles} from './PoleCitoyenScreenStyles';
+export {default as PoleJeuneScreenStyles} from './PoleJeuneScreenStyles';

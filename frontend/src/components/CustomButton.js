@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Text, TouchableOpacity} from "react-native";
 import {useTheme} from "@/context/ThemeProvider";
 import {ButtonStyles as styles} from "@/theme";
+import CustomText from "./CustomText";
 
 const CustomButton = ({
                           children,
@@ -14,7 +15,7 @@ const CustomButton = ({
                           disabled = false,
                       }) => {
     const {theme} = useTheme();
-    const [opacity, setOpacity] = useState(1);
+    const [, setOpacity] = useState(1);
 
     // Détermination des styles effectifs
     let effectiveBackground = null;
@@ -73,7 +74,7 @@ const CustomButton = ({
             onPressOut={() => !disabled && setOpacity(1)}
             disabled={disabled}
         >
-            <Text style={[styles.text, textColor]}>{children}</Text>
+            <CustomText style={[styles.text, textColor]}>{children}</CustomText>
         </TouchableOpacity>
     );
 };

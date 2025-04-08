@@ -1,19 +1,19 @@
 import { HeaderStyles as styles } from "@/theme";
 
 import { useState } from "react";
-import { View } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import SettingsModal from "./SettingsModal";
 import CustomButtonIcon from "./CustomButtonIcon";
 import CustomText from "./CustomText";
+import CustomView from "./CustomView";
 
 const Header = ({title}) => {
     const navigation = useNavigation();
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
-        <View style={[styles.container]}>
+        <CustomView style={[styles.container]}>
             <CustomButtonIcon
                 type="primary"
                 withBackground={false}
@@ -22,8 +22,7 @@ const Header = ({title}) => {
                 onPress={() => navigation.openDrawer()}
             />
 
-            {/* Affichage dynamique du titre */}
-            <CustomText level="h2">{title}</CustomText>
+            <CustomText level="h3">{title}</CustomText>
 
             <CustomButtonIcon
                 type="primary"
@@ -34,7 +33,7 @@ const Header = ({title}) => {
             />
 
             <SettingsModal visible={modalVisible} onClose={() => setModalVisible(false)} />
-        </View>
+        </CustomView>
     );
 };
 
