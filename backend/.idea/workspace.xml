@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="" />
+    <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/ERole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/ArticlesControllerApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/ArticlesControllerWeb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Articles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/ArticlesRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Articles/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Articles/show.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,8 +31,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,7 +93,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.BackendApplication.executor": "Run",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "version__js",
+    "git-widget-placeholder": "v2",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend",
     "node.js.detected.package.eslint": "true",
@@ -124,7 +139,16 @@
       <workItem from="1743428524645" duration="1299000" />
       <workItem from="1743491829517" duration="1550000" />
       <workItem from="1743514560202" duration="1627000" />
-      <workItem from="1743521797468" duration="3480000" />
+      <workItem from="1743521797468" duration="3599000" />
+      <workItem from="1743576848547" duration="81000" />
+      <workItem from="1743665144563" duration="3464000" />
+      <workItem from="1743700586423" duration="1074000" />
+      <workItem from="1743751059580" duration="1838000" />
+      <workItem from="1743767023420" duration="873000" />
+      <workItem from="1744025765630" duration="1209000" />
+      <workItem from="1744097555270" duration="920000" />
+      <workItem from="1744114458915" duration="3459000" />
+      <workItem from="1744183316180" duration="7115000" />
     </task>
     <servers />
   </component>
