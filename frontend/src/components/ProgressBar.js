@@ -44,6 +44,7 @@ const ProgressBar = () => {
                             inputRange: [0, 1],
                             outputRange: ['0%', '100%'],
                         }),
+                        borderRadius: 10
                     },
                 ]}
             >
