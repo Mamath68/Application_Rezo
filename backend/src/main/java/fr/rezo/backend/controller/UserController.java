@@ -3,7 +3,6 @@ package fr.rezo.backend.controller;
 
 import fr.rezo.backend.model.Users;
 import fr.rezo.backend.service.UserService;
-import fr.rezo.backend.utils.Debug;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,6 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
-    private final Debug console = new Debug();
 
     public UserController(UserService userService) {
         this.userService = userService;

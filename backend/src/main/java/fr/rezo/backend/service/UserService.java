@@ -2,7 +2,6 @@ package fr.rezo.backend.service;
 
 import fr.rezo.backend.model.Users;
 import fr.rezo.backend.repository.UserRepository;
-import fr.rezo.backend.utils.Debug;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,6 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final Debug console = new Debug();
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public UserService(UserRepository userRepository) {
@@ -26,7 +24,7 @@ public class UserService {
     //---- BASE ----\\
 
     public Map<String, Object> getAllUsers() {
-        console.log("----- START | UserService : getAll -----");
+        System.out.println("----- START | UserService : getAll -----");
         Map<String, Object> response = new HashMap<>();
         List<Users> users = userRepository.findAll();
         if (users.isEmpty()) {
@@ -36,13 +34,13 @@ public class UserService {
 
         response.put("message", "Request was successful");
         response.put("users", users);
-        console.log("----- END | UserService : getAll -----");
+        System.out.println("----- END | UserService : getAll -----");
         return response;
     }
 
     public Map<String, Object> createUser(Users user) {
-        console.log("----- START | UserService : create -----");
-        console.log("Args: user=" + user);
+        System.out.println("----- START | UserService : create -----");
+        System.out.println("Args: user=" + user);
         Map<String, Object> response = new HashMap<>();
         Users existingUser = userRepository.findOneUserByUsername(user.getUsername()).orElse(null);
         if (existingUser != null) {
@@ -54,18 +52,19 @@ public class UserService {
         createdUser.setFirstName(user.getFirstName());
         createdUser.setLastName(user.getLastName());
         createdUser.setUsername(user.getUsername());
+        createdUser.setPhone(user.getPhone());
         createdUser.setEmail(user.getEmail());
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(createdUser);
         response.put("message", "Users created successfully");
         response.put("user", createdUser);
-        console.log("----- END | UserService : create -----");
+        System.out.println("----- END | UserService : create -----");
         return response;
     }
 
     public Map<String, Object> updateUser(Users user) {
-        console.log("----- START | UserService : update -----");
-        console.log("Args: user=" + user);
+        System.out.println("----- START | UserService : update -----");
+        System.out.println("Args: user=" + user);
         Map<String, Object> response = new HashMap<>();
         Users updatedUser = userRepository.findById(user.getId()).orElse(null);
         if (updatedUser == null) {
@@ -81,13 +80,13 @@ public class UserService {
         userRepository.save(updatedUser);
         response.put("message", "Users updated successfully");
         response.put("user", updatedUser);
-        console.log("----- END | UserService : update -----");
+        System.out.println("----- END | UserService : update -----");
         return response;
     }
 
     public Map<String, Object> deleteUser(Long id) {
-        console.log("----- START | UserService : delete -----");
-        console.log("Args: id=" + id);
+        System.out.println("----- START | UserService : delete -----");
+        System.out.println("Args: id=" + id);
         Map<String, Object> response = new HashMap<>();
         Users user = userRepository.findById(id).orElse(null);
         if (user == null) {
@@ -96,15 +95,15 @@ public class UserService {
         }
         userRepository.delete(user);
         response.put("message", "Users deleted successfully");
-        console.log("----- END | UserService : delete -----");
+        System.out.println("----- END | UserService : delete -----");
         return response;
     }
 
     //---- GET ----\\
 
     public Map<String, Object> getOneUserById(Long id) {
-        console.log("----- START | UserService : getOneById -----");
-        console.log("Args: user id=" + id);
+        System.out.println("----- START | UserService : getOneById -----");
+        System.out.println("Args: user id=" + id);
         Map<String, Object> response = new HashMap<>();
         Users user = userRepository.findById(id).orElse(null);
         if (user == null) {
@@ -114,13 +113,13 @@ public class UserService {
 
         response.put("message", "Request was successful");
         response.put("user", user);
-        console.log("----- END | UserService : getOneById -----");
+        System.out.println("----- END | UserService : getOneById -----");
         return response;
     }
 
     public Map<String, Object> getOneUserByUsername(String username) {
-        console.log("----- START | UserService : getOneUserByUsername -----");
-        console.log("Args: user username=" + username);
+        System.out.println("----- START | UserService : getOneUserByUsername -----");
+        System.out.println("Args: user username=" + username);
         Map<String, Object> response = new HashMap<>();
         Users user = userRepository.findOneUserByUsername(username).orElse(null);
         if (user == null) {
@@ -130,23 +129,23 @@ public class UserService {
 
         response.put("message", "Request was successful");
         response.put("user", user);
-        console.log("----- END | UserService : getOneById -----");
+        System.out.println("----- END | UserService : getOneById -----");
         return response;
     }
 
     //---- AUTHENTICATE ----\\
 
     public Map<String, Object> registerUser(Users user) {
-        console.log("----- START | UserService : registerUser -----");
-        console.log("Args: user=" + user);
+        System.out.println("----- START | UserService : registerUser -----");
+        System.out.println("Args: user=" + user);
         Map<String, Object> response = this.createUser(user);
-        console.log("----- END | UserService : register -----");
+        System.out.println("----- END | UserService : register -----");
         return response;
     }
 
     public Map<String, Object> loginUser(Users user) {
-        console.log("----- START | UserService : loginUser -----");
-        console.log("Args: user=" + user);
+        System.out.println("----- START | UserService : loginUser -----");
+        System.out.println("Args: user=" + user);
         Map<String, Object> response = new HashMap<>();
         Optional<Users> existingUser = userRepository.findOneUserByUsername(user.getUsername());
         if (existingUser.isEmpty() || !passwordEncoder.matches(user.getPassword(), existingUser.get().getPassword())) {
@@ -155,7 +154,7 @@ public class UserService {
         }
         response.put("message", "Login successful");
         response.put("user", existingUser);
-        console.log("----- END | UserService : loginUser -----");
+        System.out.println("----- END | UserService : loginUser -----");
         return response;
     }
 
