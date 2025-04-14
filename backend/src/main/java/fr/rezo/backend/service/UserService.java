@@ -6,7 +6,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -75,7 +78,7 @@ public class UserService {
 
     public Map<String, Object> updateUser(Users user) {
         System.out.println("----- START | UserService : update -----");
-        System.out.println("Args: user=" + user);
+        System.out.println("Args: user=" + user + "&id=" + user.getId());
 
         Users updatedUser = userRepository.findById(user.getId()).orElse(null);
         if (updatedUser == null) {
@@ -85,6 +88,7 @@ public class UserService {
         updatedUser.setFirstName(user.getFirstName());
         updatedUser.setLastName(user.getLastName());
         updatedUser.setUsername(user.getUsername());
+        updatedUser.setPhone(user.getPhone());
         updatedUser.setEmail(user.getEmail());
         updatedUser.setPassword(passwordEncoder.encode(user.getPassword()));
 
