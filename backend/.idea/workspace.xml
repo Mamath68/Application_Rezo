@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/SavoirService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/PermanencesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/PermanencesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/SavoirRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/SavoirRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/utils/Debug.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/utils/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" afterDir="false" />
@@ -56,6 +48,9 @@
     &quot;accountId&quot;: &quot;a5934413-4fb1-4ba9-815f-8f4b4088c9e8&quot;
   }
 }</component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/get-requests.http" environment="test" />
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -91,6 +86,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "HTTP Request.generated-requests | #1.executor": "Run",
     "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
     "Notification.DoNotAsk-Database detector": "true",
     "RequestMappingsPanelOrder0": "0",
@@ -175,7 +171,7 @@
       <workItem from="1744269652398" duration="13649000" />
       <workItem from="1744359556827" duration="4824000" />
       <workItem from="1744373365796" duration="2890000" />
-      <workItem from="1744615133835" duration="772000" />
+      <workItem from="1744615133835" duration="1882000" />
     </task>
     <servers />
   </component>

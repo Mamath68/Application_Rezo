@@ -6,10 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -21,31 +18,42 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    // Helper pour créer des réponses simples
+    private Map<String, Object> response(String key, Object value) {
+        Map<String, Object> response = new HashMap<>();
+        response.put(key, value);
+        return response;
+    }
+
+    private Map<String, Object> response(String message, Map<String, Object> data) {
+        data.put("message", message);
+        return data;
+    }
+
     //---- BASE ----\\
 
     public Map<String, Object> getAllUsers() {
         System.out.println("----- START | UserService : getAll -----");
-        Map<String, Object> response = new HashMap<>();
+
         List<Users> users = userRepository.findAll();
         if (users.isEmpty()) {
-            response.put("message", "No users found");
-            return response;
+            return response("message", "No users found");
         }
 
-        response.put("message", "Request was successful");
-        response.put("users", users);
+        Map<String, Object> data = new HashMap<>();
+        data.put("users", users);
+
         System.out.println("----- END | UserService : getAll -----");
-        return response;
+        return response("Request was successful", data);
     }
 
     public Map<String, Object> createUser(Users user) {
         System.out.println("----- START | UserService : create -----");
         System.out.println("Args: user=" + user);
-        Map<String, Object> response = new HashMap<>();
-        Users existingUser = userRepository.findOneUserByUsername(user.getUsername()).orElse(null);
-        if (existingUser != null) {
-            response.put("message", "Users already exists");
-            return response;
+
+        Optional<Users> existingUser = userRepository.findOneUserByUsername(user.getUsername());
+        if (existingUser.isPresent()) {
+            return response("message", "Users already exists");
         }
 
         Users createdUser = new Users();
@@ -55,21 +63,23 @@ public class UserService {
         createdUser.setPhone(user.getPhone());
         createdUser.setEmail(user.getEmail());
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(createdUser);
-        response.put("message", "Users created successfully");
-        response.put("user", createdUser);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("user", createdUser);
+
         System.out.println("----- END | UserService : create -----");
-        return response;
+        return response("Users created successfully", data);
     }
 
     public Map<String, Object> updateUser(Users user) {
         System.out.println("----- START | UserService : update -----");
         System.out.println("Args: user=" + user);
-        Map<String, Object> response = new HashMap<>();
+
         Users updatedUser = userRepository.findById(user.getId()).orElse(null);
         if (updatedUser == null) {
-            response.put("message", "Users not found");
-            return response;
+            return response("message", "Users not found");
         }
 
         updatedUser.setFirstName(user.getFirstName());
@@ -77,26 +87,29 @@ public class UserService {
         updatedUser.setUsername(user.getUsername());
         updatedUser.setEmail(user.getEmail());
         updatedUser.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(updatedUser);
-        response.put("message", "Users updated successfully");
-        response.put("user", updatedUser);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("user", updatedUser);
+
         System.out.println("----- END | UserService : update -----");
-        return response;
+        return response("Users updated successfully", data);
     }
 
     public Map<String, Object> deleteUser(Long id) {
         System.out.println("----- START | UserService : delete -----");
         System.out.println("Args: id=" + id);
-        Map<String, Object> response = new HashMap<>();
+
         Users user = userRepository.findById(id).orElse(null);
         if (user == null) {
-            response.put("message", "Users not found");
-            return response;
+            return response("message", "Users not found");
         }
+
         userRepository.delete(user);
-        response.put("message", "Users deleted successfully");
+
         System.out.println("----- END | UserService : delete -----");
-        return response;
+        return response("message", "Users deleted successfully");
     }
 
     //---- GET ----\\
@@ -104,33 +117,33 @@ public class UserService {
     public Map<String, Object> getOneUserById(Long id) {
         System.out.println("----- START | UserService : getOneById -----");
         System.out.println("Args: user id=" + id);
-        Map<String, Object> response = new HashMap<>();
+
         Users user = userRepository.findById(id).orElse(null);
         if (user == null) {
-            response.put("message", "Users not found");
-            return response;
+            return response("message", "Users not found");
         }
 
-        response.put("message", "Request was successful");
-        response.put("user", user);
+        Map<String, Object> data = new HashMap<>();
+        data.put("user", user);
+
         System.out.println("----- END | UserService : getOneById -----");
-        return response;
+        return response("Request was successful", data);
     }
 
     public Map<String, Object> getOneUserByUsername(String username) {
         System.out.println("----- START | UserService : getOneUserByUsername -----");
         System.out.println("Args: user username=" + username);
-        Map<String, Object> response = new HashMap<>();
+
         Users user = userRepository.findOneUserByUsername(username).orElse(null);
         if (user == null) {
-            response.put("message", "No users found for this username");
-            return response;
+            return response("message", "No users found for this username");
         }
 
-        response.put("message", "Request was successful");
-        response.put("user", user);
-        System.out.println("----- END | UserService : getOneById -----");
-        return response;
+        Map<String, Object> data = new HashMap<>();
+        data.put("user", user);
+
+        System.out.println("----- END | UserService : getOneUserByUsername -----");
+        return response("Request was successful", data);
     }
 
     //---- AUTHENTICATE ----\\
@@ -138,24 +151,26 @@ public class UserService {
     public Map<String, Object> registerUser(Users user) {
         System.out.println("----- START | UserService : registerUser -----");
         System.out.println("Args: user=" + user);
+
         Map<String, Object> response = this.createUser(user);
-        System.out.println("----- END | UserService : register -----");
+
+        System.out.println("----- END | UserService : registerUser -----");
         return response;
     }
 
     public Map<String, Object> loginUser(Users user) {
         System.out.println("----- START | UserService : loginUser -----");
         System.out.println("Args: user=" + user);
-        Map<String, Object> response = new HashMap<>();
+
         Optional<Users> existingUser = userRepository.findOneUserByUsername(user.getUsername());
         if (existingUser.isEmpty() || !passwordEncoder.matches(user.getPassword(), existingUser.get().getPassword())) {
-            response.put("message", "No matching user");
-            return response;
+            return response("message", "No matching user");
         }
-        response.put("message", "Login successful");
-        response.put("user", existingUser);
-        System.out.println("----- END | UserService : loginUser -----");
-        return response;
-    }
 
+        Map<String, Object> data = new HashMap<>();
+        data.put("user", existingUser.get());
+
+        System.out.println("----- END | UserService : loginUser -----");
+        return response("Login successful", data);
+    }
 }
