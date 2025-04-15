@@ -25,7 +25,7 @@ public class Users {
     private String email;
     @Column(name = "membre_mdp", nullable = false)
     private String password;
-    @Column(name = "membre_inscription", nullable = false, updatable = false)
+    @Column(name = "membre_inscription", nullable = false, updatable = false, columnDefinition = "DATETIME(0)")
     private LocalDateTime dateInscription;
 
     @Column(name = "user_token")
@@ -34,14 +34,23 @@ public class Users {
     public Users() {
     }
 
-    public Users(String firstName, String lastName, String username, String email, String password, String token, String telephone) {
+    public Users(String username) {
+        this.username = username;
+    }
+
+    public Users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Users(String firstName, String lastName, String username, String email, String password, String token, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
         this.token = token;
-        this.phone = telephone;
+        this.phone = phone;
     }
 
     @PrePersist

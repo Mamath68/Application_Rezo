@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/utils/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" afterDir="false" />
@@ -175,7 +178,9 @@
       <workItem from="1744359556827" duration="4824000" />
       <workItem from="1744373365796" duration="2890000" />
       <workItem from="1744615133835" duration="4448000" />
-      <workItem from="1744631384451" duration="2808000" />
+      <workItem from="1744631384451" duration="6108000" />
+      <workItem from="1744702325610" duration="4396000" />
+      <workItem from="1744722951664" duration="2990000" />
     </task>
     <servers />
   </component>

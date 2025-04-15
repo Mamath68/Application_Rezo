@@ -12,10 +12,10 @@ public class Permanences {
     @Column(name = "permanence_id", nullable = false)
     private Long id;
 
-    @Column(name = "permanence_debut", nullable = false)
+    @Column(name = "permanence_debut", nullable = false, columnDefinition = "DATETIME(0)")
     private LocalDateTime dateDebut;
 
-    @Column(name = "permanence_fin", nullable = false)
+    @Column(name = "permanence_fin", nullable = false, columnDefinition = "DATETIME(0)")
     private LocalDateTime dateFin;
 
     @Column(nullable = false)
@@ -23,6 +23,16 @@ public class Permanences {
 
     @Column(name = "nom_local")
     private String nomLocal;
+
+    public Permanences() {
+    }
+
+    public Permanences(String address, String nomLocal, LocalDateTime dateDebut, LocalDateTime dateFin) {
+        this.address = address;
+        this.nomLocal = nomLocal;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+    }
 
     public Long getId() {
         return this.id;

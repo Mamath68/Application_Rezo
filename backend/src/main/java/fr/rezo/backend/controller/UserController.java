@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -24,8 +23,9 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<Users> getAllUsers() {
-        return userRepository.findAll();
+    public ResponseEntity<Map<String, Object>> getAllUsers() {
+        Map<String, Object> response = userService.getAllUsers();
+        return buildResponse(response);
     }
 
     @PostMapping("/user/create")
@@ -37,7 +37,7 @@ public class UserController {
     @PutMapping("/user/update")
     public ResponseEntity<Map<String, Object>> updateUser(@RequestBody Users user) {
         Map<String, Object> response = userService.updateUser(user);
-        return buildResponse(response);
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/user/delete/id/{id}")

@@ -2,9 +2,6 @@ package fr.rezo.backend.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
-
 @Entity
 @Table(name = "offres_et_demandes")
 public class Savoirs {
@@ -17,6 +14,14 @@ public class Savoirs {
     @Enumerated(EnumType.STRING)
     @Column(name = "role_savoir", nullable = false)
     private ERole role;
+
+    public Savoirs() {
+    }
+
+    public Savoirs(String nom, String role) {
+        this.nom = nom;
+        this.role = ERole.valueOf(role.toUpperCase());
+    }
 
     public Long getId() {
         return this.id;

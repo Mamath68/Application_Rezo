@@ -65,6 +65,7 @@ public class UserService {
         createdUser.setUsername(user.getUsername());
         createdUser.setPhone(user.getPhone());
         createdUser.setEmail(user.getEmail());
+        createdUser.setToken(user.getToken());
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(createdUser);
@@ -78,27 +79,35 @@ public class UserService {
 
     public Map<String, Object> updateUser(Users user) {
         System.out.println("----- START | UserService : update -----");
-        System.out.println("Args: user=" + user + "&id=" + user.getId());
+        System.out.println("Args: user=" + user);
+
+        Map<String, Object> response = new HashMap<>();
+
+        if (user.getId() == null) {
+            response.put("message", "ID ne peut pas être nul");
+            return response;
+        }
 
         Users updatedUser = userRepository.findById(user.getId()).orElse(null);
         if (updatedUser == null) {
-            return response("message", "Users not found");
+            response.put("message", "User not found");
+            return response;
         }
 
         updatedUser.setFirstName(user.getFirstName());
         updatedUser.setLastName(user.getLastName());
         updatedUser.setUsername(user.getUsername());
-        updatedUser.setPhone(user.getPhone());
         updatedUser.setEmail(user.getEmail());
+        updatedUser.setPhone(user.getPhone());
+        updatedUser.setToken(user.getToken());
         updatedUser.setPassword(passwordEncoder.encode(user.getPassword()));
-
         userRepository.save(updatedUser);
 
-        Map<String, Object> data = new HashMap<>();
-        data.put("user", updatedUser);
+        response.put("message", "User updated successfully");
+        response.put("user", updatedUser);
 
         System.out.println("----- END | UserService : update -----");
-        return response("Users updated successfully", data);
+        return response;
     }
 
     public Map<String, Object> deleteUser(Long id) {
