@@ -5,14 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../front/app/_layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/app/about.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomButtonIcon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomButtonLink.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomButtonText.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomIcon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomInput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomText.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomTextarea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/CustomView.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/ProgressBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/SettingsModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/components/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/config/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/context/ThemeProvider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/eas.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/metro.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/service/ApiService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/AddArticleScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/ArticleListScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/ButtonStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/HeaderStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/HomeScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/IconStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/InputStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/PoleActiviteScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/PoleCitoyenScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/PoleJeuneScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/ProgressBarStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/SettingsModalStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/SplashScreenStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/TextStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/TextareaStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/theme/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/utils/apiRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/utils/authentification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/utils/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../front/utils/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/assets/chartes_graphique.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" afterDir="false" />
@@ -80,7 +118,7 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2uoPUUfP5RpfBXTtqr4CRnHMuja" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -94,7 +132,9 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
     &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
     &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -104,6 +144,7 @@
     &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -111,7 +152,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -142,8 +183,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
@@ -180,7 +221,22 @@
       <workItem from="1744615133835" duration="4448000" />
       <workItem from="1744631384451" duration="6108000" />
       <workItem from="1744702325610" duration="4396000" />
-      <workItem from="1744722951664" duration="2990000" />
+      <workItem from="1744722951664" duration="3740000" />
+      <workItem from="1744788891784" duration="4723000" />
+      <workItem from="1744819228329" duration="2008000" />
+      <workItem from="1744885078540" duration="3166000" />
+      <workItem from="1745307082365" duration="247000" />
+      <workItem from="1745307474716" duration="121000" />
+      <workItem from="1745307691573" duration="1071000" />
+      <workItem from="1745308807491" duration="100000" />
+      <workItem from="1745308933769" duration="511000" />
+      <workItem from="1745309561323" duration="171000" />
+      <workItem from="1745309929098" duration="381000" />
+      <workItem from="1745310432853" duration="105000" />
+      <workItem from="1745310600648" duration="51000" />
+      <workItem from="1745310679401" duration="2004000" />
+      <workItem from="1745345829240" duration="787000" />
+      <workItem from="1745392294704" duration="7203000" />
     </task>
     <servers />
   </component>

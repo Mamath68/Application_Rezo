@@ -37,7 +37,6 @@ public class CommandLinner {
                         "administrateur",
                         "mathieu.stamm@gmail.com",
                         "Teutin@181166",
-                        "Token",
                         "+33669142804"
                 );
                 adminUser.setPassword(passwordEncoder.encode(adminUser.getPassword()));

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.StringJoiner;
+import java.util.UUID;
 
 @Entity
 @Table(name = "membres")
@@ -34,28 +35,26 @@ public class Users {
     public Users() {
     }
 
-    public Users(String username) {
-        this.username = username;
-    }
-
     public Users(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public Users(String firstName, String lastName, String username, String email, String password, String token, String phone) {
+    public Users(String firstName, String lastName, String username, String email, String password, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.token = token;
         this.phone = phone;
     }
 
     @PrePersist
     protected void onCreate() {
         dateInscription = LocalDateTime.now();
+        if (this.token == null || this.token.isEmpty()) {
+        this.token = UUID.randomUUID().toString();
+    }
     }
 
     public Long getId() {
