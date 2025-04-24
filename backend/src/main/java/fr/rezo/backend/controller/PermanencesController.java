@@ -27,8 +27,13 @@ public class PermanencesController {
         return buildResponse(response);
     }
 
-    //---- RESPONSE BUILDER ----\\
+    @GetMapping("/permanence/get/id/{id}")
+    public ResponseEntity<Map<String, Object>> getOneUserById(@PathVariable Long id) {
+        Map<String, Object> response = permanenceService.getOneById(id);
+        return buildResponse(response);
+    }
 
+    /* ---- RESPONSE BUILDER ---- */
     private ResponseEntity<Map<String, Object>> buildResponse(Map<String, Object> response) {
         String message = (String) response.get("message");
 
