@@ -2,10 +2,11 @@ import {Dimensions, StyleSheet} from "react-native";
 
 const {height} = Dimensions.get('screen');
 
-const AddArticleScreenStyles = StyleSheet.create({
+const RegisterScreenStyles = StyleSheet.create({
     container: {
         alignItems: "center",
         flex: 1,
+        height: "100%",
         justifyContent: "center",
         width: "100%",
     },
@@ -18,6 +19,7 @@ const AddArticleScreenStyles = StyleSheet.create({
     containerContent: {
         alignItems: "center",
         flex: 1,
+        height: "100%",
         justifyContent: "center",
         width: "100%",
         paddingTop: Math.min(60, height * 0.1),
@@ -25,6 +27,7 @@ const AddArticleScreenStyles = StyleSheet.create({
     containerForm: {
         alignItems: "center",
         flex: 1,
+        justifyContent: "center",
         width: "100%",
     },
     containerButtons: {
@@ -34,10 +37,20 @@ const AddArticleScreenStyles = StyleSheet.create({
         justifyContent: "center",
         width: "100%",
     },
+    containerBack: {
+        alignItems: "center",
+        height: height * 0.08,
+        justifyContent: "center",
+        width: "100%",
+    },
     button: {
+        height: 60,
+        width: "90%",
+    },
+    button2: {
         height: 60,
         width: "90%",
     },
 });
 
-export default AddArticleScreenStyles;
+export default RegisterScreenStyles;

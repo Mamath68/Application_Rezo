@@ -65,10 +65,6 @@ const CustomInput = ({
                     {borderColor: themeModeStyle.brClr},
                 ]}
             >
-                {/* Icône à gauche */}
-                {iconPosition === "left" && iconName && (
-                    <Icon name={getDefaultIcon()} size={20} color="#666" style={[styles.icon, iconStyle]}/>
-                )}
 
                 <TextInput
                     style={[styles.input, {color: themeModeStyle.textClr}, inputStyle]}

@@ -11,12 +11,13 @@ const InputStyles = StyleSheet.create({
     },
     label: {
         fontSize: 16,
-        marginBottom: 5,
+        marginHorizontal: 10,
+        paddingTop: 20
     },
     inputContainer: {
         alignItems: "center",
         borderRadius: 8,
-        borderBottomWidth: 1,
+        borderWidth: 1,
         flexDirection: "row",
         height: 45,
         paddingHorizontal: 10,
@@ -25,10 +26,6 @@ const InputStyles = StyleSheet.create({
     input: {
         flex: 1,
         fontSize: 16,
-        paddingVertical: 5,
-    },
-    icon: {
-        marginHorizontal: 5,
     },
     errorText: {
         color: "red",

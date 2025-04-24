@@ -24,7 +24,6 @@ const CustomButtonText = ({
             disabled={disabled}
         >
             <CustomText level='p' style={textStyle}>{children}</CustomText>
-
         </CustomButton>
     );
 };
