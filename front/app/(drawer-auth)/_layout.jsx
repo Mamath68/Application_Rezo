@@ -1,6 +1,5 @@
 import {Drawer} from "expo-router/drawer";
 import {Header} from "../../components";
-import {logoutUser} from "../../utils";
 
 export default function AuthDrawerLayout() {
     return (

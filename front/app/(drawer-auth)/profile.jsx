@@ -11,7 +11,7 @@ export default function Profile() {
                 const storedUser = await AsyncStorage.getItem('user');
                 if (storedUser) {
                     const parsedUser = JSON.parse(storedUser);
-                    setUsername(parsedUser.username); // ou parsedUser.name selon ta structure
+                    setUsername(parsedUser.username);
                 }
             } catch (error) {
                 console.error('Erreur lors de la récupération de l’utilisateur:', error);
