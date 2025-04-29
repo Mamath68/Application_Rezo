@@ -16,6 +16,12 @@ const RegisterScreenStyles = StyleSheet.create({
     containerDark: {
         backgroundColor: "#2D46AF",
     },
+    darkText: {
+        color: "#ECF0F1",
+    },
+    lightText: {
+        color: "#2D46AF",
+    },
     containerContent: {
         alignItems: "center",
         flex: 1,

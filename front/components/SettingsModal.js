@@ -1,4 +1,4 @@
-import {Modal, Switch, View,} from "react-native";
+import {Modal, Switch, View} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
 
 import CustomText from "./CustomText";
@@ -6,21 +6,38 @@ import CustomButtonText from "./CustomButtonText";
 import {SettingsModalStyles as styles} from "../theme";
 import {logoutUser} from "../utils";
 import {useRouter} from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {useEffect, useState} from "react";
 
 const SettingsModal = ({visible, onClose}) => {
     const {theme, toggleTheme} = useTheme();
-
     const router = useRouter();
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const checkUser = async () => {
+            try {
+                const storedUser = await AsyncStorage.getItem('user');
+                setIsLoggedIn(!!storedUser); // true si user existe, sinon false
+            } catch (e) {
+                console.error("Erreur lors de la vérification de l'utilisateur :", e);
+            }
+        };
+
+        if (visible) checkUser(); // Ne le fait que si le modal est affiché
+    }, [visible]);
 
     const logout = async () => {
         try {
-            await logoutUser(); // ta fonction existante
-            router.replace('/(drawer-guest)'); // redirection vers page invité
+            await logoutUser();
+            await AsyncStorage.removeItem('user');
+            setIsLoggedIn(false);
+            router.replace('/(drawer-guest)');
         } catch (error) {
             console.error('Erreur lors du logout', error);
         }
     };
-
 
     return (
         <Modal transparent visible={visible} animationType="slide">
@@ -33,7 +50,7 @@ const SettingsModal = ({visible, onClose}) => {
                 >
                     <CustomText style={styles.title}>Settings</CustomText>
 
-                    {/* Affichage de la langue actuelle (décoratif) */}
+                    {/* Langue */}
                     <View style={styles.option}>
                         <CustomText>Language</CustomText>
                         <View style={styles.languageBadge}>
@@ -41,17 +58,21 @@ const SettingsModal = ({visible, onClose}) => {
                         </View>
                     </View>
 
-                    {/* Changement de mode du thème */}
+                    {/* Thème */}
                     <View style={styles.option}>
                         <CustomText>{theme === "dark" ? "Dark Mode" : "Light Mode"}</CustomText>
-                        <Switch value={theme === "dark"} onValueChange={toggleTheme}
-                                thumbColor={theme === "dark" ? "#fff" : "#1E90FF"}
-                                trackColor={{
-                                    false: "#ADD8E6",
-                                    true: "#EFEFEF",
-                                }}/>
+                        <Switch
+                            value={theme === "dark"}
+                            onValueChange={toggleTheme}
+                            thumbColor={theme === "dark" ? "#fff" : "#1E90FF"}
+                            trackColor={{
+                                false: "#ADD8E6",
+                                true: "#EFEFEF",
+                            }}
+                        />
                     </View>
 
+                    {/* Bouton Close */}
                     <CustomButtonText
                         type="secondary"
                         onBackground={false}
@@ -62,16 +83,20 @@ const SettingsModal = ({visible, onClose}) => {
                     >
                         Close
                     </CustomButtonText>
-                    <CustomButtonText
-                        type="secondary"
-                        onBackground={false}
-                        withBackground={false}
-                        withBorder={true}
-                        onPress={logout}
-                        buttonStyle={styles.button}
-                    >
-                        Logout
-                    </CustomButtonText>
+
+                    {/* Bouton Logout affiché uniquement si connecté */}
+                    {isLoggedIn && (
+                        <CustomButtonText
+                            type="secondary"
+                            onBackground={false}
+                            withBackground={false}
+                            withBorder={true}
+                            onPress={logout}
+                            buttonStyle={styles.button}
+                        >
+                            Logout
+                        </CustomButtonText>
+                    )}
                 </View>
             </View>
         </Modal>

@@ -27,6 +27,7 @@ export default function RegisterScreen() {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [phone, setPhone] = useState("");
+    const [genre, setGenre] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -35,11 +36,12 @@ export default function RegisterScreen() {
     const [emailError, setEmailError] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [phoneError, setPhoneError] = useState("");
+    const [genreError, setGenreError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-    const getViewBackgroundColorStyle =
-        theme === "dark" ? styles.containerDark : styles.containerLight;
+    const getViewBackgroundColorStyle = theme === "dark" ? styles.containerDark : styles.containerLight;
+    const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
 
     const validateForm = () => {
         let isValid = true;
@@ -48,37 +50,33 @@ export default function RegisterScreen() {
         setEmailError("");
         setUsernameError("");
         setPhoneError("");
+        setGenreError("");
         setPasswordError("");
         setConfirmPasswordError("");
 
 
-        // Validation du nom de famille
         if (!phone) {
-            setPhoneError("Phone is required");
+            setPhoneError("Numéro est requis");
             isValid = false;
         }
 
-        // Validation de l'email
         if (!email.includes("@")) {
-            setEmailError("Invalid email address");
+            setEmailError("Addresse mail invalide");
             isValid = false;
         }
 
-        // Validation du nom d'utilisateur
         if (!username) {
-            setUsernameError("Username is required");
+            setUsernameError("Nom d'usage requis");
             isValid = false;
         }
 
-        // Validation du mot de passe
         if (password.length < 6) {
-            setPasswordError("Password must be at least 6 characters");
+            setPasswordError("Le mot de passe doit être minimum de 6 caractères");
             isValid = false;
         }
 
-        // Validation de la confirmation du mot de passe
         if (confirmPassword !== password) {
-            setConfirmPasswordError("Passwords do not match");
+            setConfirmPasswordError("Les mots de passes ne correspondent pas.");
             isValid = false;
         }
 
@@ -88,10 +86,10 @@ export default function RegisterScreen() {
     const handleRegister = async () => {
         if (validateForm()) {
             setLoading(true);
-            console.log("Registering:", {firstName, lastName, phone, email, username, password});
+            console.log("Registering:", {firstName, lastName, phone, genre, email, username, password});
 
             try {
-                const user = {firstName, lastName, email, phone, username, password};
+                const user = {firstName, lastName, email, phone, genre, username, password};
 
                 const response = await registerUser(user);
                 console.log("API answer:", response);
@@ -105,10 +103,11 @@ export default function RegisterScreen() {
                     console.log("Retrieved user:", response.user);
                     await AsyncStorage.setItem("user", JSON.stringify(response.user));
 
-                    router.push({
-                        pathname: '/(drawer-guest)',
-                        params: {user: JSON.stringify(response.user)}
-                    });
+// Attendre un peu avant la redirection
+                    setTimeout(() => {
+                        router.replace('/login');
+                    }, 100);
+
                 }
             } catch (error) {
                 console.log("Registration error:", error);
@@ -127,57 +126,67 @@ export default function RegisterScreen() {
                             <CustomView style={[styles.containerContent]}>
                                 <CustomView style={[styles.containerForm]}>
                                     <CustomInput
-                                        label="First Name"
-                                        placeholder="First name..."
-                                        type="text"
+                                        label="Vos Pronoms"
+                                        placeholder="Les Pronoms"
+                                        keyboardType="default"
+                                        value={genre}
+                                        onChangeText={setGenre}
+                                        error={genreError}
+                                    />
+                                    <CustomInput
+                                        label="Prénom"
+                                        placeholder="Prénom"
+                                        keyboardType="default"
                                         value={firstName}
                                         onChangeText={setFirstName}
                                         error={firstNameError}
                                     />
                                     <CustomInput
-                                        label="Last Name"
-                                        placeholder="Last name..."
-                                        type="text"
+                                        label="Nom"
+                                        placeholder="Nom"
+                                        keyboardType="default"
                                         value={lastName}
                                         onChangeText={setLastName}
                                         error={lastNameError}
                                     />
                                     <CustomInput
-                                        label="Phone Number *"
-                                        placeholder="Phone..."
-                                        type="text"
+                                        label="Numéro de téléphone *"
+                                        placeholder="Numéros de téléphone"
+                                        keyboardType="numeric"
                                         value={phone}
                                         onChangeText={setPhone}
                                         error={phoneError}
                                     />
                                     <CustomInput
-                                        label="Email Address *"
-                                        placeholder="Email..."
-                                        type="email"
+                                        label="Addresse Mail *"
+                                        placeholder="Email"
+                                        keyboardType="email-address"
                                         value={email}
                                         onChangeText={setEmail}
                                         error={emailError}
                                     />
                                     <CustomInput
-                                        label="Username *"
-                                        placeholder="Username..."
-                                        type="text"
+                                        label="Nom d'usage *"
+                                        placeholder="Nom d'usage"
+                                        keyboardType="default"
                                         value={username}
                                         onChangeText={setUsername}
                                         error={usernameError}
                                     />
                                     <CustomInput
-                                        label="Password *"
-                                        placeholder="Password..."
-                                        type="password"
+                                        label="Mot de passe *"
+                                        placeholder="Mot de passe"
+                                        keyboardType="password"
+                                        secureTextEntry={true}
                                         value={password}
                                         onChangeText={setPassword}
                                         error={passwordError}
                                     />
                                     <CustomInput
-                                        label="Confirm password..."
-                                        placeholder="Confirm password..."
-                                        type="password"
+                                        label="Confirmer le mot de passe"
+                                        placeholder="Confirmer le mot de passe"
+                                        keyboardType="password"
+                                        secureTextEntry={true}
                                         value={confirmPassword}
                                         onChangeText={setConfirmPassword}
                                         error={confirmPasswordError}
@@ -189,15 +198,16 @@ export default function RegisterScreen() {
                                         onBackground={true}
                                         withBackground={true}
                                         withBorder={true}
+                                        textStyle={getViewColorStyle}
                                         buttonStyle={styles.button}
                                         onPress={handleRegister}
                                         disabled={loading}
                                     >
-                                        {loading ? "Registering..." : "Join the community"}
+                                        {loading ? "Inscription..." : "Rejoins le Rezo"}
                                     </CustomButtonText>
                                     <CustomButtonLink
-                                        text="Already have an account?"
-                                        linkText="Login!"
+                                        text="Déjà un compte?"
+                                        linkText="Se Connecter!"
                                         type="primary"
                                         onPress={() => router.push("/login")}
                                     />

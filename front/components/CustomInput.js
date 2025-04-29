@@ -1,7 +1,5 @@
 import {useState} from "react";
-import {TextInput, TouchableOpacity, View} from "react-native";
-
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import {TextInput, View} from "react-native";
 
 import {useTheme} from "../context/ThemeProvider";
 
@@ -12,14 +10,12 @@ const CustomInput = ({
                          label,
                          placeholder = "",
                          error = "",
-                         type = "text", // "name", "email", "password"
                          value,
+                         keyboardType,
+                         secureTextEntry,
                          onChangeText,
-                         iconName, // Icône personnalisée
-                         iconPosition = "right", // Position de l’icône : "left" ou "right"
                          inputStyle = {},
                          containerStyle = {},
-                         iconStyle = {},
                      }) => {
     const {theme} = useTheme();
     const [isFocused, setIsFocused] = useState(false);
@@ -31,24 +27,6 @@ const CustomInput = ({
         textClr: theme === "dark" ? "#FFF" : "#000",
     };
 
-    // Déterminer le clavier et la sécurité selon le type
-    const keyboardType = type === "email" ? "email-address" : "default";
-    const secureTextEntry = type === "password" && !showPassword;
-
-    // Icône associée au type
-    const getDefaultIcon = () => {
-        switch (type) {
-            case "name":
-                return "account";
-            case "email":
-                return "email";
-            case "password":
-                return showPassword ? "eye-off" : "eye";
-            default:
-                return iconName;
-        }
-    };
-
     return (
         <View style={[styles.container, containerStyle]}>
             {/* Label */}
@@ -58,14 +36,12 @@ const CustomInput = ({
                 </CustomText>
             )}
 
-            {/* Champ de saisie avec icône */}
             <View
                 style={[
                     styles.inputContainer,
                     {borderColor: themeModeStyle.brClr},
                 ]}
             >
-
                 <TextInput
                     style={[styles.input, {color: themeModeStyle.textClr}, inputStyle]}
                     placeholder={placeholder}
@@ -77,15 +53,6 @@ const CustomInput = ({
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
                 />
-
-                {/* Icône à droite */}
-                {iconPosition === "right" && iconName && (
-                    <TouchableOpacity
-                        onPress={type === "password" ? () => setShowPassword(!showPassword) : null}
-                    >
-                        <Icon name={getDefaultIcon()} size={20} color="#666" style={[styles.icon, iconStyle]}/>
-                    </TouchableOpacity>
-                )}
             </View>
 
             {/* Message d'erreur */}
