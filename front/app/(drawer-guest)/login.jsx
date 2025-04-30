@@ -107,14 +107,15 @@ export default function Login() {
                                     <View style={[styles.containerFormForm]}>
                                         <CustomInput
                                             placeholder='Write your username...'
-                                            type='text'
+                                            keyboardType='default'
                                             value={username}
                                             onChangeText={handleUsernameChange}
                                             error={usernameError}
                                         />
                                         <CustomInput
                                             placeholder='Write your password...'
-                                            type='password'
+                                            keyboardType='text'
+                                            secureTextEntry={true}
                                             value={password}
                                             onChangeText={handlePasswordChange}
                                             error={passwordError}

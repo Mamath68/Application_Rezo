@@ -102,12 +102,7 @@ export default function RegisterScreen() {
                 if (response.message === 'User created successfully' && response.user) {
                     console.log("Retrieved user:", response.user);
                     await AsyncStorage.setItem("user", JSON.stringify(response.user));
-
-// Attendre un peu avant la redirection
-                    setTimeout(() => {
-                        router.replace('/login');
-                    }, 100);
-
+                    router.navigate('/login');
                 }
             } catch (error) {
                 console.log("Registration error:", error);
