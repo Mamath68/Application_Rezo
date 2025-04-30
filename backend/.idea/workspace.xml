@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../front/app/(drawer-guest)/permanence.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/PermanencesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/PermanencesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/app/(drawer-guest)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/app/(drawer-guest)/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/app/(drawer-guest)/forgot-password.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/app/(drawer-guest)/forgot-password.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/app/(drawer-guest)/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/app/(drawer-guest)/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/theme/AddArticleScreenStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/theme/RegisterScreenStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Inscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/InscriptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/InscriptionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/InscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/InscriptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/app/(drawer-guest)/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/app/(drawer-guest)/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/app/(drawer-guest)/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/app/(drawer-guest)/register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/assets/docs/Application Mobile CAHIER DES CHARGES.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/assets/docs/Application Mobile CAHIER DES CHARGES.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/utils/apiRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/utils/apiRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/assets/chartes_graphique.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" afterDir="false" />
@@ -93,38 +100,38 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
-    "Notification.DoNotAsk-Database detector": "true",
-    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.BackendApplication.executor": "Run",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "v2",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fr.rezo.backend.service" />
@@ -206,7 +213,18 @@
       <workItem from="1745345829240" duration="787000" />
       <workItem from="1745392294704" duration="7250000" />
       <workItem from="1745478770593" duration="2493000" />
-      <workItem from="1745485636685" duration="5317000" />
+      <workItem from="1745485636685" duration="5951000" />
+      <workItem from="1745824757368" duration="552000" />
+      <workItem from="1745825715135" duration="12000" />
+      <workItem from="1745825767550" duration="411000" />
+      <workItem from="1745826208534" duration="2087000" />
+      <workItem from="1745844441391" duration="1873000" />
+      <workItem from="1745913216667" duration="328000" />
+      <workItem from="1745916036588" duration="2247000" />
+      <workItem from="1745927822743" duration="3453000" />
+      <workItem from="1745942375762" duration="1024000" />
+      <workItem from="1745998580577" duration="1004000" />
+      <workItem from="1746000650628" duration="795000" />
     </task>
     <servers />
   </component>

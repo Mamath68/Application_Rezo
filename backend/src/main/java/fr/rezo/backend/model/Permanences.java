@@ -3,6 +3,7 @@ package fr.rezo.backend.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -23,6 +24,9 @@ public class Permanences {
 
     @Column(name = "nom_local")
     private String nomLocal;
+
+    @OneToMany(mappedBy = "permanence")
+    private List<Inscription> inscriptions;
 
     public Permanences() {
     }

@@ -62,6 +62,7 @@ public class UserService {
         createdUser.setUsername(user.getUsername());
         createdUser.setPhone(user.getPhone());
         createdUser.setEmail(user.getEmail());
+        createdUser.setGenre(user.getGenre());
         createdUser.setToken(user.getToken());
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
 
@@ -96,6 +97,7 @@ public class UserService {
         updatedUser.setUsername(user.getUsername());
         updatedUser.setEmail(user.getEmail());
         updatedUser.setPhone(user.getPhone());
+        updatedUser.setGenre(user.getGenre());
         updatedUser.setToken(user.getToken());
         updatedUser.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(updatedUser);

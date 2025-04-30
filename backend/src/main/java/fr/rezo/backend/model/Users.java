@@ -3,6 +3,7 @@ package fr.rezo.backend.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.StringJoiner;
 import java.util.UUID;
 
@@ -29,6 +30,12 @@ public class Users {
     @Column(name = "membre_inscription", nullable = false, updatable = false, columnDefinition = "DATETIME(0)")
     private LocalDateTime dateInscription;
 
+    @Column(name = "membre_genre", nullable = false)
+    private String genre;
+
+    @OneToMany(mappedBy = "user")
+    private List<Inscription> inscriptions;
+
     @Column(name = "user_token")
     private String token;
 
@@ -40,21 +47,23 @@ public class Users {
         this.password = password;
     }
 
-    public Users(String firstName, String lastName, String username, String email, String password, String phone) {
+    public Users(String firstName, String lastName, String username, String email, String password, String genre, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.genre = genre;
         this.phone = phone;
     }
+
 
     @PrePersist
     protected void onCreate() {
         dateInscription = LocalDateTime.now();
         if (this.token == null || this.token.isEmpty()) {
-        this.token = UUID.randomUUID().toString();
-    }
+            this.token = UUID.randomUUID().toString();
+        }
     }
 
     public Long getId() {
@@ -114,7 +123,7 @@ public class Users {
     }
 
     public String getToken() {
-        return token;
+        return this.token;
     }
 
     public void setToken(String token) {
@@ -122,11 +131,27 @@ public class Users {
     }
 
     public LocalDateTime getDateInscription() {
-        return dateInscription;
+        return this.dateInscription;
     }
 
     public void setDateInscription(LocalDateTime dateInscription) {
         this.dateInscription = dateInscription;
+    }
+
+    public List<Inscription> getInscriptions() {
+        return this.inscriptions;
+    }
+
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
+    }
+
+    public String getGenre() {
+        return this.genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     @Override

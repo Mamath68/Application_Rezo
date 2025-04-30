@@ -32,12 +32,13 @@ public class CommandLinner {
             // 🔹 Création de l'utilisateur admin si non existant
             if (userRepository.findByUsername("administrateur").isEmpty()) {
                 Users adminUser = new Users(
-                        "Mathieu",
-                        "Stamm",
+                        "Admin",
+                        "User",
                         "administrateur",
                         "mathieu.stamm@gmail.com",
-                        "Teutin@181166",
-                        "+33669142804"
+                        "Admmin@68200",
+                        "Ils/Elles/Eux",
+                        "0102030405"
                 );
                 adminUser.setPassword(passwordEncoder.encode(adminUser.getPassword()));
                 adminUser.setDateInscription(LocalDateTime.now());
@@ -45,6 +46,24 @@ public class CommandLinner {
                 System.out.println("✅ Utilisateur administrateur créé !");
             } else {
                 System.out.println("ℹ️ L'utilisateur administrateur existe déjà.");
+            }
+
+            if (userRepository.findByUsername("test").isEmpty()) {
+                Users testUser = new Users(
+                        "",
+                        "",
+                        "test",
+                        "mamath68200@gmail.com",
+                        "Teutin@181166",
+                        "Il/Lui",
+                        "0203040506"
+                );
+                testUser.setPassword(passwordEncoder.encode(testUser.getPassword()));
+                testUser.setDateInscription(LocalDateTime.now());
+                userRepository.save(testUser);
+                System.out.println("✅ Utilisateur test créé !");
+            } else {
+                System.out.println("ℹ️ L'utilisateur test existe déjà.");
             }
 
             if (permanencesRepository.findByNomLocal("88 Briand").isEmpty()) {

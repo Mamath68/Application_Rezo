@@ -2,6 +2,8 @@ package fr.rezo.backend.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "offres_et_demandes")
 public class Savoirs {
@@ -14,6 +16,9 @@ public class Savoirs {
     @Enumerated(EnumType.STRING)
     @Column(name = "role_savoir", nullable = false)
     private ERole role;
+
+    @OneToMany(mappedBy = "savoir")
+    private List<Inscription> inscriptions;
 
     public Savoirs() {
     }
