@@ -11,343 +11,91 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Configuration
 public class CommandLinner {
 
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
     @Bean
-    public CommandLineRunner initData(
-            UserRepository userRepository,
-            PermanencesRepository permanencesRepository,
-            SavoirRepository savoirRepository) {
-
-        final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
+    public CommandLineRunner initData(UserRepository userRepo, PermanencesRepository permRepo, SavoirRepository savoirRepo) {
         return args -> {
+            PasswordEncoder encoder = new BCryptPasswordEncoder();
 
-            // 🔹 Création de l'utilisateur admin si non existant
-            if (userRepository.findByUsername("administrateur").isEmpty()) {
-                Users adminUser = new Users(
-                        "Admin",
-                        "User",
-                        "administrateur",
-                        "mathieu.stamm@gmail.com",
-                        "Admmin@68200",
-                        "Ils/Elles/Eux",
-                        "0102030405"
-                );
-                adminUser.setPassword(passwordEncoder.encode(adminUser.getPassword()));
-                adminUser.setDateInscription(LocalDateTime.now());
-                userRepository.save(adminUser);
-                System.out.println("✅ Utilisateur administrateur créé !");
-            } else {
-                System.out.println("ℹ️ L'utilisateur administrateur existe déjà.");
-            }
+            createUserIfNotExists(userRepo, "administrateur", new Users(
+                    "Admin", "User", "administrateur", "mathieu.stamm@gmail.com",
+                    "Admmin@68200", "Ils/Elles/Eux", "0102030405"), encoder);
 
-            if (userRepository.findByUsername("test").isEmpty()) {
-                Users testUser = new Users(
-                        "",
-                        "",
-                        "test",
-                        "mamath68200@gmail.com",
-                        "Teutin@181166",
-                        "Il/Lui",
-                        "0203040506"
-                );
-                testUser.setPassword(passwordEncoder.encode(testUser.getPassword()));
-                testUser.setDateInscription(LocalDateTime.now());
-                userRepository.save(testUser);
-                System.out.println("✅ Utilisateur test créé !");
-            } else {
-                System.out.println("ℹ️ L'utilisateur test existe déjà.");
-            }
+            createUserIfNotExists(userRepo, "test", new Users(
+                    "", "", "test", "mamath68200@gmail.com",
+                    "Teutin@181166", "Il/Lui", "0203040506"), encoder);
 
-            if (permanencesRepository.findByNomLocal("88 Briand").isEmpty()) {
-                List<Permanences> briand = List.of(
-                        new Permanences(
-                                "88 avenue Briand",
-                                "88 Briand",
-                                LocalDateTime.parse("2025-04-01 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-01 17:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "88 avenue Briand",
-                                "88 Briand",
-                                LocalDateTime.parse("2025-04-08 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-08 17:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "88 avenue Briand",
-                                "88 Briand",
-                                LocalDateTime.parse("2025-04-15 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-15 17:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "88 avenue Briand",
-                                "88 Briand",
-                                LocalDateTime.parse("2025-04-22 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-22 17:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "88 avenue Briand",
-                                "88 Briand",
-                                LocalDateTime.parse("2025-04-29 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-29 17:00:00", formatter)
-                        )
+            createPermanencesIfNotExist(permRepo, "88 Briand", "88 avenue Briand", List.of(
+                    "2025-05-06", "2025-05-13", "2025-05-20", "2025-05-27"
+            ), "14:00:00", "17:00:00");
 
-                );
+            createPermanencesIfNotExist(permRepo, "Collectivité Européenne D'alsace", "61 rue de Pfastatt", List.of(
+                    "2025-05-12", "2025-05-26"
+            ), "09:00:00", "11:00:00");
 
-                permanencesRepository.saveAll(briand);
-                System.out.println("✅ Permanences du 88 AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences du 88 existent déjà.");
-            }
+            createPermanencesIfNotExist(permRepo, "CSC Drouot-Barbanègre", "67 rue de Sausheim", List.of(
+                    "2025-05-12", "2025-05-19", "2025-05-26"
+            ), "14:30:00", "16:30:00");
 
-            if (permanencesRepository.findByNomLocal("Collectivité Européenne D'alsace").isEmpty()) {
-                List<Permanences> cea = List.of(
-                        new Permanences(
-                                "61 rue de Pfastatt",
-                                "Collectivité Européenne D'alsace",
-                                LocalDateTime.parse("2025-04-07 09:00:00", formatter),
-                                LocalDateTime.parse("2025-04-07 11:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "61 rue de Pfastatt",
-                                "Collectivité Européenne D'alsace",
-                                LocalDateTime.parse("2025-04-28 09:00:00", formatter),
-                                LocalDateTime.parse("2025-04-28 11:00:00", formatter)
-                        )
-                );
+            createPermanencesIfNotExist(permRepo, "Maison des Association Bourtzwiller", "62 rue de Soultz", List.of(
+                    "2025-05-02", "2025-05-06", "2025-05-09", "2025-05-13",
+                    "2025-05-16", "2025-05-20", "2025-05-27", "2025-05-30"
+            ), "10:00:00", "12:00:00");
 
-                permanencesRepository.saveAll(cea);
-                System.out.println("✅ Permanences de la CEA AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences de la CEA existent déjà.");
-            }
+            createPermanencesIfNotExist(permRepo, "Collectif \"Quart lieu\"", "2 rue Jean Grimont", List.of(
+                    "2025-05-15", "2025-05-22", "2025-05-29"
+            ), "09:00:00", "12:00:00");
 
-            if (permanencesRepository.findByNomLocal("CSC Drouot Barbanègre").isEmpty()) {
-                List<Permanences> CSCDB = List.of(
-                        new Permanences(
-                                "67 rue de Sausheim",
-                                "CSC Drouot Barbanègre",
-                                LocalDateTime.parse("2025-04-28 14:30:00", formatter),
-                                LocalDateTime.parse("2025-04-28 16:30:00", formatter)
-                        )
-                );
+            createPermanencesIfNotExist(permRepo, "Restos du Coeur", "36 rue Jean Jaurès", List.of(
+                    "2025-05-02", "2025-05-09", "2025-05-16", "2025-05-23", "2025-05-30"
+            ), "09:00:00", "12:00:00");
 
-                permanencesRepository.saveAll(CSCDB);
-                System.out.println("✅ Permanences du CSC Drouot Barbanègre AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences du CSC Drouot Barbanègre existent déjà.");
-            }
+            createPermanencesIfNotExist(permRepo, "CSC Lavoisier-Brustlein", "51 allée Glück", List.of(
+                    "2025-05-23"
+            ), "10:00:00", "12:00:00");
 
-            if (permanencesRepository.findByNomLocal("Maison des Association Bourtzwiller").isEmpty()) {
-                List<Permanences> mda = List.of(
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-01 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-01 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-08 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-08 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-15 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-15 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-22 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-22 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-29 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-29 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-04 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-04 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-18 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-18 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "62 rue de Soultz",
-                                "Maison des Association Bourtzwiller",
-                                LocalDateTime.parse("2025-04-25 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-25 12:00:00", formatter)
-                        )
-
-                );
-
-                permanencesRepository.saveAll(mda);
-                System.out.println("✅ Permanences de la Maison des Association de Bourtzwiller AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences la Maison des Association de Bourtzwiller existent déjà.");
-            }
-
-            if (permanencesRepository.findByNomLocal("Bibliothèque de Dornach").isEmpty()) {
-                List<Permanences> bibDornach = List.of(
-                        new Permanences(
-                                "3 rue de Thann",
-                                "Bibliothèque de Dornach",
-                                LocalDateTime.parse("2025-04-02 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-02 15:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "3 rue de Thann",
-                                "Bibliothèque de Dornach",
-                                LocalDateTime.parse("2025-04-09 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-09 15:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "3 rue de Thann",
-                                "Bibliothèque de Dornach",
-                                LocalDateTime.parse("2025-04-16 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-16 15:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "3 rue de Thann",
-                                "Bibliothèque de Dornach",
-                                LocalDateTime.parse("2025-04-23 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-23 15:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "3 rue de Thann",
-                                "Bibliothèque de Dornach",
-                                LocalDateTime.parse("2025-04-30 14:00:00", formatter),
-                                LocalDateTime.parse("2025-04-30 15:00:00", formatter)
-                        )
-
-                );
-
-                permanencesRepository.saveAll(bibDornach);
-                System.out.println("✅ Permanences de la Bibliothèque de Dornach AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences de la Bibliothèque de Dornach existent déjà.");
-            }
-
-            if (permanencesRepository.findByNomLocal("CSC Porte du Miroir").isEmpty()) {
-                List<Permanences> miroir = List.of(
-                        new Permanences(
-                                "3 rue saint-Michel",
-                                "CSC Porte du Miroir",
-                                LocalDateTime.parse("2025-04-03 19:00:00", formatter),
-                                LocalDateTime.parse("2025-04-03 20:30:00", formatter)
-                        ),
-                        new Permanences(
-                                "3 rue saint-Michel",
-                                "CSC Porte du Miroir",
-                                LocalDateTime.parse("2025-04-24 19:00:00", formatter),
-                                LocalDateTime.parse("2025-04-24 20:30:00", formatter)
-                        )
-
-                );
-
-                permanencesRepository.saveAll(miroir);
-                System.out.println("✅ Permanences du CSC Porte Miroir AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences du CSC Porte Miroir existent déjà.");
-            }
-
-            if (permanencesRepository.findByNomLocal("Collectif \"Quart lieu\"").isEmpty()) {
-                List<Permanences> grimont = List.of(
-                        new Permanences(
-                                "2 rue Jean Grimont",
-                                "Collectif \"Quart lieu\"",
-                                LocalDateTime.parse("2025-04-03 09:00:00", formatter),
-                                LocalDateTime.parse("2025-04-03 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "2 rue Jean Grimont",
-                                "Collectif \"Quart lieu\"",
-                                LocalDateTime.parse("2025-04-10 09:00:00", formatter),
-                                LocalDateTime.parse("2025-04-10 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "2 rue Jean Grimont",
-                                "Collectif \"Quart lieu\"",
-                                LocalDateTime.parse("2025-04-17 09:00:00", formatter),
-                                LocalDateTime.parse("2025-04-17 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "2 rue Jean Grimont",
-                                "Collectif \"Quart lieu\"",
-                                LocalDateTime.parse("2025-04-24 09:00:00", formatter),
-                                LocalDateTime.parse("2025-04-24 12:00:00", formatter)
-                        )
-                );
-
-                permanencesRepository.saveAll(grimont);
-                System.out.println("✅ Permanences du 88 AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences du collectif \"Quart lieu\" existent déjà.");
-            }
-
-            if (permanencesRepository.findByNomLocal("Restos du coeur").isEmpty()) {
-                List<Permanences> restoCoeur = List.of(
-                        new Permanences(
-                                "36 rue Jean Jaurès",
-                                "Restos du coeur",
-                                LocalDateTime.parse("2025-04-04 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-04 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "36 rue Jean Jaurès",
-                                "Restos du coeur",
-                                LocalDateTime.parse("2025-04-18 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-18 12:00:00", formatter)
-                        ),
-                        new Permanences(
-                                "36 rue Jean Jaurès",
-                                "Restos du coeur",
-                                LocalDateTime.parse("2025-04-25 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-25 12:00:00", formatter)
-                        )
-
-                );
-
-                permanencesRepository.saveAll(restoCoeur);
-                System.out.println("✅ Permanences des Restos du coeur AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences des Restos du coeur existent déjà.");
-            }
-
-            if (permanencesRepository.findByNomLocal("CSC Lavoisier-Brustlein").isEmpty()) {
-                List<Permanences> lavoisier = List.of(
-                        new Permanences(
-                                "51 allée Glück",
-                                "CSC Lavoisier-Brustlein",
-                                LocalDateTime.parse("2025-04-11 10:00:00", formatter),
-                                LocalDateTime.parse("2025-04-11 12:00:00", formatter)
-                        )
-                );
-
-                permanencesRepository.saveAll(lavoisier);
-                System.out.println("✅ Permanences du CSC Lavoisier-Brustlein AJouté !");
-            } else {
-                System.out.println("ℹ️ Les Permanences du CSC Lavoisier-Brustlein existent déjà.");
-            }
-
-            System.out.println("🎉 Données initialisées !");
+            createPermanencesIfNotExist(permRepo, "Bibliothèque de Dornach", "3 rue de Thann", List.of(
+                    "2025-05-07", "2025-05-14", "2025-05-21", "2025-05-28"
+            ), "14:00:00", "15:00:00");
         };
+    }
+
+    private void createUserIfNotExists(UserRepository repo, String username, Users user, PasswordEncoder encoder) {
+        if (repo.findByUsername(username).isEmpty()) {
+            user.setPassword(encoder.encode(user.getPassword()));
+            user.setDateInscription(LocalDate.now().atStartOfDay());
+            repo.save(user);
+            System.out.printf("✅ Utilisateur %s créé !%n", username);
+        } else {
+            System.out.printf("ℹ️ L'utilisateur %s existe déjà.%n", username);
+        }
+    }
+
+    private void createPermanencesIfNotExist(PermanencesRepository repo, String nomLocal, String adresse, List<String> dates, String heureDebut, String heureFin) {
+        if (repo.findByNomLocal(nomLocal).isEmpty()) {
+            List<Permanences> permanences = dates.stream()
+                    .map(date -> new Permanences(
+                            adresse,
+                            nomLocal,
+                            LocalDate.parse(date),
+                            LocalTime.parse(heureDebut, timeFormatter),
+                            LocalTime.parse(heureFin, timeFormatter)
+                    )).toList();
+
+            repo.saveAll(permanences);
+            System.out.printf("✅ Permanences de %s ajoutées !%n", nomLocal);
+        } else {
+            System.out.printf("ℹ️ Les permanences de %s existent déjà.%n", nomLocal);
+        }
     }
 }

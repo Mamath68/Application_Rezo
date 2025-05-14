@@ -1,0 +1,63 @@
+import {Dimensions, StyleSheet} from "react-native";
+
+const {width, height} = Dimensions.get('screen');
+
+const PermanenceScreenStyles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        flex: 1,
+        gap: 30,
+        height: '100%',
+        justifyContent: 'center',
+        width: '100%',
+    },
+    containerLight: {
+        backgroundColor: '#ECF0F1',
+    },
+    containerDark: {
+        backgroundColor: '#2D46AF',
+    },
+    containerContent: {
+        alignItems: 'center',
+        flex: 1,
+        width: '100%',
+        paddingTop: Math.min(60, height * 0.1),
+    },
+    containerList: {
+        flex: 1,
+        width: '100%',
+        paddingHorizontal: 2,
+    },
+    containerSearch: {
+        width: Math.min(400, width * 0.9),
+        marginVertical: 10,
+    },
+    noPermanences: {
+        textAlign: 'center',
+        fontSize: 18,
+        marginTop: 20,
+    },
+    permanencesCards: {
+        backgroundColor: 'grey',
+        padding: 15,
+        borderRadius: 10,
+        marginVertical: 5,
+        marginHorizontal: 1.5,
+        width: '80%',
+        height: '90%',
+        alignSelf: 'center'
+    },
+    permanencesLocal: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 14,
+        color: '#fff',
+    },
+    permanencesDateTime: {
+        textAlign: 'center',
+        fontSize: 12,
+        color: '#fff',
+    }
+});
+
+export default PermanenceScreenStyles;

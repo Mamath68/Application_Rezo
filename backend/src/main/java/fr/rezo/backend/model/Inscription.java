@@ -22,34 +22,34 @@ public class Inscription {
     private Savoirs savoir;
 
     public Long getId() {
-        return id;
-    }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public Permanences getPermanence() {
-        return permanence;
-    }
-
-    public Savoirs getSavoir() {
-        return savoir;
+        return this.id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setPermanence(Permanences permanence) {
-        this.permanence = permanence;
-    }
-
-    public void setSavoir(Savoirs savoir) {
-        this.savoir = savoir;
+    public Users getUser() {
+        return this.user;
     }
 
     public void setUser(Users user) {
         this.user = user;
+    }
+
+    public Permanences getPermanence() {
+        return this.permanence;
+    }
+
+    public void setPermanence(Permanences permanence) {
+        this.permanence = permanence;
+    }
+
+    public Savoirs getSavoir() {
+        return this.savoir;
+    }
+
+    public void setSavoir(Savoirs savoir) {
+        this.savoir = savoir;
     }
 }

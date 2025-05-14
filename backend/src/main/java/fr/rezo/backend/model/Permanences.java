@@ -2,7 +2,9 @@ package fr.rezo.backend.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 
@@ -13,11 +15,14 @@ public class Permanences {
     @Column(name = "permanence_id", nullable = false)
     private Long id;
 
-    @Column(name = "permanence_debut", nullable = false, columnDefinition = "DATETIME(0)")
-    private LocalDateTime dateDebut;
+    @Column(name = "permanence_date", nullable = false)
+    private LocalDate date;
 
-    @Column(name = "permanence_fin", nullable = false, columnDefinition = "DATETIME(0)")
-    private LocalDateTime dateFin;
+    @Column(name = "permanence_debut", nullable = false)
+    private LocalTime permanenceDebut;
+
+    @Column(name = "permanence_fin", nullable = false)
+    private LocalTime permanenceFin;
 
     @Column(nullable = false)
     private String address;
@@ -31,11 +36,12 @@ public class Permanences {
     public Permanences() {
     }
 
-    public Permanences(String address, String nomLocal, LocalDateTime dateDebut, LocalDateTime dateFin) {
+    public Permanences(String address, String nomLocal, LocalDate date, LocalTime permanenceDebut, LocalTime permanenceFin) {
         this.address = address;
         this.nomLocal = nomLocal;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
+        this.date = date;
+        this.permanenceDebut = permanenceDebut;
+        this.permanenceFin = permanenceFin;
     }
 
     public Long getId() {
@@ -46,20 +52,36 @@ public class Permanences {
         this.id = id;
     }
 
-    public LocalDateTime getDateDebut() {
-        return dateDebut;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDateDebut(LocalDateTime dateDebut) {
-        this.dateDebut = dateDebut;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public LocalDateTime getDateFin() {
-        return dateFin;
+    public LocalTime getPermanenceDebut() {
+        return permanenceDebut;
     }
 
-    public void setDateFin(LocalDateTime dateFin) {
-        this.dateFin = dateFin;
+    public LocalTime getPermanenceFin() {
+        return permanenceFin;
+    }
+
+    public List<Inscription> getInscriptions() {
+        return inscriptions;
+    }
+
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
+    }
+
+    public void setPermanenceDebut(LocalTime permanenceDebut) {
+        this.permanenceDebut = permanenceDebut;
+    }
+
+    public void setPermanenceFin(LocalTime permanenceFin) {
+        this.permanenceFin = permanenceFin;
     }
 
     public String getAddress() {
@@ -71,7 +93,7 @@ public class Permanences {
     }
 
     public String getNomLocal() {
-        return nomLocal;
+        return this.nomLocal;
     }
 
     public void setNomLocal(String nomLocal) {

@@ -30,7 +30,7 @@ public class PermanenceService {
     public Map<String, Object> getAllPermanences() {
         System.out.println("----- START | PermanenceService : getAll -----");
 
-        List<Permanences> permanences = permanenceRepository.findAll();
+        List<Permanences> permanences = permanenceRepository.findAllByOrderByDateAscPermanenceDebutAsc();
         if (permanences.isEmpty()) {
             return response("message", "No permanences found");
         }

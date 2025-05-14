@@ -160,6 +160,8 @@ public class Users {
                 .add("firstName='" + firstName + "'")
                 .add("lastName='" + lastName + "'")
                 .add("username='" + username + "'")
+                .add("phone='" + phone + "'")
+                .add("genre='" + genre + "'")
                 .add("email='" + email + "'")
                 .add("password='" + password + "'")
                 .add("token='" + token + "'")
