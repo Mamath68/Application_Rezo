@@ -15,7 +15,10 @@ export default function GuestDrawerLayout() {
             <Drawer.Screen name="permanence" options={{title: "Les Permanences"}}/>
             <Drawer.Screen name="login/index" options={{title: "Se Connecter"}}/>
             <Drawer.Screen name="register/index" options={{title: "S'inscrire"}}/>
-            <Drawer.Screen name="forgot-password/index" options={{title: "Mot de passe oublié"}}/>
+            <Drawer.Screen name="forgot-password/index" options={{
+                drawerItemStyle: {display: 'none'}
+                , title: "Mot de passe oublié"
+            }}/>
         </Drawer>
     );
 }

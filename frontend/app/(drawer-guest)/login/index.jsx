@@ -28,8 +28,8 @@ export default function Index() {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    const getViewBackgroundColorStyle =
-        theme === 'dark' ? styles.containerDark : styles.containerLight;
+    const getViewBackgroundColorStyle = theme === "dark" ? styles.containerDark : styles.containerLight;
+    const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
 
     const handleUsernameChange = (username) => setUsername(username);
     const handlePasswordChange = (password) => setPassword(password);
@@ -102,38 +102,35 @@ export default function Index() {
                         <View style={[styles.container, getViewBackgroundColorStyle]}>
                             <Header/>
                             <View style={[styles.containerContent]}>
-                                {/* Formulaire de connexion */}
                                 <View style={[styles.containerForm]}>
                                     <View style={[styles.containerFormForm]}>
                                         <CustomInput
-                                            placeholder='Write your username...'
-                                            keyboardType='default'
-                                            value={username}
-                                            onChangeText={handleUsernameChange}
+                                            placeholder="Écrivez votre nom d'utilisateur..."
+                                            keyboardType="default"
+                                            value={username} onChangeText={handleUsernameChange}
                                             error={usernameError}
                                         />
                                         <CustomInput
-                                            placeholder='Write your password...'
-                                            keyboardType='text'
+                                            placeholder="Écrivez votre mot de passe..."
+                                            keyboardType="password"
                                             secureTextEntry={true}
-                                            value={password}
-                                            onChangeText={handlePasswordChange}
+                                            value={password} onChangeText={handlePasswordChange}
                                             error={passwordError}
                                         />
                                     </View>
                                 </View>
-                                {/* Buttons */}
                                 <View style={[styles.containerButtons]}>
                                     <CustomButtonText
-                                        type='primary'
+                                        type="primary"
                                         onBackground={true}
                                         withBackground={true}
                                         withBorder={true}
+                                        textStyle={getViewColorStyle}
                                         buttonStyle={styles.button}
                                         onPress={handleSubmit}
                                         disabled={loading}
                                     >
-                                        {loading ? 'Connexion...' : "I'm ready to visit"}
+                                        {loading ? 'Connexion...' : "Me Connecter"}
                                     </CustomButtonText>
                                     <CustomButtonText
                                         type='secondary'
@@ -145,11 +142,11 @@ export default function Index() {
                                             router.push('/register')
                                         }
                                     >
-                                        Sign up
+                                        S'inscrire
                                     </CustomButtonText>
                                     <CustomButtonLink
-                                        text='Forgot your Password?'
-                                        linkText='Click here!'
+                                        text='Mot de passe oublié ?'
+                                        linkText='Cliquez ici !'
                                         type='primary'
                                         onPress={() =>
                                             router.push('/forgot-password')
@@ -168,7 +165,7 @@ export default function Index() {
                                         router.replace("/")
                                     }
                                 >
-                                    Go back
+                                    Retour
                                 </CustomButtonText>
                             </View>
                         </View>

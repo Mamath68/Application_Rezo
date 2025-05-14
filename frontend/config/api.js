@@ -5,4 +5,4 @@ const IP_MOBILE_CEA = "http://192.168.101.33:8080";
 const IP_MOBILE_BOURTZ = "http://192.168.237.33:8080";
 const IP_LAVOISIER = "http://192.168.40.188:8080";
 
-export const CONFIG_API_BASE_URL_IP = IP_88;
+export const CONFIG_API_BASE_URL_IP = IP_BOURTZ;

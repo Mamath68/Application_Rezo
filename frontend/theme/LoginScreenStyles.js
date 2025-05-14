@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from "react-native";
+
 const {height} = Dimensions.get('screen');
 
 const LoginScreenStyles = StyleSheet.create({
@@ -15,6 +16,12 @@ const LoginScreenStyles = StyleSheet.create({
     },
     containerDark: {
         backgroundColor: '#2D46AF',
+    },
+    darkText: {
+        color: "#ECF0F1",
+    },
+    lightText: {
+        color: "#2D46AF",
     },
     containerContent: {
         alignItems: 'center',

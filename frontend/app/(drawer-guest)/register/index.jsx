@@ -5,7 +5,7 @@ import {
     Platform,
     SafeAreaView,
     ScrollView,
-    TouchableWithoutFeedback,
+    TouchableWithoutFeedback, View,
 } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -120,72 +120,94 @@ export default function RegisterScreen() {
                         <CustomView style={[styles.container]}>
                             <CustomView style={[styles.containerContent]}>
                                 <CustomView style={[styles.containerForm]}>
-                                    <CustomInput
-                                        label="Vos Pronoms"
-                                        placeholder="Les Pronoms"
-                                        keyboardType="default"
-                                        value={genre}
-                                        onChangeText={setGenre}
-                                        error={genreError}
-                                    />
-                                    <CustomInput
-                                        label="Prénom"
-                                        placeholder="Prénom"
-                                        keyboardType="default"
-                                        value={firstName}
-                                        onChangeText={setFirstName}
-                                        error={firstNameError}
-                                    />
-                                    <CustomInput
-                                        label="Nom"
-                                        placeholder="Nom"
-                                        keyboardType="default"
-                                        value={lastName}
-                                        onChangeText={setLastName}
-                                        error={lastNameError}
-                                    />
-                                    <CustomInput
-                                        label="Numéro de téléphone *"
-                                        placeholder="Numéros de téléphone"
-                                        keyboardType="numeric"
-                                        value={phone}
-                                        onChangeText={setPhone}
-                                        error={phoneError}
-                                    />
-                                    <CustomInput
-                                        label="Addresse Mail *"
-                                        placeholder="Email"
-                                        keyboardType="email-address"
-                                        value={email}
-                                        onChangeText={setEmail}
-                                        error={emailError}
-                                    />
-                                    <CustomInput
-                                        label="Nom d'usage *"
-                                        placeholder="Nom d'usage"
-                                        keyboardType="default"
-                                        value={username}
-                                        onChangeText={setUsername}
-                                        error={usernameError}
-                                    />
-                                    <CustomInput
-                                        label="Mot de passe *"
-                                        placeholder="Mot de passe"
-                                        keyboardType="password"
-                                        secureTextEntry={true}
-                                        value={password}
-                                        onChangeText={setPassword}
-                                        error={passwordError}
-                                    />
-                                    <CustomInput
-                                        label="Confirmer le mot de passe"
-                                        placeholder="Confirmer le mot de passe"
-                                        keyboardType="password"
-                                        secureTextEntry={true}
-                                        value={confirmPassword}
-                                        onChangeText={setConfirmPassword}
-                                        error={confirmPasswordError}
-                                    />
+                                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                                        <CustomInput
+                                            label="Vos Pronoms"
+                                            placeholder="Les Pronoms"
+                                            keyboardType="default"
+                                            value={genre}
+                                            onChangeText={setGenre}
+                                            error={genreError}
+                                            style={{flex: 1, marginRight: 10}} // Ajoute un espace entre les champs
+                                        />
+                                        <CustomInput
+                                            label="Nom d'usage *"
+                                            placeholder="Nom d'usage"
+                                            keyboardType="default"
+                                            value={username}
+                                            onChangeText={setUsername}
+                                            error={usernameError}
+                                            style={{flex: 1}} // Utiliser flex: 1 pour une mise en page égale
+                                        />
+                                    </View>
+
+                                    <View
+                                        style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
+                                        <CustomInput
+                                            label="Prénom"
+                                            placeholder="Prénom"
+                                            keyboardType="default"
+                                            value={firstName}
+                                            onChangeText={setFirstName}
+                                            error={firstNameError}
+                                            style={{flex: 1, marginRight: 10}}
+                                        />
+                                        <CustomInput
+                                            label="Nom"
+                                            placeholder="Nom"
+                                            keyboardType="default"
+                                            value={lastName}
+                                            onChangeText={setLastName}
+                                            error={lastNameError}
+                                            style={{flex: 1}}
+                                        />
+                                    </View>
+
+                                    <View
+                                        style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
+                                        <CustomInput
+                                            label="Numéro de téléphone *"
+                                            placeholder="Numéros de téléphone"
+                                            keyboardType="numeric"
+                                            value={phone}
+                                            onChangeText={setPhone}
+                                            error={phoneError}
+                                            style={{flex: 1, marginRight: 10}}
+                                        />
+                                        <CustomInput
+                                            label="Adresse Mail *"
+                                            placeholder="Email"
+                                            keyboardType="email-address"
+                                            value={email}
+                                            onChangeText={setEmail}
+                                            error={emailError}
+                                            style={{flex: 1}}
+                                        />
+                                    </View>
+
+                                    <View
+                                        style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
+                                        <CustomInput
+                                            label="Mot de passe *"
+                                            placeholder="Mot de passe"
+                                            keyboardType="default"
+                                            secureTextEntry={true}
+                                            value={password}
+                                            onChangeText={setPassword}
+                                            error={passwordError}
+                                            style={{flex: 1, marginRight: 10}}
+                                        />
+                                        <CustomInput
+                                            label="Confirmer le mot de passe"
+                                            placeholder="Confirmer le mot de passe"
+                                            keyboardType="default"
+                                            secureTextEntry={true}
+                                            value={confirmPassword}
+                                            onChangeText={setConfirmPassword}
+                                            error={confirmPasswordError}
+                                            style={{flex: 1}}
+                                        />
+                                    </View>
                                 </CustomView>
                                 <CustomView style={[styles.containerButtons]}>
                                     <CustomButtonText

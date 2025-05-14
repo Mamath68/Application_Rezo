@@ -7,13 +7,13 @@ export default function AuthDrawerLayout() {
         <Drawer
             screenOptions={{
                 header: ({options}) => (
-                    <Header title={options?.title || "Default"}/>
+                    <Header title={options?.drawerLabel || "Default"}/>
                 ),
             }}
         >
-            <Drawer.Screen name="index" options={{title: "Accueil"}}/>
-            <Drawer.Screen name="profile" options={{title: "Profil"}}/>
-            <Drawer.Screen name="permanence" options={{title: "Les Permanences"}}/>
+            <Drawer.Screen name="index" options={{drawerLabel: "Accueil"}}/>
+            <Drawer.Screen name="profile" options={{drawerLabel: "Profil"}}/>
+            <Drawer.Screen name="permanence" options={{drawerLabel: "Les Permanences"}}/>
         </Drawer>
     );
 }
