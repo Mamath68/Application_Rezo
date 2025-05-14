@@ -5,104 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../front/app/testId.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Inscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Inscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/PermanencesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/PermanencesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/app/(drawer-auth)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/app/(drawer-auth)/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/components/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/components/ProgressBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/adaptive-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/chartes_graphique.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/citoyen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/dark/loading.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/dark/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/dark/menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/dark/rezo-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/dark/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/jeune.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/light/loading.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/light/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/light/menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/light/rezo-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/light/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/rezo-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/assets/splash-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/DancingScript-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/DancingScript-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Jost-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Jost-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Jost-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Montserrat-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Montserrat-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Raleway-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Raleway-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/fonts/Raleway-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/next-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonIcon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonLink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomButtonText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomIcon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomInput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomTextarea.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CustomView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/ProgressBar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/SettingsModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/config/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/context/ThemeProvider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/navigation/BottomTabNavigator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/navigation/DrawerNavigator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/navigation/StackNavigator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/Actualites/ArticlesListScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/Actualites/Forms/AddArticlesScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/Actualites/Forms/EditArticlesScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/HomeScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/Poles/PoleActivites.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/Poles/PoleCitoyens.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/Poles/PoleJeunes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/SplashScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/screens/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/service/ApiService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/AddArticleScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/ArticleListScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/ButtonStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/HeaderStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/HomeScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/IconStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/InputStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/PoleActiviteScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/PoleCitoyenScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/PoleJeuneScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/ProgressBarStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/SettingsModalStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/SplashScreenStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/TextStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/TextareaStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/theme/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/apiRouter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/authentification.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/utils/theme.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,38 +77,39 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
+    "Notification.DoNotAsk-Database detector": "true",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "v2",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fr.rezo.backend.service" />
@@ -312,6 +216,7 @@
       <workItem from="1747137829474" duration="927000" />
       <workItem from="1747139383647" duration="845000" />
       <workItem from="1747207307158" duration="573000" />
+      <workItem from="1747208044243" duration="1631000" />
     </task>
     <servers />
   </component>
