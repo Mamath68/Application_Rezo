@@ -19,7 +19,7 @@ import {loginUser} from '../../../utils';
 import {LoginScreenStyles as styles} from "../../../theme";
 import {useRouter} from "expo-router";
 
-export default function Index() {
+export default function Login() {
     const {theme} = useTheme();
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -105,16 +105,20 @@ export default function Index() {
                                 <View style={[styles.containerForm]}>
                                     <View style={[styles.containerFormForm]}>
                                         <CustomInput
-                                            placeholder="Écrivez votre nom d'utilisateur..."
+                                            label="Nom d'usage"
+                                            placeholder="Écrivez votre nom d'usage..."
                                             keyboardType="default"
-                                            value={username} onChangeText={handleUsernameChange}
+                                            value={username}
+                                            onChangeText={handleUsernameChange}
                                             error={usernameError}
                                         />
                                         <CustomInput
+                                            label="Mot de passe"
                                             placeholder="Écrivez votre mot de passe..."
-                                            keyboardType="password"
+                                            keyboardType="default"
                                             secureTextEntry={true}
-                                            value={password} onChangeText={handlePasswordChange}
+                                            value={password}
+                                            onChangeText={handlePasswordChange}
                                             error={passwordError}
                                         />
                                     </View>
@@ -139,7 +143,7 @@ export default function Index() {
                                         withBorder={true}
                                         buttonStyle={styles.button}
                                         onPress={() =>
-                                            router.push('/register')
+                                            router.push('/register/index')
                                         }
                                     >
                                         S'inscrire
@@ -149,7 +153,7 @@ export default function Index() {
                                         linkText='Cliquez ici !'
                                         type='primary'
                                         onPress={() =>
-                                            router.push('/forgot-password')
+                                            router.push('/forgot-password/index')
                                         }
                                     />
                                 </View>

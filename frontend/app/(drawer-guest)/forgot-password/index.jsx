@@ -19,7 +19,7 @@ import {loginUser} from '../../../utils';
 import {LoginScreenStyles as styles} from "../../../theme";
 import {useRouter} from "expo-router";
 
-export default function Index({}) {
+export default function ForgotPassword() {
     const {theme} = useTheme();
     const router = useRouter();
     const [loading, setLoading] = useState(false);

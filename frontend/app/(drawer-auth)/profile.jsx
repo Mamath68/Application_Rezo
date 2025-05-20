@@ -24,7 +24,7 @@ export default function Profile() {
 
     return (
         <CustomView style={styles.container}>
-            <CustomText level="h2">Bienvenue, {user.username || 'Guest'} !</CustomText>
+            <CustomText level="h2">{user.username} !</CustomText>
             {user.genre && <CustomText level="p">Mes pronoms : {user.genre}</CustomText>}
             {user.email && <CustomText level="p">Email : {user.email}</CustomText>}
         </CustomView>

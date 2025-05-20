@@ -18,7 +18,7 @@ import {CustomButtonLink, CustomButtonText, CustomInput, CustomView} from "../..
 import {registerUser} from "../../../utils";
 import {RegisterScreenStyles as styles} from "../../../theme";
 
-export default function RegisterScreen() {
+export default function Register() {
     const router = useRouter();
     const {theme} = useTheme();
     const [loading, setLoading] = useState(false);
@@ -54,14 +54,11 @@ export default function RegisterScreen() {
         setPasswordError("");
         setConfirmPasswordError("");
 
+        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!phone) {
-            setPhoneError("Numéro est requis");
-            isValid = false;
-        }
-
-        if (!email.includes("@")) {
-            setEmailError("Addresse mail invalide");
+        if (!emailRegex.test(email)) {
+            setEmailError("Adresse mail invalide");
             isValid = false;
         }
 
@@ -70,13 +67,19 @@ export default function RegisterScreen() {
             isValid = false;
         }
 
-        if (password.length < 6) {
-            setPasswordError("Le mot de passe doit être minimum de 6 caractères");
+        if (!password) {
+            setPasswordError("Le mot de passe est requis");
+            isValid = false;
+        } else if (!strongPasswordRegex.test(password)) {
+            setPasswordError("Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
             isValid = false;
         }
 
-        if (confirmPassword !== password) {
-            setConfirmPasswordError("Les mots de passes ne correspondent pas.");
+        if (!confirmPassword) {
+            setConfirmPasswordError("La confirmation du mot de passe est requise.");
+            isValid = false;
+        } else if (confirmPassword !== password) {
+            setConfirmPasswordError("Les mots de passe ne correspondent pas.");
             isValid = false;
         }
 
@@ -102,7 +105,7 @@ export default function RegisterScreen() {
                 if (response.message === 'User created successfully' && response.user) {
                     console.log("Retrieved user:", response.user);
                     await AsyncStorage.setItem("user", JSON.stringify(response.user));
-                    router.navigate('/login');
+                    router.navigate('/login/index');
                 }
             } catch (error) {
                 console.log("Registration error:", error);
@@ -120,94 +123,72 @@ export default function RegisterScreen() {
                         <CustomView style={[styles.container]}>
                             <CustomView style={[styles.containerContent]}>
                                 <CustomView style={[styles.containerForm]}>
-                                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                                        <CustomInput
-                                            label="Vos Pronoms"
-                                            placeholder="Les Pronoms"
-                                            keyboardType="default"
-                                            value={genre}
-                                            onChangeText={setGenre}
-                                            error={genreError}
-                                            style={{flex: 1, marginRight: 10}} // Ajoute un espace entre les champs
-                                        />
-                                        <CustomInput
-                                            label="Nom d'usage *"
-                                            placeholder="Nom d'usage"
-                                            keyboardType="default"
-                                            value={username}
-                                            onChangeText={setUsername}
-                                            error={usernameError}
-                                            style={{flex: 1}} // Utiliser flex: 1 pour une mise en page égale
-                                        />
-                                    </View>
-
-                                    <View
-                                        style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
-                                        <CustomInput
-                                            label="Prénom"
-                                            placeholder="Prénom"
-                                            keyboardType="default"
-                                            value={firstName}
-                                            onChangeText={setFirstName}
-                                            error={firstNameError}
-                                            style={{flex: 1, marginRight: 10}}
-                                        />
-                                        <CustomInput
-                                            label="Nom"
-                                            placeholder="Nom"
-                                            keyboardType="default"
-                                            value={lastName}
-                                            onChangeText={setLastName}
-                                            error={lastNameError}
-                                            style={{flex: 1}}
-                                        />
-                                    </View>
-
-                                    <View
-                                        style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
-                                        <CustomInput
-                                            label="Numéro de téléphone *"
-                                            placeholder="Numéros de téléphone"
-                                            keyboardType="numeric"
-                                            value={phone}
-                                            onChangeText={setPhone}
-                                            error={phoneError}
-                                            style={{flex: 1, marginRight: 10}}
-                                        />
-                                        <CustomInput
-                                            label="Adresse Mail *"
-                                            placeholder="Email"
-                                            keyboardType="email-address"
-                                            value={email}
-                                            onChangeText={setEmail}
-                                            error={emailError}
-                                            style={{flex: 1}}
-                                        />
-                                    </View>
-
-                                    <View
-                                        style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 10}}>
-                                        <CustomInput
-                                            label="Mot de passe *"
-                                            placeholder="Mot de passe"
-                                            keyboardType="default"
-                                            secureTextEntry={true}
-                                            value={password}
-                                            onChangeText={setPassword}
-                                            error={passwordError}
-                                            style={{flex: 1, marginRight: 10}}
-                                        />
-                                        <CustomInput
-                                            label="Confirmer le mot de passe"
-                                            placeholder="Confirmer le mot de passe"
-                                            keyboardType="default"
-                                            secureTextEntry={true}
-                                            value={confirmPassword}
-                                            onChangeText={setConfirmPassword}
-                                            error={confirmPasswordError}
-                                            style={{flex: 1}}
-                                        />
-                                    </View>
+                                    <CustomInput
+                                        label="Vos Pronoms"
+                                        placeholder="Ex: Il/Elle/Iel"
+                                        keyboardType="default"
+                                        value={genre}
+                                        onChangeText={setGenre}
+                                        error={genreError}
+                                    />
+                                    <CustomInput
+                                        label="Nom d'usage *"
+                                        placeholder="Ex: George, John, Mary, etc."
+                                        keyboardType="default"
+                                        value={username}
+                                        onChangeText={setUsername}
+                                        error={usernameError}
+                                    />
+                                    <CustomInput
+                                        label="Prénom"
+                                        placeholder="Prénom"
+                                        keyboardType="default"
+                                        value={firstName}
+                                        onChangeText={setFirstName}
+                                        error={firstNameError}
+                                    />
+                                    <CustomInput
+                                        label="Nom"
+                                        placeholder="Nom"
+                                        keyboardType="default"
+                                        value={lastName}
+                                        onChangeText={setLastName}
+                                        error={lastNameError}
+                                    />
+                                    <CustomInput
+                                        label="Numéro de téléphone *"
+                                        placeholder="0102030405"
+                                        keyboardType="numeric"
+                                        value={phone}
+                                        onChangeText={setPhone}
+                                        error={phoneError}
+                                    />
+                                    <CustomInput
+                                        label="Addresse Mail *"
+                                        placeholder="test@test.fr"
+                                        keyboardType="email-address"
+                                        value={email}
+                                        onChangeText={setEmail}
+                                        error={emailError}
+                                    />
+                                    <CustomInput
+                                        label="Mot de passe *"
+                                        placeholder="12 charactères minimum, au moins 1 lettre Majuscule, 1 minuscule, 1 chiffre et 1 charactère spéciale."
+                                        keyboardType="default"
+                                        secureTextEntry={true}
+                                        value={password}
+                                        onChangeText={setPassword}
+                                        error={passwordError}
+                                    />
+                                    <CustomInput
+                                        label="Confirmer le mot de passe *"
+                                        placeholder="Confirmer le mot de passe"
+                                        keyboardType="default"
+                                        secureTextEntry={true}
+                                        value={confirmPassword}
+                                        onChangeText={setConfirmPassword}
+                                        error={confirmPasswordError}
+                                    />
                                 </CustomView>
                                 <CustomView style={[styles.containerButtons]}>
                                     <CustomButtonText

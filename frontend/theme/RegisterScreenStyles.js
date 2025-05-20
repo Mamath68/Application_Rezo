@@ -34,6 +34,7 @@ const RegisterScreenStyles = StyleSheet.create({
         alignItems: "center",
         flex: 1,
         justifyContent: "center",
+        paddingBottom: 20,
         width: "100%",
     },
     containerButtons: {
