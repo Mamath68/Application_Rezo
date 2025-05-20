@@ -1,19 +1,22 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {router} from 'expo-router';
 
-export const checkAuthentification = async () => {
+/**
+ * Vérifie si l'utilisateur est connecté.
+ * Redirige vers la bonne stack en fonction de la présence de données utilisateur.
+ */
+export const checkAuthentication = async () => {
     try {
         const user = await AsyncStorage.getItem('user');
 
+        // Utilisation d'un timeout simulant un splash/loading
         setTimeout(() => {
-            if (user) {
-                router.replace('/(drawer-auth)');
-            } else {
-                router.replace('/(drawer-guest)');
-            }
+            const isAuthenticated = Boolean(user);
+            const targetRoute = isAuthenticated ? '/(drawer-auth)' : '/(drawer-guest)';
+            router.replace(targetRoute);
         }, 3500);
     } catch (error) {
-        console.error("Erreur lors de la récupération des données de l'utilisateur", error);
+        console.error("Auth Check Error:", error);
         router.replace('/(drawer-guest)');
     }
 };

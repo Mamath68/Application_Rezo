@@ -1,14 +1,29 @@
 import {Stack} from 'expo-router';
-import {ThemeProvider} from '../context/ThemeProvider';
 import {StatusBar} from 'react-native';
 
-export default function RootLayout() {
+import {ThemeProvider, useTheme} from '../context/ThemeProvider';
+
+const Layout = () => {
     return (
         <ThemeProvider>
+            <AppContent/>
+        </ThemeProvider>
+    );
+};
+
+const AppContent = () => {
+    const {fontsLoaded} = useTheme();
+
+    if (!fontsLoaded) return null; // ou écran de chargement
+
+    return (
+        <>
             <StatusBar hidden={false}/>
             <Stack screenOptions={{headerShown: false}}>
                 <Stack.Screen name="index"/>
             </Stack>
-        </ThemeProvider>
+        </>
     );
-}
+};
+
+export default Layout;

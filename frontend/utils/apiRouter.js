@@ -1,77 +1,38 @@
 import api from '../service/ApiService';
 
-export const getAllUsers = async () => {
+const handleRequest = async (requestFn, context) => {
     try {
-        return await api.get('users');
+        return await requestFn();
     } catch (error) {
-        throw new Error('User - getAllUsers | FAILED: ' + error.message);
+        throw new Error(`${context} | FAILED: ${error.message}`);
     }
 };
 
-export const createUser = async (userData) => {
-    try {
-        return await api.post('user/create', userData);
-    } catch (error) {
-        throw new Error('User - createUser | FAILED: ' + error.message);
-    }
-};
+export const getAllUsers = () =>
+    handleRequest(() => api.get('users'), 'User - getAllUsers');
 
-export const updateUser = async (userData) => {
-    try {
-        return await api.put('user/update', userData);
-    } catch (error) {
-        throw new Error('User - updateUser | FAILED: ' + error.message);
-    }
-};
+export const createUser = (userData) =>
+    handleRequest(() => api.post('users', userData), 'User - createUser');
 
-export const deleteUser = async (userId) => {
-    try {
-        return await api.delete(`user/delete/id/${userId}`);
-    } catch (error) {
-        throw new Error('User - deleteUser | FAILED: ' + error.message);
-    }
-};
+export const updateUser = (userData) =>
+    handleRequest(() => api.put('users', userData), 'User - updateUser');
 
-export const getOneUserById = async (userId) => {
-    try {
-        return await api.get(`user/get/id/${userId}`);
-    } catch (error) {
-        throw new Error('User - getOneUserById | FAILED: ' + error.message);
-    }
-};
+export const deleteUser = (userId) =>
+    handleRequest(() => api.delete(`users/${userId}`), 'User - deleteUser');
 
-export const getOneUserByUsername = async (username) => {
-    try {
-        return await api.get(`user/get/username/${username}`);
-    } catch (error) {
-        throw new Error('User - getOneUserByUsername | FAILED: ' + error.message);
-    }
-};
+export const getOneUserById = (userId) =>
+    handleRequest(() => api.get(`users/id/${userId}`), 'User - getOneUserById');
 
-export const registerUser = async (userData) => {
-    try {
-        return await api.post('user/register', userData);
-    } catch (error) {
-        throw new Error('User - registerUser | FAILED: ' + error.message);
-    }
-};
+export const getOneUserByUsername = (username) =>
+    handleRequest(() => api.get(`users/username/${username}`), 'User - getOneUserByUsername');
 
-export const loginUser = async (userData) => {
-    try {
-        return await api.post('user/login', userData);
-    } catch (error) {
-        throw new Error('User - loginUser | FAILED: ' + error.message);
-    }
-};
+export const registerUser = (userData) =>
+    handleRequest(() => api.post('users/register', userData), 'User - registerUser');
 
-/**
- * Permanences
- * */
+export const loginUser = (userData) =>
+    handleRequest(() => api.post('users/login', userData), 'User - loginUser');
 
-export const getAllPermanences = async () => {
-    try {
-        return await api.get('permanences');
-    } catch (error) {
-        throw new Error('Permanences - getAllPermanences | FAILED: ' + error.message);
-    }
-};
+// Permanences
+
+export const getAllPermanences = () =>
+    handleRequest(() => api.get('permanences'), 'Permanences - getAllPermanences');

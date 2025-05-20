@@ -18,13 +18,14 @@ import {CustomButtonLink, CustomButtonText, CustomInput, Header,} from '../../..
 import {loginUser} from '../../../utils';
 import {LoginScreenStyles as styles} from "../../../theme";
 import {useRouter} from "expo-router";
+import {validateLoginForm} from "../../../utils/formValidation";
 
 export default function Login() {
     const {theme} = useTheme();
     const router = useRouter();
     const [loading, setLoading] = useState(false);
-    const [username, setUsername] = useState('');
-    const [usernameError, setUsernameError] = useState('');
+    const [username, setUsername] = useState("");
+    const [usernameError, setUsernameError] = useState("");
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
@@ -63,21 +64,10 @@ export default function Login() {
     };
 
     const validateForm = () => {
-        let isValid = true;
-        setUsernameError('');
-        setPasswordError('');
+        const {isValid, errors} = validateLoginForm(username, password);
 
-        console.log('validateform: lauched');
-
-        if (!username) {
-            setUsernameError('User name required.');
-            isValid = false;
-        }
-
-        if (!password) {
-            setPasswordError('Password required.');
-            isValid = false;
-        }
+        setUsernameError(errors.username || '');
+        setPasswordError(errors.password || '');
 
         return isValid;
     };

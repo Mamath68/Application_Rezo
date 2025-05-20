@@ -3,14 +3,14 @@ import {View} from 'react-native';
 import {SplashScreenStyles as styles} from "../theme";
 import {useTheme} from '../context/ThemeProvider';
 
-import {checkAuthentification} from "../utils";
+import {checkAuthentication} from "../utils";
 import {CustomIcon, CustomText, ProgressBar} from '../components';
 
 export default function SplashScreen() {
     const {theme} = useTheme();
 
     useEffect(() => {
-        checkAuthentification();
+        checkAuthentication();
     }, []);
 
     const getViewBackgroundColorStyle = theme === 'dark' ? styles.containerDark : styles.containerLight;

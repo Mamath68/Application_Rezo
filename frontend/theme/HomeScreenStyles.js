@@ -2,11 +2,11 @@ import {StyleSheet} from "react-native";
 
 const HomeScreenStyles = StyleSheet.create({
     container: {
-        alignItems: 'center',
         flex: 1,
         gap: 10,
         height: '100%',
         justifyContent: 'center',
+        alignItems: 'center',
         width: '100%',
     },
     containerLight: {

@@ -42,15 +42,15 @@ const PermanenceScreenStyles = StyleSheet.create({
         padding: 15,
         borderRadius: 10,
         marginVertical: 5,
-        marginHorizontal: 1.5,
-        width: '80%',
+        marginHorizontal: 3,
+        width: '73%',
         height: '90%',
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     permanencesLocal: {
         fontWeight: 'bold',
         textAlign: 'center',
-        fontSize: 14,
+        fontSize: 12,
         color: '#fff',
     },
     permanencesDateTime: {

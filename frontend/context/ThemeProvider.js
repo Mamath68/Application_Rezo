@@ -1,38 +1,43 @@
-import {createContext, useContext, useEffect, useState} from "react";
-import {useColorScheme} from "react-native";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { useColorScheme } from 'react-native';
+import { useFonts } from 'expo-font';
 
-import {loadTheme, saveTheme} from "../utils";
-import {useFonts} from "expo-font";
+import { loadTheme, saveTheme } from '../utils';
 
-const ThemeContext = createContext('light');
+// Valeur par défaut du contexte
+const ThemeContext = createContext({
+    theme: 'light',
+    toggleTheme: () => {},
+    fontsLoaded: false,
+});
 
-export const ThemeProvider = ({children}) => {
-    const colorScheme = useColorScheme();
-    const [theme, setTheme] = useState(colorScheme);
+export const ThemeProvider = ({ children }) => {
+    const systemColorScheme = useColorScheme();
+    const [theme, setTheme] = useState(systemColorScheme || 'light');
 
-    const fonts = useFonts({
-        'Montserrat-Regular': require("../fonts/Montserrat-Regular.ttf"),
-        'Montserrat-BoldItalic': require("../fonts/Montserrat-BoldItalic.ttf"),
-        'DancingScript-Regular': require("../fonts/DancingScript-Regular.ttf"),
-        "DancingScript-Bold": require("../fonts/DancingScript-Bold.ttf"),
+    const [fontsLoaded] = useFonts({
+        'Montserrat-Regular': require('../fonts/Montserrat-Regular.ttf'),
+        'Montserrat-BoldItalic': require('../fonts/Montserrat-BoldItalic.ttf'),
+        'DancingScript-Regular': require('../fonts/DancingScript-Regular.ttf'),
+        'DancingScript-Bold': require('../fonts/DancingScript-Bold.ttf'),
     });
 
     useEffect(() => {
         const fetchTheme = async () => {
-            const storedTheme = await loadTheme(colorScheme);
+            const storedTheme = await loadTheme(systemColorScheme || 'light');
             setTheme(storedTheme);
         };
-        fetchTheme().then(r => r.json());
+        fetchTheme();
     }, []);
 
     const toggleTheme = async () => {
-        const newTheme = theme === "dark" ? "light" : "dark";
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         await saveTheme(newTheme);
     };
 
     return (
-        <ThemeContext.Provider value={{theme, toggleTheme, fonts}}>
+        <ThemeContext.Provider value={{ theme, toggleTheme, fontsLoaded }}>
             {children}
         </ThemeContext.Provider>
     );

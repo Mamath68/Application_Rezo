@@ -1,4 +1,6 @@
 import {useState} from "react";
+import {validateRegisterForm} from "../../../utils/formValidation";
+
 import {
     Keyboard,
     KeyboardAvoidingView,
@@ -44,47 +46,24 @@ export default function Register() {
     const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
 
     const validateForm = () => {
-        let isValid = true;
-        setFirstNameError("");
-        setLastNameError("");
-        setEmailError("");
-        setUsernameError("");
-        setPhoneError("");
-        setGenreError("");
-        setPasswordError("");
-        setConfirmPasswordError("");
-
-        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-            setEmailError("Adresse mail invalide");
-            isValid = false;
-        }
-
-        if (!username) {
-            setUsernameError("Nom d'usage requis");
-            isValid = false;
-        }
-
-        if (!password) {
-            setPasswordError("Le mot de passe est requis");
-            isValid = false;
-        } else if (!strongPasswordRegex.test(password)) {
-            setPasswordError("Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.");
-            isValid = false;
-        }
-
-        if (!confirmPassword) {
-            setConfirmPasswordError("La confirmation du mot de passe est requise.");
-            isValid = false;
-        } else if (confirmPassword !== password) {
-            setConfirmPasswordError("Les mots de passe ne correspondent pas.");
-            isValid = false;
-        }
+        const {isValid, errors} = validateRegisterForm(
+            phone,
+            genre,
+            email,
+            username,
+            password,
+            confirmPassword
+        );
+        setGenreError(errors.genre || "");
+        setPhoneError(errors.phone || "");
+        setEmailError(errors.email || "");
+        setUsernameError(errors.username || "");
+        setPasswordError(errors.password || "");
+        setConfirmPasswordError(errors.confirmPassword || "");
 
         return isValid;
     };
+
 
     const handleRegister = async () => {
         if (validateForm()) {
