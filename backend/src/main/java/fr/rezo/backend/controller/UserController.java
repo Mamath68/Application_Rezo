@@ -28,19 +28,19 @@ public class UserController {
         return buildResponse(response);
     }
 
-    @PostMapping("/user/create")
+    @PostMapping("/users")
     public ResponseEntity<Map<String, Object>> createUser(@RequestBody Users user) {
         Map<String, Object> response = userService.createUser(user);
         return buildResponse(response);
     }
 
-    @PutMapping("/user/update")
+    @PutMapping("/users")
     public ResponseEntity<Map<String, Object>> updateUser(@RequestBody Users user) {
         Map<String, Object> response = userService.updateUser(user);
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/user/delete/id/{id}")
+    @DeleteMapping("/user/{id}")
     public ResponseEntity<Map<String, Object>> deleteUser(@PathVariable Long id) {
         Map<String, Object> response = userService.deleteUser(id);
         return buildResponse(response);
@@ -48,13 +48,13 @@ public class UserController {
 
     //---- GET ----\\
 
-    @GetMapping("/user/get/id/{id}")
+    @GetMapping("/user/id/{id}")
     public ResponseEntity<Map<String, Object>> getOneUserById(@PathVariable Long id) {
         Map<String, Object> response = userService.getOneUserById(id);
         return buildResponse(response);
     }
 
-    @GetMapping("/user/get/username/{username}")
+    @GetMapping("/user/username/{username}")
     public ResponseEntity<Map<String, Object>> getOneUserByUsername(@PathVariable String username) {
         Map<String, Object> response = userService.getOneUserByUsername(username);
         return buildResponse(response);
@@ -62,13 +62,13 @@ public class UserController {
 
     //---- AUTHENTICATE ----\\
 
-    @PostMapping("/user/register")
+    @PostMapping("/users/register")
     public ResponseEntity<Map<String, Object>> registerUser(@RequestBody Users user) {
         Map<String, Object> response = userService.registerUser(user);
         return buildResponse(response);
     }
 
-    @PostMapping("/user/login")
+    @PostMapping("/users/login")
     public ResponseEntity<Map<String, Object>> loginUser(@RequestBody Users user) {
         Map<String, Object> response = userService.loginUser(user);
         return buildResponse(response);

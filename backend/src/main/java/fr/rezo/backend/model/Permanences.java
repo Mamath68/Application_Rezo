@@ -33,6 +33,14 @@ public class Permanences {
     @OneToMany(mappedBy = "permanence")
     private List<Inscription> inscriptions;
 
+    @ManyToMany
+    @JoinTable(
+            name = "savoirs_permanences",
+            joinColumns = @JoinColumn(name = "permanences_id"),
+            inverseJoinColumns = @JoinColumn(name = "savoirs_id")
+    )
+    private List<Savoirs> savoirs;
+
     public Permanences() {
     }
 

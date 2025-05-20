@@ -20,6 +20,14 @@ public class Savoirs {
     @OneToMany(mappedBy = "savoir")
     private List<Inscription> inscriptions;
 
+    @ManyToMany
+    @JoinTable(
+            name = "savoirs_permanences",
+            joinColumns = @JoinColumn(name = "savoirs_id"),
+            inverseJoinColumns = @JoinColumn(name = "permanences_id")
+    )
+    private List<Permanences> permanences;
+
     public Savoirs() {
     }
 

@@ -6,6 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/_layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/_layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomIcon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomLink.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomTextarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomTextarea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/ProgressBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/SettingsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/SettingsModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/theme/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/authentification.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/utils/authentification.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,39 +94,39 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
-    "Notification.DoNotAsk-Database detector": "true",
-    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.BackendApplication.executor": "Run",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "v2",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fr.rezo.backend.service" />
@@ -216,7 +233,14 @@
       <workItem from="1747137829474" duration="927000" />
       <workItem from="1747139383647" duration="845000" />
       <workItem from="1747207307158" duration="573000" />
-      <workItem from="1747208044243" duration="1631000" />
+      <workItem from="1747208044243" duration="5031000" />
+      <workItem from="1747392300505" duration="1627000" />
+      <workItem from="1747399281173" duration="846000" />
+      <workItem from="1747724411828" duration="42000" />
+      <workItem from="1747724869339" duration="1055000" />
+      <workItem from="1747731777228" duration="890000" />
+      <workItem from="1747742621960" duration="692000" />
+      <workItem from="1747745717679" duration="3121000" />
     </task>
     <servers />
   </component>
