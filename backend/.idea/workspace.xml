@@ -5,24 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../frontend/theme/Theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomTextarea.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomTextarea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/CustomView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/ProgressBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/SettingsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/components/SettingsModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/theme/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/authentification.js" beforeDir="false" afterPath="$PROJECT_DIR$/../nativewindverse/src/utils/authentification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/forgot-password/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/forgot-password/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/permanence.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/permanence.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/register/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer-guest)/register/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/CustomButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/CustomInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/CustomInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/CustomModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/CustomModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/CustomText.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/CustomText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/CustomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/CustomView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/ProgressBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/SettingsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/SettingsModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/ButtonStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/ButtonStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/HomeScreenStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/HomeScreenStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/LoginScreenStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/LoginScreenStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/PermanenceScreenStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/PermanenceScreenStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/ProgressBarStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/ProgressBarStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/RegisterScreenStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/RegisterScreenStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/SettingsModalStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/SettingsModalStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/SplashScreenStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/TextareaStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/ModalStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/utils/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +109,7 @@
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
     &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
     &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
@@ -114,7 +125,7 @@
     &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathi/WebstormProjects/REZO/Application_Rezo/backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mathi/WebstormProjects/Application_Rezo/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -241,6 +252,8 @@
       <workItem from="1747731777228" duration="890000" />
       <workItem from="1747742621960" duration="692000" />
       <workItem from="1747745717679" duration="3121000" />
+      <workItem from="1747815611771" duration="2003000" />
+      <workItem from="1747826882034" duration="504000" />
     </task>
     <servers />
   </component>
