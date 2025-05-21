@@ -13,12 +13,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useTheme} from '../../../context/ThemeProvider';
 
-import {CustomButtonLink, CustomButtonText, CustomInput, Header,} from '../../../components';
+import {CustomButtonText, CustomInput, Header} from '../../../components';
 
-import {loginUser} from '../../../utils';
-import {LoginScreenStyles as styles} from "../../../theme";
+import {loginUser, validateLoginForm} from '../../../utils';
+import {LoginScreenStyles as styles, Theme} from "../../../theme";
 import {useRouter} from "expo-router";
-import {validateLoginForm} from "../../../utils/formValidation";
 
 export default function Login() {
     const {theme} = useTheme();
@@ -29,8 +28,8 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    const getViewBackgroundColorStyle = theme === "dark" ? styles.containerDark : styles.containerLight;
-    const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
+    const getViewBackgroundColorStyle = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
+    const getViewColorStyle = theme === "dark" ? Theme.textDark : Theme.textLight;
 
     const handleUsernameChange = (username) => setUsername(username);
     const handlePasswordChange = (password) => setPassword(password);
@@ -89,7 +88,7 @@ export default function Login() {
                         contentContainerStyle={{flexGrow: 1}}
                         keyboardShouldPersistTaps='handled'
                     >
-                        <View style={[styles.container, getViewBackgroundColorStyle]}>
+                        <View style={[Theme.container, getViewBackgroundColorStyle]}>
                             <Header/>
                             <View style={[styles.containerContent]}>
                                 <View style={[styles.containerForm]}>
@@ -133,19 +132,24 @@ export default function Login() {
                                         withBorder={true}
                                         buttonStyle={styles.button}
                                         onPress={() =>
-                                            router.push('/register/index')
+                                            router.push('/register')
                                         }
                                     >
                                         S'inscrire
                                     </CustomButtonText>
-                                    <CustomButtonLink
-                                        text='Mot de passe oublié ?'
-                                        linkText='Cliquez ici !'
+                                    <CustomButtonText
                                         type='primary'
+                                        onBackground={true}
+                                        withBackground={true}
+                                        withBorder={true}
+                                        buttonStyle={styles.button}
+                                        textStyle={getViewColorStyle}
                                         onPress={() =>
-                                            router.push('/forgot-password/index')
+                                            router.push('/forgot-password')
                                         }
-                                    />
+                                    >
+                                        Mot de passe oublié? Cliqué ici!
+                                    </CustomButtonText>
                                 </View>
                             </View>
                             <View style={[styles.containerBack, getViewBackgroundColorStyle]}>

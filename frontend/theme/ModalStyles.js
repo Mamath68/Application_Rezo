@@ -1,6 +1,7 @@
-import {StyleSheet} from "react-native";
+import {Dimensions, StyleSheet} from "react-native";
 
-const SettingsModalStyles = StyleSheet.create({
+const {width} = Dimensions.get('screen');
+const ModalStyles = StyleSheet.create({
     overlay: {
         flex: 1,
         backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -41,4 +42,4 @@ const SettingsModalStyles = StyleSheet.create({
     },
 });
 
-export default SettingsModalStyles;
+export default ModalStyles;

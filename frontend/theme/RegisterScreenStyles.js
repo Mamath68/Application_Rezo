@@ -3,25 +3,6 @@ import {Dimensions, StyleSheet} from "react-native";
 const {height} = Dimensions.get('screen');
 
 const RegisterScreenStyles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        flex: 1,
-        height: "100%",
-        justifyContent: "center",
-        width: "100%",
-    },
-    containerLight: {
-        backgroundColor: "#ECF0F1",
-    },
-    containerDark: {
-        backgroundColor: "#2D46AF",
-    },
-    darkText: {
-        color: "#ECF0F1",
-    },
-    lightText: {
-        color: "#2D46AF",
-    },
     containerContent: {
         alignItems: "center",
         flex: 1,
@@ -51,10 +32,6 @@ const RegisterScreenStyles = StyleSheet.create({
         width: "100%",
     },
     button: {
-        height: 60,
-        width: "90%",
-    },
-    button2: {
         height: 60,
         width: "90%",
     },

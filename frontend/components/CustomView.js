@@ -1,13 +1,12 @@
 import {View} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
+import {Theme} from "../theme";
 
 const CustomView = ({children, style}) => {
     const {theme} = useTheme();
 
     // Styles dynamiques basés sur le thème
-    const dynamicStyle = {
-        backgroundColor: theme === "dark" ? "#2D46AF" : "#ECF0F1",
-    };
+    const dynamicStyle = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
 
     return (
         <View style={[dynamicStyle, style]}>

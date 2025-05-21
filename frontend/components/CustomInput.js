@@ -21,6 +21,7 @@ const CustomInput = ({
     const [isFocused, setIsFocused] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
+    const getBackgroundColor = () => {}
     // Styles dynamiques selon le thème
     const themeModeStyle = {
         brClr: error ? "red" : isFocused ? "#007BFF" : "#CCC",

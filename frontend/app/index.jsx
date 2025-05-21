@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {View} from 'react-native';
-import {SplashScreenStyles as styles} from "../theme";
+import {Theme} from "../theme";
 import {useTheme} from '../context/ThemeProvider';
 
 import {checkAuthentication} from "../utils";
@@ -13,13 +13,13 @@ export default function SplashScreen() {
         checkAuthentication();
     }, []);
 
-    const getViewBackgroundColorStyle = theme === 'dark' ? styles.containerDark : styles.containerLight;
-    const getTextColorStyle = theme === 'dark' ? styles.textDark : styles.textLight;
+    const getViewBackgroundColorStyle = theme === 'dark' ? Theme.backgroundColorDark : Theme.backgroundColorLight;
+    const getTextColorStyle = theme === 'dark' ? Theme.textLight : Theme.textDark;
 
     return (
-        <View style={[styles.container, getViewBackgroundColorStyle]}>
+        <View style={[Theme.container, getViewBackgroundColorStyle]}>
             <CustomIcon icon='loading'/>
-            <CustomText level='note' style={[styles.text, getTextColorStyle]}>Loading...</CustomText>
+            <CustomText level='note' style={[Theme.Montserrat, getTextColorStyle]}>Loading...</CustomText>
             <ProgressBar/>
         </View>
     );

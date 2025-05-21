@@ -30,6 +30,8 @@ export default function ForgotPassword() {
 
     const getViewBackgroundColorStyle =
         theme === 'dark' ? styles.containerDark : styles.containerLight;
+    const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
+
 
     const handleUsernameChange = (username) => setUsername(username);
     const handlePasswordChange = (password) => setPassword(password);
@@ -129,6 +131,7 @@ export default function ForgotPassword() {
                                         withBackground={true}
                                         withBorder={true}
                                         buttonStyle={styles.button}
+                                        textStyle={getViewColorStyle}
                                         onPress={handleSubmit}
                                         disabled={loading}
                                     >
@@ -141,7 +144,7 @@ export default function ForgotPassword() {
                                         withBorder={true}
                                         buttonStyle={styles.button}
                                         onPress={() =>
-                                            router.push('/')
+                                            router.push('/login')
                                         }
                                     >
                                         Se connecter

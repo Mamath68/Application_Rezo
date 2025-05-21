@@ -3,7 +3,7 @@ import {useTheme} from "../context/ThemeProvider";
 
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
-import {SettingsModalStyles as styles} from "../theme";
+import {SettingsModalStyles as styles, Theme} from "../theme";
 import {logoutUser} from "../utils";
 import {useRouter} from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -45,7 +45,7 @@ const CustomModal = ({visible, onClose}) => {
                 <View
                     style={[
                         styles.modalContainer,
-                        theme === "dark" ? styles.dark : styles.light,
+                        theme === "dark" ? Theme.backgroundColorDark.dark : Theme.backgroundColorLight,
                     ]}
                 >
                     <CustomText style={styles.title}>Settings</CustomText>

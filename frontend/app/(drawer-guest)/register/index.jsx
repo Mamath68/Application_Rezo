@@ -1,5 +1,4 @@
 import {useState} from "react";
-import {validateRegisterForm} from "../../../utils/formValidation";
 
 import {
     Keyboard,
@@ -15,10 +14,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useTheme} from "../../../context/ThemeProvider";
 import {useRouter} from 'expo-router';
 
-import {CustomButtonLink, CustomButtonText, CustomInput, CustomView} from "../../../components";
+import {CustomButtonText, CustomInput, CustomView} from "../../../components";
 
-import {registerUser} from "../../../utils";
-import {RegisterScreenStyles as styles} from "../../../theme";
+import {registerUser, validateRegisterForm} from "../../../utils";
+import {RegisterScreenStyles as styles, Theme} from "../../../theme";
 
 export default function Register() {
     const router = useRouter();
@@ -42,8 +41,8 @@ export default function Register() {
     const [passwordError, setPasswordError] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-    const getViewBackgroundColorStyle = theme === "dark" ? styles.containerDark : styles.containerLight;
-    const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
+    const getViewBackgroundColorStyle = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
+    const getViewColorStyle = theme === "dark" ? Theme.textDark : Theme.textLight;
 
     const validateForm = () => {
         const {isValid, errors} = validateRegisterForm(
@@ -99,7 +98,7 @@ export default function Register() {
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}}>
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
-                        <CustomView style={[styles.container]}>
+                        <CustomView style={[Theme.container]}>
                             <CustomView style={[styles.containerContent]}>
                                 <CustomView style={[styles.containerForm]}>
                                     <CustomInput
@@ -182,12 +181,14 @@ export default function Register() {
                                     >
                                         {loading ? "Inscription..." : "Rejoins le Rezo"}
                                     </CustomButtonText>
-                                    <CustomButtonLink
-                                        text="Déjà un compte?"
-                                        linkText="Se Connecter!"
+                                    <CustomButtonText
                                         type="primary"
+                                        onBackground={true}
+                                        withBackground={false}
+                                        withBorder={true}
+                                        buttonStyle={styles.button}
                                         onPress={() => router.push("/login")}
-                                    />
+                                    >Déjà un Compte? Connectez-vous</CustomButtonText>
                                 </CustomView>
                             </CustomView>
                             <CustomView style={[styles.containerBack, getViewBackgroundColorStyle]}>
@@ -196,7 +197,7 @@ export default function Register() {
                                     onBackground={false}
                                     withBackground={false}
                                     withBorder={true}
-                                    buttonStyle={styles.button2}
+                                    buttonStyle={styles.button}
                                     onPress={() => router.push("/")}
                                 >
                                     Go back

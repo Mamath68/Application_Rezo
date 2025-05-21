@@ -1,16 +1,14 @@
 import {Text} from "react-native";
-
 import {useTheme} from "../context/ThemeProvider";
-import {TextStyles as styles} from "../theme";
+import {TextStyles as styles, Theme} from "../theme";
 
 const CustomText = ({
-                        level = "p", // niveau par défaut
+                        level = "p",
                         children,
                         style = {},
                     }) => {
     const {theme} = useTheme();
 
-    // Définir les styles par niveau de texte
     const defStyle = {
         h1: styles.h1,
         h2: styles.h2,
@@ -23,12 +21,11 @@ const CustomText = ({
         description: styles.description,
     };
 
-    const getComponentStyle = defStyle[level];
+    const componentStyle = defStyle[level] || defStyle.p;
+    const textColor = theme === 'dark' ? Theme.textLight : Theme.textDark;
 
     return (
-        <Text
-            style={[getComponentStyle, {color: theme === 'dark' ? '#fff' : '#000'}, style]}
-        >
+        <Text style={[componentStyle, textColor, style]}>
             {children}
         </Text>
     );

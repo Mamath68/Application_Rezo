@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {TouchableOpacity} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
-import {ButtonStyles as styles} from "../theme";
+import {ButtonStyles as styles, Theme} from "../theme";
 import CustomText from "./CustomText";
 
 const CustomButton = ({
@@ -39,7 +39,7 @@ const CustomButton = ({
 
     // Styles dynamiques
     const backgroundStyle = effectiveBackground
-        ? (effectiveBackground === 'dark' ? styles.backgroundColorDark : styles.backgroundColorLight)
+        ? (effectiveBackground === 'dark' ? Theme.backgroundColorDark : Theme.backgroundColorLight)
         : {};
 
     const borderStyle = effectiveBorder
@@ -48,8 +48,8 @@ const CustomButton = ({
 
     // Couleur du texte
     const textColor = effectiveBackground
-        ? (effectiveBackground === 'dark' ? styles.textLight : styles.textDark)
-        : (theme === 'light' ? styles.textDark : styles.textLight);
+        ? (effectiveBackground === 'dark' ? Theme.textLight : Theme.textDark)
+        : (theme === 'light' ? Theme.textDark : Theme.textLight);
 
     // Styles par type
     const getComponentStyle = {
@@ -74,7 +74,7 @@ const CustomButton = ({
             onPressOut={() => !disabled && setOpacity(1)}
             disabled={disabled}
         >
-            <CustomText style={[styles.text, textColor]}>{children}</CustomText>
+            <CustomText style={[Theme.text, textColor]}>{children}</CustomText>
         </TouchableOpacity>
     );
 };

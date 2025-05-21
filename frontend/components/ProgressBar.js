@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Animated, View} from "react-native";
 
 import {useTheme} from "../context/ThemeProvider";
-import {ProgressBarStyles as styles} from '../theme';
+import {ProgressBarStyles as styles, Theme} from '../theme';
 import CustomText from './CustomText';
 
 const ProgressBar = () => {
@@ -11,9 +11,9 @@ const ProgressBar = () => {
     const [percentage, setPercentage] = useState(0);
 
     // Styles dynamiques
-    const getBackgroundColorStyle = theme === 'dark' ? styles.containerDark : styles.containerLight;
-    const getAnimatedViewBackgroundColorStyle = theme === 'dark' ? styles.animatedDark : styles.animatedLight;
-    const getTextColorStyle = theme === 'dark' ? styles.textDark : styles.textLight;
+    const getBackgroundColorStyle = theme === 'dark' ? Theme.backgroundColorDark : Theme.backgroundColorLight;
+    const getAnimatedViewBackgroundColorStyle = theme === 'dark' ? Theme.backgroundColorLight : Theme.backgroundColorDark;
+    const getTextColorStyle = theme === 'dark' ? Theme.textLight : Theme.textDark;
 
     useEffect(() => {
         Animated.timing(progress, {
@@ -49,7 +49,7 @@ const ProgressBar = () => {
                 ]}
             >
             </Animated.View>
-            <CustomText level='p' style={[styles.text, getTextColorStyle]}>{percentage}%</CustomText>
+            <CustomText level='p' style={[Theme.text, getTextColorStyle]}>{percentage}%</CustomText>
         </View>
     );
 };

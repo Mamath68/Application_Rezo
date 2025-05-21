@@ -1,5 +1,5 @@
 import {CustomText, CustomView} from "../../components";
-import {PermanenceScreenStyles as styles} from "../../theme";
+import {PermanenceScreenStyles as styles, Theme} from "../../theme";
 import {getAllPermanences} from '../../utils';
 import {useEffect, useState} from 'react';
 import {
@@ -11,8 +11,10 @@ import {
     TouchableWithoutFeedback,
 } from 'react-native';
 import {SafeAreaView} from "react-native-safe-area-context";
+import {useTheme} from "../../context/ThemeProvider";
 
 export default function Permanence() {
+    const {theme} = useTheme();
 
     const [permanences, setPermanences] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -48,7 +50,6 @@ export default function Permanence() {
         return `${hour}h${minute}`;
     };
 
-
     return (
         <SafeAreaView style={{flex: 1}}>
             <KeyboardAvoidingView
@@ -56,9 +57,10 @@ export default function Permanence() {
                 style={{flex: 1}}
             >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <CustomView style={[styles.container]}>
+                    <CustomView style={[Theme.container]}>
                         <CustomView style={styles.containerContent}>
-                            <CustomView style={styles.containerList}>
+                            <CustomView style={[styles.containerList,                         theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight,
+]}>
                                 {isLoading ? (
                                     <ActivityIndicator size='large' color='#007AFF'/>
                                 ) : (
