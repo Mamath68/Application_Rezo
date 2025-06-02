@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from "react-native";
 
-const {height} = Dimensions.get('screen');
+const {height, width} = Dimensions.get('window');
 
 const RegisterScreenStyles = StyleSheet.create({
     containerContent: {
@@ -15,8 +15,14 @@ const RegisterScreenStyles = StyleSheet.create({
         alignItems: "center",
         flex: 1,
         justifyContent: "center",
-        paddingBottom: 20,
+        paddingBottom: 50,
         width: "100%",
+    },
+    justifyContent: {
+        alignItems: 'center',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        width: width * 0.90,
     },
     containerButtons: {
         alignItems: "center",

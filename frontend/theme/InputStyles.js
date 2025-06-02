@@ -1,18 +1,17 @@
 import {Dimensions, StyleSheet} from "react-native";
 
-const {width} = Dimensions.get('screen');
+const {width} = Dimensions.get('window');
 
 const InputStyles = StyleSheet.create({
     container: {
         flexDirection: 'column',
         gap: 5,
         height: 80,
-        width: width * 0.9,
+        width: width * 0.80,
     },
     label: {
         fontSize: 16,
         marginHorizontal: 10,
-        paddingTop: 20
     },
     inputContainer: {
         alignItems: "center",
@@ -21,7 +20,7 @@ const InputStyles = StyleSheet.create({
         flexDirection: "row",
         height: 45,
         paddingHorizontal: 10,
-        width: width * 0.9,
+        width: width * 0.50,
     },
     input: {
         flex: 1,

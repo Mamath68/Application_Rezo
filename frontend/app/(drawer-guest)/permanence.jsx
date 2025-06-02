@@ -49,7 +49,7 @@ export default function Permanence() {
         const [hour, minute] = timeString.split(':');
         return `${hour}h${minute}`;
     };
-
+    const getViewBackgroundColorStyle = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
     return (
         <SafeAreaView style={{flex: 1}}>
             <KeyboardAvoidingView
@@ -59,8 +59,7 @@ export default function Permanence() {
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <CustomView style={[Theme.container]}>
                         <CustomView style={styles.containerContent}>
-                            <CustomView style={[styles.containerList,                         theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight,
-]}>
+                            <CustomView style={[styles.containerList, getViewBackgroundColorStyle]}>
                                 {isLoading ? (
                                     <ActivityIndicator size='large' color='#007AFF'/>
                                 ) : (
@@ -75,7 +74,7 @@ export default function Permanence() {
                                                 <CustomText style={styles.permanencesDateTime}>
                                                     {formatDate(item.date)}
                                                 </CustomText>
-                                                <CustomText style={[styles.permanencesDateTime, {textAlign: 'center'}]}>
+                                                <CustomText style={styles.permanencesDateTime}>
                                                     De {formatHour(item.permanenceDebut)} à {formatHour(item.permanenceFin)}
                                                 </CustomText>
                                             </CustomView>
