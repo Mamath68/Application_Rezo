@@ -3,7 +3,6 @@ package fr.rezo.backend.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -41,15 +40,19 @@ public class Permanences {
     )
     private List<Savoirs> savoirs;
 
+    @Column
+    private String shortLocal;
+
     public Permanences() {
     }
 
-    public Permanences(String address, String nomLocal, LocalDate date, LocalTime permanenceDebut, LocalTime permanenceFin) {
+    public Permanences(String address, String nomLocal, LocalDate date, LocalTime permanenceDebut, LocalTime permanenceFin, String shortLocal) {
         this.address = address;
         this.nomLocal = nomLocal;
         this.date = date;
         this.permanenceDebut = permanenceDebut;
         this.permanenceFin = permanenceFin;
+        this.shortLocal = shortLocal;
     }
 
     public Long getId() {
@@ -61,7 +64,7 @@ public class Permanences {
     }
 
     public LocalDate getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(LocalDate date) {
@@ -69,27 +72,27 @@ public class Permanences {
     }
 
     public LocalTime getPermanenceDebut() {
-        return permanenceDebut;
-    }
-
-    public LocalTime getPermanenceFin() {
-        return permanenceFin;
-    }
-
-    public List<Inscription> getInscriptions() {
-        return inscriptions;
-    }
-
-    public void setInscriptions(List<Inscription> inscriptions) {
-        this.inscriptions = inscriptions;
+        return this.permanenceDebut;
     }
 
     public void setPermanenceDebut(LocalTime permanenceDebut) {
         this.permanenceDebut = permanenceDebut;
     }
 
+    public LocalTime getPermanenceFin() {
+        return this.permanenceFin;
+    }
+
     public void setPermanenceFin(LocalTime permanenceFin) {
         this.permanenceFin = permanenceFin;
+    }
+
+    public List<Inscription> getInscriptions() {
+        return this.inscriptions;
+    }
+
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
     }
 
     public String getAddress() {
@@ -106,5 +109,21 @@ public class Permanences {
 
     public void setNomLocal(String nomLocal) {
         this.nomLocal = nomLocal;
+    }
+
+    public List<Savoirs> getSavoirs() {
+        return this.savoirs;
+    }
+
+    public void setSavoirs(List<Savoirs> savoirs) {
+        this.savoirs = savoirs;
+    }
+
+    public String getShortLocal() {
+        return this.shortLocal;
+    }
+
+    public void setShortLocal(String shortLocal) {
+        this.shortLocal = shortLocal;
     }
 }
