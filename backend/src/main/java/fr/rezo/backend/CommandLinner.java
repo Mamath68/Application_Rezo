@@ -61,14 +61,6 @@ public class CommandLinner {
             createPermanencesIfNotExist(permRepo, "Restos du Coeur", "36 rue Jean Jaurès", List.of(
                     "2025-06-06", "2025-06-13", "2025-06-20", "2025-06-27"
             ), "10:00:00", "12:00:00", "rdc");
-
-            createPermanencesIfNotExist(permRepo, "CSC Lavoisier-Brustlein", "51 allée Glück", List.of(
-                    "2025-06-20"
-            ), "10:00:00", "12:00:00", "lavoisier");
-
-            createPermanencesIfNotExist(permRepo, "Bibliothèque de Dornach", "3 rue de Thann", List.of(
-                    "2025-06-04", "2025-06-11", "2025-06-18", "2025-06-25"
-            ), "14:00:00", "15:00:00", "bibdornach");
         };
     }
 
