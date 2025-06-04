@@ -1,4 +1,4 @@
-import {HomeScreenStyles as styles} from "../../theme";
+import {HomeScreenStyles as styles, Theme} from "../../theme";
 import {CustomText, CustomView} from "../../components";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -24,7 +24,7 @@ export default function Home() {
     }, []);
     return (
 
-        <CustomView style={styles.container}>
+        <CustomView style={Theme.container}>
             <CustomText level="h2">Bienvenue, {user.username || 'Guest'} !</CustomText>
         </CustomView>
     );

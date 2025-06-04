@@ -20,7 +20,7 @@ const InputStyles = StyleSheet.create({
         flexDirection: "row",
         height: 45,
         paddingHorizontal: 10,
-        width: width * 0.50,
+        width: width * 0.80,
     },
     input: {
         flex: 1,

@@ -4,7 +4,7 @@ import {Theme} from "../theme";
 import {useTheme} from '../context/ThemeProvider';
 
 import {checkAuthentication} from "../utils";
-import {CustomIcon, CustomText, ProgressBar} from '../components';
+import {CustomIcon, CustomText, CustomView, ProgressBar} from '../components';
 
 export default function SplashScreen() {
     const {theme} = useTheme();
@@ -13,14 +13,13 @@ export default function SplashScreen() {
         checkAuthentication();
     }, []);
 
-    const getViewBackgroundColorStyle = theme === 'dark' ? Theme.backgroundColorDark : Theme.backgroundColorLight;
     const getTextColorStyle = theme === 'dark' ? Theme.textLight : Theme.textDark;
 
     return (
-        <View style={[Theme.container, getViewBackgroundColorStyle]}>
+        <CustomView style={[Theme.container]}>
             <CustomIcon icon='loading'/>
             <CustomText level='note' style={[Theme.Montserrat, getTextColorStyle]}>Loading...</CustomText>
             <ProgressBar/>
-        </View>
+        </CustomView>
     );
 };

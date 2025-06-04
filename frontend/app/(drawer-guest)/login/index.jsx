@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useTheme} from '../../../context/ThemeProvider';
 
-import {CustomButtonText, CustomInput, Header} from '../../../components';
+import {CustomButtonText, CustomInput, CustomView, Header} from '../../../components';
 
 import {loginUser, validateLoginForm} from '../../../utils';
 import {LoginScreenStyles as styles, Theme} from "../../../theme";
@@ -88,8 +88,7 @@ export default function Login() {
                         contentContainerStyle={{flexGrow: 1}}
                         keyboardShouldPersistTaps='handled'
                     >
-                        <View style={[Theme.container, getViewBackgroundColorStyle]}>
-                            <Header/>
+                        <CustomView style={[Theme.container]}>
                             <View style={[styles.containerContent]}>
                                 <View style={[styles.containerForm]}>
                                     <View style={[styles.containerFormForm]}>
@@ -166,7 +165,7 @@ export default function Login() {
                                     Retour
                                 </CustomButtonText>
                             </View>
-                        </View>
+                        </CustomView>
                     </ScrollView>
                 </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
