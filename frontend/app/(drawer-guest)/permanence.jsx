@@ -93,7 +93,7 @@ export default function Permanence() {
                             backgroundColor: event.color,
                             borderRadius: 6,
                             padding: 2,
-                            whiteSpace: 'pre-wrap',
+                            overflowWrap: "nowrap",
                         })}
                         onPressEvent={(event) => {
                             Alert.alert(
