@@ -5,6 +5,7 @@ import {useState, useEffect} from "react";
 import {getAllPermanences} from "../../utils";
 import {Alert, KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
+import 'dayjs/locale/fr'
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
@@ -86,15 +87,21 @@ export default function Permanence() {
                     <Calendar
                         events={events}
                         mode="3days"
+                        locale="fr"
+                        weekStartsOn={1}
+                        weekEndsOn={6}
                         swipeEnabled={true}
-                        overlapOffset={45}
-                        height={800}
+                        overlapOffset={20}
+                        height={650}
                         eventCellStyle={(event) => ({
                             backgroundColor: event.color,
                             borderRadius: 6,
                             padding: 2,
-                            overflowWrap: "nowrap",
                         })}
+                        showWeekNumber={true}
+                        showTime={false}
+                        showAdjacentMonths={true}
+                        calendarCellTextStyle={{flexWrap: "wrap"}}
                         onPressEvent={(event) => {
                             Alert.alert(
                                 event.local,
