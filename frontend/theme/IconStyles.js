@@ -1,6 +1,7 @@
 import {Dimensions, StyleSheet} from "react-native";
 
-const {width, height} = Dimensions.get('screen');
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 const IconStyles = StyleSheet.create({
     base: {
         width: "100%",

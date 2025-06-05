@@ -1,5 +1,4 @@
 import {useEffect} from "react";
-import {View} from 'react-native';
 import {Theme} from "../theme";
 import {useTheme} from '../context/ThemeProvider';
 

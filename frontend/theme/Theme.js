@@ -1,12 +1,14 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, Dimensions} from "react-native";
+
+const height = Dimensions.get("window").height;
+const width = Dimensions.get("window").width;
 
 const Theme = StyleSheet.create({
     container: {
-        flex: 1,
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
+        height: height,
+        width: width,
+        justifyContent: "center",
+        alignItems: "center",
     },
     backgroundColorDark: {
         backgroundColor: "#2D46AF",

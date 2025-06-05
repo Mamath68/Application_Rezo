@@ -1,6 +1,7 @@
 import {Dimensions, StyleSheet} from "react-native";
 
-const {height, width} = Dimensions.get('window');
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 const RegisterScreenStyles = StyleSheet.create({
     containerContent: {

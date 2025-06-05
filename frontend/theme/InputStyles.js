@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from "react-native";
 
-const {width} = Dimensions.get('window');
+const width = Dimensions.get('window').width;
 
 const InputStyles = StyleSheet.create({
     container: {

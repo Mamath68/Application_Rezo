@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet} from "react-native";
 
-const {width} = Dimensions.get('screen');
+const width = Dimensions.get('window').width;
 const ProgressBarStyles = StyleSheet.create({
     //--- VIEW ----\\
     container: {
