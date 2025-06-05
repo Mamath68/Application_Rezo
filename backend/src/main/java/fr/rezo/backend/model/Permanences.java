@@ -43,16 +43,24 @@ public class Permanences {
     @Column
     private String shortLocal;
 
+    @Column
+    private String contact;
+
+    @Column
+    private String phoneContact;
+
     public Permanences() {
     }
 
-    public Permanences(String address, String nomLocal, LocalDate date, LocalTime permanenceDebut, LocalTime permanenceFin, String shortLocal) {
+    public Permanences(String address, String nomLocal, LocalDate date, LocalTime permanenceDebut, LocalTime permanenceFin, String shortLocal, String contact, String phoneContact) {
         this.address = address;
         this.nomLocal = nomLocal;
         this.date = date;
         this.permanenceDebut = permanenceDebut;
         this.permanenceFin = permanenceFin;
         this.shortLocal = shortLocal;
+        this.contact = contact;
+        this.phoneContact = phoneContact;
     }
 
     public Long getId() {
@@ -125,5 +133,21 @@ public class Permanences {
 
     public void setShortLocal(String shortLocal) {
         this.shortLocal = shortLocal;
+    }
+
+    public String getContact() {
+        return this.contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getPhoneContact() {
+        return this.phoneContact;
+    }
+
+    public void setPhoneContact(String phoneContact) {
+        this.phoneContact = phoneContact;
     }
 }
