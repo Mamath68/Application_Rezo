@@ -24,6 +24,7 @@ export default function Permanence() {
     };
 
     useEffect(() => {
+
         const loadPermanences = async () => {
             setLoading(true);
             try {

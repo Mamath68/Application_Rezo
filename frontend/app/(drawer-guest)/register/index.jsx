@@ -53,8 +53,8 @@ export default function Register() {
             password,
             confirmPassword
         );
-        setGenreError(errors.genre || "");
         setPhoneError(errors.phone || "");
+        setGenreError(errors.genre || "");
         setEmailError(errors.email || "");
         setUsernameError(errors.username || "");
         setPasswordError(errors.password || "");

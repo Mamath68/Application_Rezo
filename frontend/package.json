@@ -4,8 +4,8 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -28,7 +28,9 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
-    "tslib": "^2.8.1"
+    "tslib": "^2.8.1",
+    "expo-dev-client": "~5.2.0",
+    "expo-system-ui": "~5.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
