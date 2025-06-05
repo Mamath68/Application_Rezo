@@ -4,6 +4,12 @@ const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
 const RegisterScreenStyles = StyleSheet.create({
+    container: {
+        height: "100%",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+    },
     containerContent: {
         alignItems: "center",
         flex: 1,
@@ -16,21 +22,15 @@ const RegisterScreenStyles = StyleSheet.create({
         alignItems: "center",
         flex: 1,
         justifyContent: "center",
-        paddingBottom: 50,
+        paddingBottom: 20,
         width: "100%",
-    },
-    justifyContent: {
-        alignItems: 'center',
-        flexDirection: "row",
-        justifyContent: "space-between",
-        width: width * 0.90,
     },
     containerButtons: {
         alignItems: "center",
         gap: 10,
         height: 200,
         justifyContent: "center",
-        width: "100%",
+        width: width,
     },
     containerBack: {
         alignItems: "center",

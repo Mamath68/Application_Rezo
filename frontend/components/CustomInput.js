@@ -30,7 +30,6 @@ const CustomInput = ({
 
     return (
         <View style={[styles.container, containerStyle]}>
-            {/* Label */}
             {label && (
                 <CustomText level="p" style={[styles.label, {color: themeModeStyle.textClr}]}>
                     {label}
@@ -56,7 +55,6 @@ const CustomInput = ({
                 />
             </View>
 
-            {/* Message d'erreur */}
             {error && <CustomText level="note" style={styles.errorText}>{error}</CustomText>}
         </View>
     );

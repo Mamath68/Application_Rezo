@@ -7,8 +7,6 @@ const PermanenceScreenStyles = StyleSheet.create({
     containerContent: {
         width: width,
         height: height,
-         justifyContent: "center",
-        alignItems: "center",
     },
 });
 

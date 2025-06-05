@@ -1,10 +1,11 @@
 import {CustomText, CustomView} from "../../components";
-import {HomeScreenStyles as styles, Theme} from "../../theme";
+import {PermanenceScreenStyles as styles, Theme} from "../../theme";
 import {Calendar} from "react-native-big-calendar";
 import {useState, useEffect} from "react";
 import {getAllPermanences} from "../../utils";
-import {Alert, KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
+import {Alert, KeyboardAvoidingView, Linking, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
+import 'dayjs/locale/fr'
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
@@ -68,41 +69,58 @@ export default function Permanence() {
         address: `${p.address}`,
         start: new Date(`${p.date}T${p.permanenceDebut}`),
         end: new Date(`${p.date}T${p.permanenceFin}`),
+        contact: p.contact,
+        phoneNumber: p.phoneContact,
     }));
 
     const events = assignColors(rawEvents);
 
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={styles.containerContent}>
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={[{flex: 1}, getViewBackgroundColorStyle]}
+                style={getViewBackgroundColorStyle}
             >
-                <CustomView style={{marginVertical: 80}}>
-                    <CustomText level="h2" style={{textAlign: "center"}}>
-                        Les Permanences
-                    </CustomText>
+                <CustomView style={{paddingVertical: 80}}>
                     <CustomText level="p" style={{textAlign: "center"}}>
-                        Les Permanences sont affichées ci-dessous sous format Agenda.
+                        Vous trouverez ci-dessous les permanences, présentées sous forme d’agenda.
                     </CustomText>
 
                     <Calendar
                         events={events}
                         mode="3days"
+                        locale="fr"
+                        weekStartsOn={1}
+                        weekEndsOn={6}
                         swipeEnabled={true}
                         overlapOffset={40}
-                        height={800}
+                        height={650}
                         eventCellStyle={(event) => ({
                             backgroundColor: event.color,
-                            borderRadius: 6,
-                            padding: 2,
+                            borderRadius: 10,
+                            padding: 5,
                         })}
+                        showWeekNumber={true}
+                        showTime={false}
+                        showAdjacentMonths={true}
+                        calendarCellTextStyle={{flexWrap: "wrap"}}
                         onPressEvent={(event) => {
                             Alert.alert(
                                 event.local,
-                                `Addresse : ${event.address}\nDébut : ${formatHour(event.start)}\nFin : ${formatHour(event.end)}`
+                                `Adresse : ${event.address}\nDébut : ${formatHour(event.start)}\nFin : ${formatHour(event.end)}`,
+                                [
+                                    {
+                                        text: `📞 Appeler ${event.contact}`,
+                                        onPress: () => {
+                                            const tel = event.phoneNumber;
+                                            Linking.openURL(`tel:${tel}`);
+                                        },
+                                    },
+                                    {text: "Fermer", style: "cancel"},
+                                ]
                             );
                         }}
+
                     />
                 </CustomView>
             </KeyboardAvoidingView>

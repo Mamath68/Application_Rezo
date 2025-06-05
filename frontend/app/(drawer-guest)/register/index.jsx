@@ -98,10 +98,9 @@ export default function Register() {
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}}>
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
-                        <CustomView style={[Theme.container]}>
+                        <CustomView style={[styles.container]}>
                             <CustomView style={[styles.containerContent]}>
                                 <CustomView style={[styles.containerForm]}>
-                                    <CustomView style={styles.justifyContent}>
                                         <CustomInput
                                             label="Vos Pronoms"
                                             placeholder="Ex: Il/Elle/Iel"
@@ -118,8 +117,7 @@ export default function Register() {
                                             onChangeText={setUsername}
                                             error={usernameError}
                                         />
-                                    </CustomView>
-                                    <CustomView style={styles.justifyContent}>
+
                                         <CustomInput
                                             label="Prénom"
                                             placeholder="Prénom"
@@ -136,8 +134,6 @@ export default function Register() {
                                             onChangeText={setLastName}
                                             error={lastNameError}
                                         />
-                                    </CustomView>
-                                    <CustomView style={styles.justifyContent}>
                                         <CustomInput
                                             label="Numéro de téléphone *"
                                             placeholder="0102030405"
@@ -154,8 +150,6 @@ export default function Register() {
                                             onChangeText={setEmail}
                                             error={emailError}
                                         />
-                                    </CustomView>
-                                    <CustomView style={styles.justifyContent}>
                                         <CustomInput
                                             label="Mot de passe *"
                                             placeholder="12 charactères minimum, au moins 1 lettre Majuscule, 1 minuscule, 1 chiffre et 1 charactère spéciale."
@@ -174,7 +168,6 @@ export default function Register() {
                                             onChangeText={setConfirmPassword}
                                             error={confirmPasswordError}
                                         />
-                                    </CustomView>
                                 </CustomView>
                                 <CustomView style={[styles.containerButtons]}>
                                     <CustomButtonText

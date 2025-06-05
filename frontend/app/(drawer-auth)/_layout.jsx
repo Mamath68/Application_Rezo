@@ -1,6 +1,6 @@
+import 'react-native-reanimated';
 import {Drawer} from "expo-router/drawer";
 import {Header} from "../../components";
-import 'react-native-reanimated'; // doit être en tout premier
 
 export default function AuthDrawerLayout() {
     return (
