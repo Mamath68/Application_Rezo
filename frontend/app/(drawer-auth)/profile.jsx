@@ -21,10 +21,13 @@ export default function Profile() {
 
         getUserFromStorage();
     }, []);
-
+    function toUpperCase(string) {
+        if (!string) return '';
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     return (
         <CustomView style={Theme.container}>
-            <CustomText level="h2">{user.username} !</CustomText>
+            <CustomText level="h2">{toUpperCase(user.username)} !</CustomText>
             <CustomText level="p">Mes pronoms : {user.genre}</CustomText>
             <CustomText level="p">Email : {user.email}</CustomText>
         </CustomView>

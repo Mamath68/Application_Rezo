@@ -22,10 +22,16 @@ export default function Home() {
 
         getUserFromStorage();
     }, []);
+
+    function toUpperCase(string) {
+        if (!string) return '';
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     return (
 
         <CustomView style={Theme.container}>
-            <CustomText level="h2">Bienvenue, {user.username || 'Guest'} !</CustomText>
+            <CustomText level="h2">Bienvenue, {toUpperCase(user.username || 'Guest')} !</CustomText>
         </CustomView>
     );
 };

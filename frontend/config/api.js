@@ -4,7 +4,8 @@ const IPs = {
     ceaMobile: "192.168.101.33",
     lavoisier: "192.168.40.188",
     briand: "192.168.0.19",
-    boat: "10.202.72.29"
+    boat: "10.202.72.29",
+    rdc: "192.168.103.33"
 };
 
 const ACTIVE_ENV = "bourtz";

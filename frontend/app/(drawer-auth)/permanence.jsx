@@ -15,6 +15,9 @@ export default function Permanence() {
     const getViewBackgroundColorStyle = theme === 'dark'
         ? Theme.backgroundColorDark
         : Theme.backgroundColorLight;
+    const getBorderColorStyle = theme === 'dark'
+        ? styles.borderColorLight
+        : styles.borderColorDark;
 
     const formatHour = (date) => {
         return date.toLocaleTimeString('fr-FR', {
@@ -24,7 +27,6 @@ export default function Permanence() {
     };
 
     useEffect(() => {
-
         const loadPermanences = async () => {
             setLoading(true);
             try {
@@ -100,7 +102,9 @@ export default function Permanence() {
                             backgroundColor: event.color,
                             borderRadius: 10,
                             padding: 5,
+                            width: 60
                         })}
+                        calendarCellStyle={getBorderColorStyle}
                         showWeekNumber={true}
                         showTime={false}
                         showAdjacentMonths={true}

@@ -17,7 +17,7 @@ export default function SplashScreen() {
     return (
         <CustomView style={[Theme.container]}>
             <CustomIcon icon='loading'/>
-            <CustomText level='note' style={[Theme.Montserrat, getTextColorStyle]}>Loading...</CustomText>
+            <CustomText level='note' style={[Theme.Montserrat, getTextColorStyle]}>Chargement...</CustomText>
             <ProgressBar/>
         </CustomView>
     );

@@ -99,6 +99,7 @@ export default function Permanence() {
                             backgroundColor: event.color,
                             borderRadius: 10,
                             padding: 5,
+                            width: 60
                         })}
                         showWeekNumber={true}
                         showTime={false}

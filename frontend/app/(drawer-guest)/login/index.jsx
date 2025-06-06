@@ -89,9 +89,9 @@ export default function Login() {
                         keyboardShouldPersistTaps='handled'
                     >
                         <CustomView style={[Theme.container]}>
-                            <View style={[styles.containerContent]}>
-                                <View style={[styles.containerForm]}>
-                                    <View style={[styles.containerFormForm]}>
+                            <CustomView style={[styles.containerContent]}>
+                                <CustomView style={[styles.containerForm]}>
+                                    <CustomView style={[styles.containerFormForm]}>
                                         <CustomInput
                                             label="Nom d'usage"
                                             placeholder="Écrivez votre nom d'usage..."
@@ -109,9 +109,9 @@ export default function Login() {
                                             onChangeText={handlePasswordChange}
                                             error={passwordError}
                                         />
-                                    </View>
-                                </View>
-                                <View style={[styles.containerButtons]}>
+                                    </CustomView>
+                                </CustomView>
+                                <CustomView style={[styles.containerButtons]}>
                                     <CustomButtonText
                                         type="primary"
                                         onBackground={true}
@@ -147,11 +147,11 @@ export default function Login() {
                                             router.push('/forgot-password')
                                         }
                                     >
-                                        Mot de passe oublié? Cliqué ici!
+                                        Mot de passe oublié? Cliquez ici!
                                     </CustomButtonText>
-                                </View>
-                            </View>
-                            <View style={[styles.containerBack, getViewBackgroundColorStyle]}>
+                                </CustomView>
+                            </CustomView>
+                            <CustomView style={[styles.containerBack]}>
                                 <CustomButtonText
                                     type='tertiary'
                                     onBackground={false}
@@ -164,7 +164,7 @@ export default function Login() {
                                 >
                                     Retour
                                 </CustomButtonText>
-                            </View>
+                            </CustomView>
                         </CustomView>
                     </ScrollView>
                 </TouchableWithoutFeedback>

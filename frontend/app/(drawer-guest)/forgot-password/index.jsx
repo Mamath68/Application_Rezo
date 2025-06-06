@@ -13,10 +13,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useTheme} from '../../../context/ThemeProvider';
 
-import {CustomButtonText, CustomInput, Header,} from '../../../components';
+import {CustomButtonText, CustomInput, CustomView, Header,} from '../../../components';
 
 import {loginUser} from '../../../utils';
-import {LoginScreenStyles as styles} from "../../../theme";
+import {LoginScreenStyles as styles, Theme} from "../../../theme";
 import {useRouter} from "expo-router";
 
 export default function ForgotPassword() {
@@ -25,16 +25,11 @@ export default function ForgotPassword() {
     const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState('');
     const [usernameError, setUsernameError] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordError, setPasswordError] = useState('');
 
-    const getViewBackgroundColorStyle =
-        theme === 'dark' ? styles.containerDark : styles.containerLight;
-    const getViewColorStyle = theme === "dark" ? styles.lightText : styles.darkText;
-
+    const getViewColorStyle = theme === "dark" ? Theme.textDark : Theme.textLight;
 
     const handleUsernameChange = (username) => setUsername(username);
-    const handlePasswordChange = (password) => setPassword(password);
+;
 
     const handleLogin = async ({username, password}) => {
         console.log('handleLogin:', username, password);
@@ -51,10 +46,10 @@ export default function ForgotPassword() {
                 return;
             }
 
-            if (response.message === 'Login successful' && response.user) {
+            if (response.message === 'Password Reset Link successfully Send' && response.user) {
                 console.log('Retrieved user:', response.user);
                 await AsyncStorage.setItem('user', JSON.stringify(response.user));
-                router.replace('/(drawer-auth)');
+                router.replace('/login');
             }
 
         } catch (error) {
@@ -67,17 +62,11 @@ export default function ForgotPassword() {
     const validateForm = () => {
         let isValid = true;
         setUsernameError('');
-        setPasswordError('');
 
         console.log('validateform: lauched');
 
         if (!username) {
             setUsernameError('User name required.');
-            isValid = false;
-        }
-
-        if (!password) {
-            setPasswordError('Password required.');
             isValid = false;
         }
 
@@ -101,41 +90,32 @@ export default function ForgotPassword() {
                         contentContainerStyle={{flexGrow: 1}}
                         keyboardShouldPersistTaps='handled'
                     >
-                        <View style={[styles.container, getViewBackgroundColorStyle]}>
-                            <Header/>
-                            <View style={[styles.containerContent]}>
-                                {/* Formulaire de connexion */}
-                                <View style={[styles.containerForm]}>
-                                    <View style={[styles.containerFormForm]}>
+                        <CustomView style={[Theme.container]}>
+                            <CustomView style={[styles.containerContent]}>
+                                <CustomView style={[styles.containerForm]}>
+                                    <CustomView style={[styles.containerFormForm]}>
                                         <CustomInput
-                                            placeholder='Write your username...'
-                                            type='text'
-                                            value={username}
-                                            onChangeText={handleUsernameChange}
+                                            label="Nom d'usage"
+                                            placeholder="Écrivez votre nom d'usage..."
+                                            keyboardType="default"
+                                            value={username} onChangeText={handleUsernameChange}
                                             error={usernameError}
                                         />
-                                        <CustomInput
-                                            placeholder='Write your password...'
-                                            type='password'
-                                            value={password}
-                                            onChangeText={handlePasswordChange}
-                                            error={passwordError}
-                                        />
-                                    </View>
-                                </View>
+                                    </CustomView>
+                                </CustomView>
                                 {/* Buttons */}
-                                <View style={[styles.containerButtons]}>
+                                <CustomView style={[styles.containerButtons]}>
                                     <CustomButtonText
-                                        type='primary'
+                                        type="primary"
                                         onBackground={true}
                                         withBackground={true}
                                         withBorder={true}
-                                        buttonStyle={styles.button}
                                         textStyle={getViewColorStyle}
+                                        buttonStyle={styles.button}
                                         onPress={handleSubmit}
                                         disabled={loading}
                                     >
-                                        {loading ? 'Changement en cours...' : "Modifier le Mot de passe"}
+                                        {loading ? 'Changement en cours...' : "Changez votre mot de passe"}
                                     </CustomButtonText>
                                     <CustomButtonText
                                         type='secondary'
@@ -149,9 +129,9 @@ export default function ForgotPassword() {
                                     >
                                         Se connecter
                                     </CustomButtonText>
-                                </View>
-                            </View>
-                        </View>
+                                </CustomView>
+                            </CustomView>
+                        </CustomView>
                     </ScrollView>
                 </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
