@@ -1,106 +1,64 @@
-import {Modal, Switch, View} from "react-native";
+import {Modal, View, ScrollView} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
-
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
-import {SettingsModalStyles as styles, Theme} from "../theme";
-import {logoutUser} from "../utils";
-import {useRouter} from "expo-router";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import {useEffect, useState} from "react";
+import {Theme} from "../theme";
 
-const CustomModal = ({visible, onClose}) => {
-    const {theme, toggleTheme} = useTheme();
-    const router = useRouter();
+const PermanenceDetailModal = ({visible, onClose, permanence}) => {
+    const {theme} = useTheme();
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const getThemeBackground = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
+    const formatHour = (date) => date?.toLocaleTimeString('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit',
+    });
 
-    useEffect(() => {
-        const checkUser = async () => {
-            try {
-                const storedUser = await AsyncStorage.getItem('user');
-                setIsLoggedIn(!!storedUser); // true si user existe, sinon false
-            } catch (e) {
-                console.error("Erreur lors de la vérification de l'utilisateur :", e);
-            }
-        };
-
-        if (visible) checkUser(); // Ne le fait que si le modal est affiché
-    }, [visible]);
-
-    const logout = async () => {
-        try {
-            await logoutUser();
-            await AsyncStorage.removeItem('user');
-            setIsLoggedIn(false);
-            router.replace('/(drawer-guest)');
-        } catch (error) {
-            console.error('Erreur lors du logout', error);
-        }
-    };
+    if (!permanence) return null;
 
     return (
         <Modal transparent visible={visible} animationType="slide">
-            <View style={styles.overlay}>
-                <View
-                    style={[
-                        styles.modalContainer,
-                        theme === "dark" ? Theme.backgroundColorDark.dark : Theme.backgroundColorLight,
-                    ]}
-                >
-                    <CustomText style={styles.title}>Settings</CustomText>
+            <View style={{flex: 1, justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: 20}}>
+                <View style={[{backgroundColor: '#fff', borderRadius: 12, padding: 20}, getThemeBackground]}>
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <CustomText level="h2" style={{textAlign: 'center', marginBottom: 10}}>
+                            {permanence.local}
+                        </CustomText>
 
-                    {/* Langue */}
-                    <View style={styles.option}>
-                        <CustomText>Language</CustomText>
-                        <View style={styles.languageBadge}>
-                            <CustomText style={styles.optionText}>En travaux</CustomText>
-                        </View>
-                    </View>
+                        <CustomText style={{marginBottom: 4}}>📍 Adresse : {permanence.address}</CustomText>
+                        <CustomText>🕒 Début : {formatHour(permanence.start)}</CustomText>
+                        <CustomText>🕓 Fin : {formatHour(permanence.end)}</CustomText>
 
-                    {/* Thème */}
-                    <View style={styles.option}>
-                        <CustomText>{theme === "dark" ? "Dark Mode" : "Light Mode"}</CustomText>
-                        <Switch
-                            value={theme === "dark"}
-                            onValueChange={toggleTheme}
-                            thumbColor={theme === "dark" ? "#fff" : "#1E90FF"}
-                            trackColor={{
-                                false: "#ADD8E6",
-                                true: "#EFEFEF",
-                            }}
-                        />
-                    </View>
+                        <CustomText style={{marginTop: 12, fontWeight: 'bold'}}>🎁 Savoirs Offerts :</CustomText>
+                        {permanence.savoirsOfferts?.length > 0
+                            ? permanence.savoirsOfferts.map((s, i) => (
+                                <CustomText key={i}>• {s}</CustomText>
+                              ))
+                            : <CustomText>Aucun</CustomText>
+                        }
 
-                    {/* Bouton Close */}
-                    <CustomButtonText
-                        type="secondary"
-                        onBackground={false}
-                        withBackground={false}
-                        withBorder={true}
-                        onPress={onClose}
-                        buttonStyle={styles.button}
-                    >
-                        Close
-                    </CustomButtonText>
+                        <CustomText style={{marginTop: 12, fontWeight: 'bold'}}>🙋 Savoirs Demandés :</CustomText>
+                        {permanence.savoirsDemandes?.length > 0
+                            ? permanence.savoirsDemandes.map((s, i) => (
+                                <CustomText key={i}>• {s}</CustomText>
+                              ))
+                            : <CustomText>Aucun</CustomText>
+                        }
 
-                    {/* Bouton Logout affiché uniquement si connecté */}
-                    {isLoggedIn && (
                         <CustomButtonText
                             type="secondary"
                             onBackground={false}
                             withBackground={false}
                             withBorder={true}
-                            onPress={logout}
-                            buttonStyle={styles.button}
+                            onPress={onClose}
+                            buttonStyle={{marginTop: 20}}
                         >
-                            Logout
+                            Fermer
                         </CustomButtonText>
-                    )}
+                    </ScrollView>
                 </View>
             </View>
         </Modal>
     );
 };
 
-export default CustomModal;
+export default PermanenceDetailModal;
