@@ -3,7 +3,6 @@ package fr.rezo.backend.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.StringJoiner;
 import java.util.UUID;
 
@@ -32,9 +31,6 @@ public class Users {
 
     @Column(name = "membre_genre", nullable = false)
     private String genre;
-
-    @OneToMany(mappedBy = "user")
-    private List<Inscription> inscriptions;
 
     @Column(name = "user_token")
     private String token;
@@ -136,14 +132,6 @@ public class Users {
 
     public void setDateInscription(LocalDateTime dateInscription) {
         this.dateInscription = dateInscription;
-    }
-
-    public List<Inscription> getInscriptions() {
-        return this.inscriptions;
-    }
-
-    public void setInscriptions(List<Inscription> inscriptions) {
-        this.inscriptions = inscriptions;
     }
 
     public String getGenre() {

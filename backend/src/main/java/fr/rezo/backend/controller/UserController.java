@@ -1,13 +1,13 @@
 package fr.rezo.backend.controller;
 
 import fr.rezo.backend.model.Users;
-import fr.rezo.backend.repository.UserRepository;
 import fr.rezo.backend.service.UserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+
+import static fr.rezo.backend.controller.ResponseBuilder.buildResponse;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -15,11 +15,9 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
-    private final UserRepository userRepository;
 
-    public UserController(UserService userService, UserRepository userRepository) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
     }
 
     @GetMapping("/users")
@@ -74,19 +72,5 @@ public class UserController {
         return buildResponse(response);
     }
 
-    //---- RESPONSE BUILDER ----\\
 
-    private ResponseEntity<Map<String, Object>> buildResponse(Map<String, Object> response) {
-        String message = (String) response.get("message");
-
-        if (message != null && message.toLowerCase().contains("not found")) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        } else if (message != null && message.toLowerCase().contains("already exists")) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
-        } else if (message != null && message.toLowerCase().contains("no matching")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
-        }
-
-        return ResponseEntity.ok(response);
-    }
 }

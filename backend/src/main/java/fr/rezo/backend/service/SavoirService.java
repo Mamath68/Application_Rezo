@@ -32,6 +32,30 @@ public class SavoirService {
         return response;
     }
 
+    public Map<String, Object> getSavoirsByPermanences(Long permanenceId, String role) {
+        System.out.println("----- START | SavoirService : getSavoirsByPermanences -----");
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            ERole enumRole = ERole.valueOf(role.toUpperCase());
+            List<Savoirs> savoirs = savoirRepository.findByPermanences_IdAndRole(permanenceId, enumRole);
+
+            if (savoirs.isEmpty()) {
+                response.put("message", "Aucun savoir trouvé");
+                return response;
+            }
+
+            response.put("message", "Request was successful");
+            response.put("savoirs", savoirs);
+        } catch (IllegalArgumentException e) {
+            response.put("message", "Rôle invalide : " + role);
+        }
+
+        System.out.println("----- END | SavoirService : getSavoirsByPermanences -----");
+        return response;
+    }
+
+
     public Map<String, Object> createSavoirs(Savoirs savoirs) {
         System.out.println("----- START | UserService : create -----");
         System.out.println("Args: savoirs=" + savoirs);
@@ -39,7 +63,7 @@ public class SavoirService {
 
         Savoirs createdSavoir = new Savoirs();
         createdSavoir.setNom(savoirs.getNom());
-        createdSavoir.setRole(ERole.DEMANDES);
+        createdSavoir.setRole(ERole.DEMANDE);
         savoirRepository.save(createdSavoir);
         response.put("message", "Savoirs created successfully");
         response.put("savoirs", createdSavoir);
@@ -95,22 +119,6 @@ public class SavoirService {
         response.put("message", "Request was successful");
         response.put("savoirs", savoirs);
         System.out.println("----- END | SavoirService : getOneById -----");
-        return response;
-    }
-
-    public Map<String, Object> getOneUserByName(String name) {
-        System.out.println("----- START | SavoirService : getOneSavoirByName -----");
-        System.out.println("Args: savoirs name=" + name);
-        Map<String, Object> response = new HashMap<>();
-        Savoirs savoirs = savoirRepository.findByNomIgnoreCase(name).orElse(null);
-        if (savoirs == null) {
-            response.put("message", "No users found for this username");
-            return response;
-        }
-
-        response.put("message", "Request was successful");
-        response.put("savoirs", savoirs);
-        System.out.println("----- END | SavoirService : findByNomIgnoreCase -----");
         return response;
     }
 

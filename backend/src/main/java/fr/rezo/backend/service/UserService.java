@@ -19,9 +19,9 @@ public class UserService {
     }
 
     // Helper pour créer des réponses simples
-    private Map<String, Object> response(String key, Object value) {
+    private Map<String, Object> response(Object value) {
         Map<String, Object> response = new HashMap<>();
-        response.put(key, value);
+        response.put("message", value);
         return response;
     }
 
@@ -37,7 +37,7 @@ public class UserService {
 
         List<Users> users = userRepository.findAll();
         if (users.isEmpty()) {
-            return response("message", "No users found");
+            return response("No users found");
         }
 
         Map<String, Object> data = new HashMap<>();
@@ -53,7 +53,7 @@ public class UserService {
 
         Optional<Users> existingUser = userRepository.findOneUserByUsername(user.getUsername());
         if (existingUser.isPresent()) {
-            return response("message", "Users already exists");
+            return response("Users already exists");
         }
 
         Users createdUser = new Users();
@@ -115,13 +115,13 @@ public class UserService {
 
         Users user = userRepository.findById(id).orElse(null);
         if (user == null) {
-            return response("message", "Users not found");
+            return response("Users not found");
         }
 
         userRepository.delete(user);
 
         System.out.println("----- END | UserService : delete -----");
-        return response("message", "Users deleted successfully");
+        return response("Users deleted successfully");
     }
 
     //---- GET ----\\
@@ -132,7 +132,7 @@ public class UserService {
 
         Users user = userRepository.findById(id).orElse(null);
         if (user == null) {
-            return response("message", "Users not found");
+            return response("Users not found");
         }
 
         Map<String, Object> data = new HashMap<>();
@@ -148,7 +148,7 @@ public class UserService {
 
         Users user = userRepository.findOneUserByUsername(username).orElse(null);
         if (user == null) {
-            return response("message", "No users found for this username");
+            return response("No users found for this username");
         }
 
         Map<String, Object> data = new HashMap<>();
@@ -176,7 +176,7 @@ public class UserService {
 
         Optional<Users> existingUser = userRepository.findOneUserByUsername(user.getUsername());
         if (existingUser.isEmpty() || !passwordEncoder.matches(user.getPassword(), existingUser.get().getPassword())) {
-            return response("message", "No matching user");
+            return response("No matching user");
         }
 
         Map<String, Object> data = new HashMap<>();

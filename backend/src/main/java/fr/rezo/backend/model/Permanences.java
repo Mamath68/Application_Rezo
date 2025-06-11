@@ -29,9 +29,6 @@ public class Permanences {
     @Column(name = "nom_local")
     private String nomLocal;
 
-    @OneToMany(mappedBy = "permanence")
-    private List<Inscription> inscriptions;
-
     @ManyToMany
     @JoinTable(
             name = "savoirs_permanences",
@@ -93,14 +90,6 @@ public class Permanences {
 
     public void setPermanenceFin(LocalTime permanenceFin) {
         this.permanenceFin = permanenceFin;
-    }
-
-    public List<Inscription> getInscriptions() {
-        return this.inscriptions;
-    }
-
-    public void setInscriptions(List<Inscription> inscriptions) {
-        this.inscriptions = inscriptions;
     }
 
     public String getAddress() {

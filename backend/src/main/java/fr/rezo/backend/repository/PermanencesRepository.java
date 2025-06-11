@@ -10,6 +10,7 @@ import java.util.List;
 public interface PermanencesRepository extends JpaRepository<Permanences, Long> {
 
     List<Permanences> findByNomLocal(String nomLocal);
-List<Permanences> findAllByOrderByDateAscPermanenceDebut();
+
+    List<Permanences> findAllByOrderByDateAscPermanenceDebut();
 
 }

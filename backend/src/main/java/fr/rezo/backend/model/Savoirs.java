@@ -17,9 +17,6 @@ public class Savoirs {
     @Column(name = "role_savoir", nullable = false)
     private ERole role;
 
-    @OneToMany(mappedBy = "savoir")
-    private List<Inscription> inscriptions;
-
     @ManyToMany
     @JoinTable(
             name = "savoirs_permanences",
@@ -58,5 +55,13 @@ public class Savoirs {
 
     public void setRole(ERole role) {
         this.role = role;
+    }
+
+    public List<Permanences> getPermanences() {
+        return this.permanences;
+    }
+
+    public void setPermanences(List<Permanences> permanences) {
+        this.permanences = permanences;
     }
 }

@@ -12,19 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-//  @Bean
-//  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//    http
-//      .csrf(csrf -> csrf.disable())
-//      .authorizeHttpRequests((authz) -> authz
-//        .requestMatchers("/users", "/auth/**").permitAll() // Allow public access
-//        .anyRequest().authenticated() // Require authentication for all other endpoints
-//      )
-//      .httpBasic(withDefaults())
-//      .formLogin(withDefaults());
-//    return http.build();
-//  }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http

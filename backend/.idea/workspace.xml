@@ -7,7 +7,25 @@
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/InscriptionsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/PermanencesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/PermanencesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/ResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/ResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/ERole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/ERole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Inscription.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Permanences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/InscriptionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/PermanencesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/PermanencesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/SavoirRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/repository/SavoirRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/InscriptionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/SavoirService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/SavoirService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/utils/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/utils/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer-auth)/permanence.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer-auth)/permanence.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/CustomModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/CustomModal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +115,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;ToolWindow.Running Devices.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;com.android.tools.idea.streaming.zoom.toolbar.visible&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;v2&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -252,7 +271,13 @@
       <workItem from="1748953854885" duration="2719000" />
       <workItem from="1749021722903" duration="8097000" />
       <workItem from="1749106745022" duration="4208000" />
-      <workItem from="1749124114230" duration="4613000" />
+      <workItem from="1749124114230" duration="4666000" />
+      <workItem from="1749198743964" duration="1139000" />
+      <workItem from="1749210142019" duration="4446000" />
+      <workItem from="1749539930281" duration="2033000" />
+      <workItem from="1749626067305" duration="1580000" />
+      <workItem from="1749628542161" duration="5761000" />
+      <workItem from="1749645506459" duration="7047000" />
     </task>
     <servers />
   </component>
