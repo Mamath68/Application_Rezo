@@ -63,9 +63,9 @@ public class CommandLinner {
                     "2025-06-06", "2025-06-13", "2025-06-20", "2025-06-27"
             ), "10:00:00", "12:00:00", "rdc", "Sandrine", "+33625853376");
 
-            createSavoirsIfNotExist(savoirRepo, List.of("Informatique", "Patchwork", "Maquillage", "Tricot", "Couture", "Comptabilité", "Peinture", "Management", "Communication non verbale", "Beat Box", "Patisserie", "Cuisine", "Psychomotricité", "Gestion du Stress", "Echecs", "Création d'auto-entreprise", "Français Langue étrangère", "Arabe(débutant)", "Atelier d'écriture", "Français par la poésie", "Boxe", "Comportement Animal", "Crochet", "Cuisine Marocaine", "Cuisine africaine", "Cuisine kabyle", "Plantes", "Art thérapie"), "OFFRE");
+            createSavoirsIfNotExist(savoirRepo, List.of("Informatique", "Patchwork", "Maquillage", "Tricot", "Couture", "Comptabilité", "Peinture", "Management", "Communication non verbale", "Beat Box", "Patisserie", "Cuisine", "Psychomotricité", "Gestion du Stress", "Echecs", "Création d'auto-entreprise", "Français Langue étrangère", "Français", "Langue Arabe", "Atelier d'écriture", "Français par la poésie", "Boxe", "Comportement Animal", "Crochet", "Bricolage" ,"Cuisine Marocaine", "Cuisine africaine", "Cuisine kabyle", "Plantes", "Art thérapie", "Excel", "Football"), "OFFRE");
 
-            createSavoirsIfNotExist(savoirRepo, List.of("Allemand", "Arabe(débutant)","Dessin", "Anglais", "Informatique", "Mah-jong", "Jardinage", "Couture", "Mathématique", "Vidéos", "Confiance en soi", "Cuisine Indienne", "Prendre la parole à l'oral", "Comptabilité", "Crochet", "Chant", "Danse", "Français Langue étrangère", "Piano", "Site internet", "Tricot"), "DEMANDE");
+            createSavoirsIfNotExist(savoirRepo, List.of("Allemand", "Langue Arabe", "Bricolage", "Dessin", "Anglais", "Informatique", "Mah-jong", "Jardinage", "Couture (Découper un Patron)", "Vidéo", "Confiance en soi", "Cuisine Indienne", "Prendre la parole à l'oral", "Comptabilité", "Crochet", "Chant", "Danse", "Français", "Français Langue étrangère", "Remise à niveau en Mathématique", "Piano", "Site internet", "Tricot"), "DEMANDE");
         };
     }
 
