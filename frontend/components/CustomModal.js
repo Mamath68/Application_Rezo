@@ -32,7 +32,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                         {permanence.savoirsOfferts?.length > 0
                             ? permanence.savoirsOfferts.map((s, i) => (
                                 <CustomText key={i}>• {s}</CustomText>
-                              ))
+                            ))
                             : <CustomText>Aucun</CustomText>
                         }
 
@@ -40,7 +40,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                         {permanence.savoirsDemandes?.length > 0
                             ? permanence.savoirsDemandes.map((s, i) => (
                                 <CustomText key={i}>• {s}</CustomText>
-                              ))
+                            ))
                             : <CustomText>Aucun</CustomText>
                         }
 

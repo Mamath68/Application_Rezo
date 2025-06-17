@@ -33,6 +33,5 @@ export const loginUser = (userData) =>
     handleRequest(() => api.post('users/login', userData), 'User - loginUser');
 
 // Permanences
-
 export const getAllPermanences = () =>
     handleRequest(() => api.get('permanences'), 'Permanences - getAllPermanences');
