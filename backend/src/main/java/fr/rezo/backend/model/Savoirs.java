@@ -1,5 +1,6 @@
 package fr.rezo.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -57,6 +58,7 @@ public class Savoirs {
         this.role = role;
     }
 
+    @JsonIgnore
     public List<Permanences> getPermanences() {
         return this.permanences;
     }
