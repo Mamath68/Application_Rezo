@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/dto/PermanenceDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/dto/SavoirDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/model/Savoirs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/rezo/backend/service/PermanenceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +117,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -124,6 +127,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="fr.rezo.backend.dto" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fr.rezo.backend.service" />
       <recent name="fr.rezo.backend.model" />
@@ -267,12 +273,24 @@
       <workItem from="1749814505825" duration="5115000" />
       <workItem from="1749898071604" duration="981000" />
       <workItem from="1750144155091" duration="167000" />
-      <workItem from="1750144499540" duration="1156000" />
+      <workItem from="1750144499540" duration="4672000" />
+      <workItem from="1750163710281" duration="7149000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>

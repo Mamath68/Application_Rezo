@@ -1,4 +1,7 @@
 package fr.rezo.backend.dto;
 
-public class SavoirDto {
+public record SavoirDto(
+        String nom,
+        String role
+) {
 }

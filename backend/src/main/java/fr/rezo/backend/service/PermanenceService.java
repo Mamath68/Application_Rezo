@@ -1,5 +1,7 @@
 package fr.rezo.backend.service;
 
+import fr.rezo.backend.dto.PermanenceDto;
+import fr.rezo.backend.dto.SavoirDto;
 import fr.rezo.backend.model.Permanences;
 import fr.rezo.backend.repository.PermanencesRepository;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,9 @@ public class PermanenceService {
         this.permanenceRepository = permanenceRepository;
     }
 
-    private Map<String, Object> response(Object value) {
+    private Map<String, Object> response() {
         Map<String, Object> response = new HashMap<>();
-        response.put("message", value);
+        response.put("message", "Permanences not found");
         return response;
     }
 
@@ -28,18 +30,27 @@ public class PermanenceService {
     }
 
     public Map<String, Object> getAllPermanences() {
-        System.out.println("----- START | PermanenceService : getAll -----");
-
-        List<Permanences> permanences = permanenceRepository.findAllByOrderByDateAscPermanenceDebut();
-        if (permanences.isEmpty()) {
-            return response("No permanences found");
-        }
+        List<PermanenceDto> permanenceDtos = permanenceRepository.findAllByOrderByDateAscPermanenceDebut()
+                .stream()
+                .map(permanence -> new PermanenceDto(
+                        permanence.getAddress(),
+                        permanence.getNomLocal(),
+                        permanence.getShortLocal(),
+                        permanence.getContact(),
+                        permanence.getPhoneContact(),
+                        permanence.getDate().toString(),
+                        permanence.getPermanenceDebut().toString(),
+                        permanence.getPermanenceFin().toString(),
+                        permanence.getSavoirs().stream()
+                                .map(s -> new SavoirDto(s.getNom(), s.getRole().name()))
+                                .toList()
+                ))
+                .toList();
 
         Map<String, Object> data = new HashMap<>();
-        data.put("permanences", permanences);
-
-        System.out.println("----- END | PermanenceService : getAll -----");
-        return response(data);
+        data.put("message", "Request was successful");
+        data.put("permanences", permanenceDtos);
+        return data;
     }
 
     public Map<String, Object> getOneById(Long id) {
@@ -48,7 +59,7 @@ public class PermanenceService {
 
         Permanences permanence = permanenceRepository.findById(id).orElse(null);
         if (permanence == null) {
-            return response("Permanences not found");
+            return response();
         }
 
         Map<String, Object> data = new HashMap<>();
