@@ -6,15 +6,21 @@ import {getAllPermanences} from "../../utils";
 import {Alert, KeyboardAvoidingView, Linking, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
 import 'dayjs/locale/fr'
+import PermanenceDetailModal from "../../components/CustomModal";
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
     const [isLoading, setLoading] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState(null);
     const {theme} = useTheme();
 
     const getViewBackgroundColorStyle = theme === 'dark'
         ? Theme.backgroundColorDark
         : Theme.backgroundColorLight;
+    const getBorderColorStyle = theme === 'dark'
+        ? styles.borderColorLight
+        : styles.borderColorDark;
 
     const formatHour = (date) => {
         return date.toLocaleTimeString('fr-FR', {
@@ -75,6 +81,7 @@ export default function Permanence() {
 
     const events = assignColors(rawEvents);
 
+
     return (
         <SafeAreaView style={styles.containerContent}>
             <KeyboardAvoidingView
@@ -88,40 +95,32 @@ export default function Permanence() {
 
                     <Calendar
                         events={events}
-                        mode="3days"
+                        mode="week"
                         locale="fr"
                         weekStartsOn={1}
                         weekEndsOn={6}
                         swipeEnabled={true}
-                        overlapOffset={40}
+                        overlapOffset={15}
                         height={650}
                         eventCellStyle={(event) => ({
                             backgroundColor: event.color,
                             borderRadius: 10,
                             padding: 5,
-                            width: 60
                         })}
+                        calendarCellStyle={getBorderColorStyle}
                         showWeekNumber={true}
                         showTime={false}
                         showAdjacentMonths={true}
-                        calendarCellTextStyle={{flexWrap: "wrap"}}
                         onPressEvent={(event) => {
-                            Alert.alert(
-                                event.local,
-                                `Adresse : ${event.address}\nDébut : ${formatHour(event.start)}\nFin : ${formatHour(event.end)}`,
-                                [
-                                    {
-                                        text: `📞 Appeler ${event.contact}`,
-                                        onPress: () => {
-                                            const tel = event.phoneNumber;
-                                            Linking.openURL(`tel:${tel}`);
-                                        },
-                                    },
-                                    {text: "Fermer", style: "cancel"},
-                                ]
-                            );
+                            setSelectedEvent(event);
+                            setModalVisible(true);
                         }}
 
+                    />
+                    <PermanenceDetailModal
+                        visible={modalVisible}
+                        onClose={() => setModalVisible(false)}
+                        permanence={selectedEvent}
                     />
                 </CustomView>
             </KeyboardAvoidingView>
