@@ -69,16 +69,22 @@ export default function Permanence() {
         return dateA - dateB;
     });
 
-    const rawEvents = sortedPermanences.map((p) => ({
-        title: `${p.shortLocal}`,
-        local: `${p.nomLocal}`,
-        address: `${p.address}`,
-        start: new Date(`${p.date}T${p.permanenceDebut}`),
-        end: new Date(`${p.date}T${p.permanenceFin}`),
-        contact: p.contact,
-        phoneNumber: p.phoneContact,
-    }));
+    const rawEvents = sortedPermanences.map((p) => {
+        const savoirsOffres = p.savoirs?.filter(s => s.role === 'OFFRE') ?? [];
+        const savoirsDemandes = p.savoirs?.filter(s => s.role === 'DEMANDE') ?? [];
 
+        return {
+            title: `${p.shortLocal}`,
+            local: `${p.nomLocal}`,
+            address: `${p.address}`,
+            start: new Date(`${p.date}T${p.permanenceDebut}`),
+            end: new Date(`${p.date}T${p.permanenceFin}`),
+            contact: p.contact,
+            phoneNumber: p.phoneContact,
+            offres: savoirsOffres,
+            demandes: savoirsDemandes,
+        };
+    });
     const events = assignColors(rawEvents);
 
 

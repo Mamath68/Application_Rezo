@@ -1,4 +1,4 @@
-import {Modal, View, ScrollView} from "react-native";
+import {Modal, View, ScrollView, Linking} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
@@ -28,22 +28,37 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                         <CustomText>🕒 Début : {formatHour(permanence.start)}</CustomText>
                         <CustomText>🕓 Fin : {formatHour(permanence.end)}</CustomText>
 
-                        <CustomText style={{marginTop: 12, fontWeight: 'bold'}}>🎁 Savoirs Offerts :</CustomText>
-                        {permanence.savoirsOfferts?.length > 0
-                            ? permanence.savoirsOfferts.map((s, i) => (
-                                <CustomText key={i}>• {s}</CustomText>
+                        <CustomText level="h4">Offres :</CustomText>
+                        {permanence?.offres?.length > 0 ? (
+                            permanence.offres.map((savoir, idx) => (
+                                <CustomText key={idx}>• {savoir.nom}</CustomText>
                             ))
-                            : <CustomText>Aucun</CustomText>
-                        }
+                        ) : (
+                            <CustomText style={{fontStyle: 'italic'}}>Aucune offre</CustomText>
+                        )}
 
-                        <CustomText style={{marginTop: 12, fontWeight: 'bold'}}>🙋 Savoirs Demandés :</CustomText>
-                        {permanence.savoirsDemandes?.length > 0
-                            ? permanence.savoirsDemandes.map((s, i) => (
-                                <CustomText key={i}>• {s}</CustomText>
+                        <CustomText level="h4" style={{marginTop: 10}}>Demandes :</CustomText>
+                        {permanence?.demandes?.length > 0 ? (
+                            permanence.demandes.map((savoir, idx) => (
+                                <CustomText key={idx}>• {savoir.nom}</CustomText>
                             ))
-                            : <CustomText>Aucun</CustomText>
-                        }
+                        ) : (
+                            <CustomText style={{fontStyle: 'italic'}}>Aucune demande</CustomText>
+                        )}
 
+                        <CustomButtonText
+                            type="secondary"
+                            onBackground={false}
+                            withBackground={false}
+                            withBorder={true}
+                            buttonStyle={{marginTop: 20}}
+                            onPress={async () => {
+                                const tel = permanence.phoneNumber || "0123456789"; // <-- adapte ici selon ta structure
+                                await Linking.openURL(`tel:${tel}`);
+                            }}
+                        >
+                            📞 Contacter {permanence.contact}
+                        </CustomButtonText>
                         <CustomButtonText
                             type="secondary"
                             onBackground={false}

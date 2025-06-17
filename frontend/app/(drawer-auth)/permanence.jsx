@@ -63,22 +63,23 @@ export default function Permanence() {
         }));
     };
 
-    const sortedPermanences = [...permanences].sort((a, b) => {
-        const dateA = new Date(`${a.date}T${a.permanenceDebut}`);
-        const dateB = new Date(`${b.date}T${b.permanenceDebut}`);
-        return dateA - dateB;
+    const rawEvents = permanences.map((p) => {
+        const savoirsOffres = p.savoirs?.filter(s => s.role === 'OFFRE') ?? [];
+        const savoirsDemandes = p.savoirs?.filter(s => s.role === 'DEMANDE') ?? [];
+
+        return {
+            title: `${p.shortLocal.toUpperCase()}`,
+            local: `${p.nomLocal}`,
+            address: `${p.address}`,
+            start: new Date(`${p.date}T${p.permanenceDebut}`),
+            end: new Date(`${p.date}T${p.permanenceFin}`),
+            contact: p.contact,
+            phoneNumber: p.phoneContact,
+            offres: savoirsOffres,
+            demandes: savoirsDemandes,
+        };
+
     });
-
-    const rawEvents = sortedPermanences.map((p) => ({
-        title: `${p.shortLocal}`,
-        local: `${p.nomLocal}`,
-        address: `${p.address}`,
-        start: new Date(`${p.date}T${p.permanenceDebut}`),
-        end: new Date(`${p.date}T${p.permanenceFin}`),
-        contact: p.contact,
-        phoneNumber: p.phoneContact,
-    }));
-
     const events = assignColors(rawEvents);
 
 
@@ -104,8 +105,9 @@ export default function Permanence() {
                         height={650}
                         eventCellStyle={(event) => ({
                             backgroundColor: event.color,
-                            borderRadius: 10,
-                            padding: 5,
+                            borderRadius: 5,
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         })}
                         calendarCellStyle={getBorderColorStyle}
                         showWeekNumber={true}
