@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer)/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/_layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/ProgressBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +273,7 @@
       <workItem from="1750144155091" duration="167000" />
       <workItem from="1750144499540" duration="4672000" />
       <workItem from="1750163710281" duration="7648000" />
-      <workItem from="1750230530827" duration="2324000" />
+      <workItem from="1750230530827" duration="3138000" />
     </task>
     <servers />
   </component>

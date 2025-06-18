@@ -21,7 +21,7 @@ public class CommandLinner {
     private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     @Bean
-    public CommandLineRunner initData(UserRepository userRepo, PermanencesRepository permRepo, SavoirRepository savoirRepo) {
+    public CommandLineRunner initData(PermanencesRepository permRepo, SavoirRepository savoirRepo) {
         return _ -> {
 
             createPermanencesIfNotExist(permRepo, "88 Briand", "88 avenue Briand", List.of(
