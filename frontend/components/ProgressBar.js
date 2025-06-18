@@ -19,7 +19,7 @@ const ProgressBar = () => {
         Animated.timing(progress, {
             toValue: 1,
             duration: 3000,
-            useNativeDriver: false, // Ne supporte pas la largeur, donc `false`
+            useNativeDriver: false,
         }).start();
 
         // Écouteur pour suivre la progression

@@ -1,10 +1,5 @@
 import {CustomText, CustomView} from "../../components";
-import {HomeScreenStyles as styles, Theme} from "../../theme";
-import {Calendar} from "react-native-big-calendar";
-import {useState, useEffect} from "react";
-import {getAllPermanences} from "../../utils";
-import {useTheme} from "../../context/ThemeProvider";
-
+import {Theme} from "../../theme";
 
 export default function Home() {
 

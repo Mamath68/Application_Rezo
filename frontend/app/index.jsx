@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {Theme} from "../theme";
 import {useTheme} from '../context/ThemeProvider';
 
+
 import {checkAuthentication} from "../utils";
 import {CustomIcon, CustomText, CustomView, ProgressBar} from '../components';
 

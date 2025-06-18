@@ -5,16 +5,16 @@ import {ThemeProvider, useTheme} from '../context/ThemeProvider';
 
 const Layout = () => {
     return (
-        <ThemeProvider>
-            <AppContent/>
-        </ThemeProvider>
+            <ThemeProvider>
+                <AppContent/>
+            </ThemeProvider>
     );
 };
 
 const AppContent = () => {
     const {fontsLoaded} = useTheme();
 
-    if (!fontsLoaded) return null; // ou écran de chargement
+    if (!fontsLoaded) return null;
 
     return (
         <>

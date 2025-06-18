@@ -82,6 +82,7 @@ export default function Permanence() {
     });
     const events = assignColors(rawEvents);
 
+
     return (
         <SafeAreaView style={styles.containerContent}>
             <KeyboardAvoidingView
