@@ -3,15 +3,11 @@ package fr.rezo.backend;
 import fr.rezo.backend.model.ERole;
 import fr.rezo.backend.model.Permanences;
 import fr.rezo.backend.model.Savoirs;
-import fr.rezo.backend.model.Users;
 import fr.rezo.backend.repository.PermanencesRepository;
 import fr.rezo.backend.repository.SavoirRepository;
-import fr.rezo.backend.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,15 +23,6 @@ public class CommandLinner {
     @Bean
     public CommandLineRunner initData(UserRepository userRepo, PermanencesRepository permRepo, SavoirRepository savoirRepo) {
         return _ -> {
-            PasswordEncoder encoder = new BCryptPasswordEncoder();
-
-            createUserIfNotExists(userRepo, "administrateur", new Users(
-                    "Admin", "User", "administrateur", "mathieu.stamm@gmail.com",
-                    "Admmin@68200", "Ils/Elles/Eux", "0102030405"), encoder);
-
-            createUserIfNotExists(userRepo, "test", new Users(
-                    "", "", "test", "mamath68200@gmail.com",
-                    "Teutin@181166", "Il/Lui", "0203040506"), encoder);
 
             createPermanencesIfNotExist(permRepo, "88 Briand", "88 avenue Briand", List.of(
                     "2025-06-03", "2025-06-10", "2025-06-17", "2025-06-24"
@@ -67,17 +54,6 @@ public class CommandLinner {
 
             createSavoirsIfNotExist(savoirRepo, List.of("Allemand", "Arabe", "Dessin", "Anglais", "Jardinage", "Cuisine Indienne", "Créer son auto-entreprise", "Prendre la parole à l'oral", "Danse", "Piano", "Site internet", "Tricot"), "DEMANDE");
         };
-    }
-
-    private void createUserIfNotExists(UserRepository repo, String username, Users user, PasswordEncoder encoder) {
-        if (repo.findByUsername(username).isEmpty()) {
-            user.setPassword(encoder.encode(user.getPassword()));
-            user.setDateInscription(LocalDate.now().atStartOfDay());
-            repo.save(user);
-            System.out.printf("✅ Utilisateur %s créé !%n", username);
-        } else {
-            System.out.printf("ℹ️ L'utilisateur %s existe déjà.%n", username);
-        }
     }
 
     private void createSavoirsIfNotExist(SavoirRepository repo, List<String> noms, String role) {
