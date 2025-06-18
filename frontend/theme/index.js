@@ -1,6 +1,4 @@
 export {default as HomeScreenStyles} from './HomeScreenStyles';
-export {default as LoginScreenStyles} from './LoginScreenStyles';
-export {default as RegisterScreenStyles} from './RegisterScreenStyles';
 export {default as PermanenceScreenStyles} from './PermanenceScreenStyles';
 export {default as HeaderStyles} from './HeaderStyles';
 export {default as ModalStyles} from './ModalStyles';
@@ -8,6 +6,5 @@ export {default as IconStyles} from './IconStyles';
 export {default as TextStyles} from './TextStyles';
 export {default as Theme} from './Theme';
 export {default as ButtonStyles} from './ButtonStyles';
-export {default as InputStyles} from './InputStyles';
 export {default as ProgressBarStyles} from './ProgressBarStyles';
 export {default as SettingsModalStyles} from './SettingsModalStyles';

@@ -12,11 +12,11 @@ export const checkAuthentication = async () => {
         // Utilisation d'un timeout simulant un splash/loading
         setTimeout(() => {
             const isAuthenticated = Boolean(user);
-            const targetRoute = isAuthenticated ? '/(drawer-auth)' : '/(drawer-guest)';
+            const targetRoute = isAuthenticated ? '/(drawer)' : '/(drawer)';
             router.replace(targetRoute);
         }, 3500);
     } catch (error) {
         console.error("Auth Check Error:", error);
-        router.replace('/(drawer-guest)');
+        router.replace('/(drawer)');
     }
 };

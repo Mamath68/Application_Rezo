@@ -2,7 +2,6 @@ export {default as CustomButton} from './CustomButton';
 export {default as CustomButtonIcon} from './CustomButtonIcon';
 export {default as CustomButtonText} from './CustomButtonText';
 export {default as CustomIcon} from './CustomIcon';
-export {default as CustomInput} from './CustomInput';
 export {default as CustomText} from './CustomText';
 export {default as Header} from './Header';
 export {default as ProgressBar} from './ProgressBar';

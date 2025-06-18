@@ -4,7 +4,6 @@ import {useTheme} from "../context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
 import {SettingsModalStyles as styles, Theme} from "../theme";
-import {logoutUser} from "../utils";
 import {useRouter} from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect, useState} from "react";
@@ -12,32 +11,6 @@ import {useEffect, useState} from "react";
 const SettingsModal = ({visible, onClose}) => {
     const {theme, toggleTheme} = useTheme();
     const router = useRouter();
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    useEffect(() => {
-        const checkUser = async () => {
-            try {
-                const storedUser = await AsyncStorage.getItem('user');
-                setIsLoggedIn(!!storedUser); // true si user existe, sinon false
-            } catch (e) {
-                console.error("Erreur lors de la vérification de l'utilisateur :", e);
-            }
-        };
-
-        if (visible) checkUser(); // Ne le fait que si le modal est affiché
-    }, [visible]);
-
-    const logout = async () => {
-        try {
-            await logoutUser();
-            await AsyncStorage.removeItem('user');
-            setIsLoggedIn(false);
-            router.replace('/(drawer-guest)');
-        } catch (error) {
-            console.error('Erreur lors du logout', error);
-        }
-    };
 
     return (
         <Modal transparent visible={visible} animationType="slide">
@@ -83,20 +56,6 @@ const SettingsModal = ({visible, onClose}) => {
                     >
                         Close
                     </CustomButtonText>
-
-                    {/* Bouton Logout affiché uniquement si connecté */}
-                    {isLoggedIn && (
-                        <CustomButtonText
-                            type="secondary"
-                            onBackground={false}
-                            withBackground={false}
-                            withBorder={true}
-                            onPress={logout}
-                            buttonStyle={styles.button}
-                        >
-                            Logout
-                        </CustomButtonText>
-                    )}
                 </View>
             </View>
         </Modal>
