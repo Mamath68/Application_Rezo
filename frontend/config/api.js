@@ -8,6 +8,6 @@ const IPs = {
     rdc: "192.168.103.33"
 };
 
-const ACTIVE_ENV = "briand";
+const ACTIVE_ENV = "bourtz";
 
 export const CONFIG_API_BASE_URL_IP = `http://${IPs[ACTIVE_ENV]}:8080`;

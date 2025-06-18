@@ -3,14 +3,14 @@ import {PermanenceScreenStyles as styles, Theme} from "../../theme";
 import {Calendar} from "react-native-big-calendar";
 import {useState, useEffect} from "react";
 import {getAllPermanences} from "../../utils";
-import {Alert, KeyboardAvoidingView, Linking, Platform, SafeAreaView} from "react-native";
+import {KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
 import 'dayjs/locale/fr'
 import PermanenceDetailModal from "../../components/CustomModal";
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
-    const [isLoading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const {theme} = useTheme();
@@ -81,7 +81,6 @@ export default function Permanence() {
 
     });
     const events = assignColors(rawEvents);
-
 
     return (
         <SafeAreaView style={styles.containerContent}>

@@ -3,14 +3,14 @@ import {PermanenceScreenStyles as styles, Theme} from "../../theme";
 import {Calendar} from "react-native-big-calendar";
 import {useState, useEffect} from "react";
 import {getAllPermanences} from "../../utils";
-import {Alert, KeyboardAvoidingView, Linking, Platform, SafeAreaView} from "react-native";
+import {KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
 import 'dayjs/locale/fr'
 import PermanenceDetailModal from "../../components/CustomModal";
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
-    const [isLoading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const {theme} = useTheme();
@@ -63,18 +63,12 @@ export default function Permanence() {
         }));
     };
 
-    const sortedPermanences = [...permanences].sort((a, b) => {
-        const dateA = new Date(`${a.date}T${a.permanenceDebut}`);
-        const dateB = new Date(`${b.date}T${b.permanenceDebut}`);
-        return dateA - dateB;
-    });
-
-    const rawEvents = sortedPermanences.map((p) => {
+    const rawEvents = permanences.map((p) => {
         const savoirsOffres = p.savoirs?.filter(s => s.role === 'OFFRE') ?? [];
         const savoirsDemandes = p.savoirs?.filter(s => s.role === 'DEMANDE') ?? [];
 
         return {
-            title: `${p.shortLocal}`,
+            title: `${p.shortLocal.toUpperCase()}`,
             local: `${p.nomLocal}`,
             address: `${p.address}`,
             start: new Date(`${p.date}T${p.permanenceDebut}`),
@@ -84,9 +78,9 @@ export default function Permanence() {
             offres: savoirsOffres,
             demandes: savoirsDemandes,
         };
+
     });
     const events = assignColors(rawEvents);
-
 
     return (
         <SafeAreaView style={styles.containerContent}>
@@ -110,8 +104,9 @@ export default function Permanence() {
                         height={650}
                         eventCellStyle={(event) => ({
                             backgroundColor: event.color,
-                            borderRadius: 10,
-                            padding: 5,
+                            borderRadius: 5,
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         })}
                         calendarCellStyle={getBorderColorStyle}
                         showWeekNumber={true}

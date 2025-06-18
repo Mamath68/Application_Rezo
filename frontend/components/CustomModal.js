@@ -2,7 +2,10 @@ import {Modal, View, ScrollView, Linking} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
+import {FontAwesome} from '@expo/vector-icons';
 import {Theme} from "../theme";
+import CustomView from "./CustomView";
+import CustomButton from "./CustomButton";
 
 const PermanenceDetailModal = ({visible, onClose, permanence}) => {
     const {theme} = useTheme();
@@ -23,12 +26,27 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                         <CustomText level="h2" style={{textAlign: 'center', marginBottom: 10}}>
                             {permanence.local}
                         </CustomText>
+                        <CustomView style={{flexDirection: "row"}}>
+                            <FontAwesome name="map-pin" size={20} color="red"/>
+                            <CustomText style={{marginBottom: 4, marginLeft: 5}}>
+                               <CustomText style={Theme.Montserrat}>Adresse :</CustomText> {permanence.address}
+                            </CustomText>
+                        </CustomView>
+                        <CustomView style={{flexDirection: "row"}}>
+                            <FontAwesome name="clock-o" size={20} color="#007AFF"/>
+                            <CustomText style={{marginBottom: 4, marginLeft: 5}}>
+                                <CustomText style={Theme.Montserrat}>Début :</CustomText> {formatHour(permanence.start)}
+                            </CustomText>
+                        </CustomView>
+                        <CustomView style={{flexDirection: "row"}}>
+                            <FontAwesome name="clock-o" size={20} color="#007AFF"/>
+                            <CustomText style={{marginBottom: 4, marginLeft: 5}}>
+                                <CustomText style={Theme.Montserrat}>Fin :</CustomText> {formatHour(permanence.end)}
+                            </CustomText>
+                        </CustomView>
 
-                        <CustomText style={{marginBottom: 4}}>📍 Adresse : {permanence.address}</CustomText>
-                        <CustomText>🕒 Début : {formatHour(permanence.start)}</CustomText>
-                        <CustomText>🕓 Fin : {formatHour(permanence.end)}</CustomText>
 
-                        <CustomText level="h4">Offres :</CustomText>
+                        <CustomText level="h4" style={Theme.Montserrat}>Offres :</CustomText>
                         {permanence?.offres?.length > 0 ? (
                             permanence.offres.map((savoir, idx) => (
                                 <CustomText key={idx}>• {savoir.nom}</CustomText>
@@ -37,7 +55,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                             <CustomText style={{fontStyle: 'italic'}}>Aucune offre</CustomText>
                         )}
 
-                        <CustomText level="h4" style={{marginTop: 10}}>Demandes :</CustomText>
+                        <CustomText level="h4" style={[{marginTop: 10}, Theme.Montserrat]}>Demandes :</CustomText>
                         {permanence?.demandes?.length > 0 ? (
                             permanence.demandes.map((savoir, idx) => (
                                 <CustomText key={idx}>• {savoir.nom}</CustomText>
@@ -53,11 +71,16 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                             withBorder={true}
                             buttonStyle={{marginTop: 20}}
                             onPress={async () => {
-                                const tel = permanence.phoneNumber || "0123456789"; // <-- adapte ici selon ta structure
+                                const tel = permanence.phoneNumber || "+33669142804"; // <-- adapte ici selon ta structure
                                 await Linking.openURL(`tel:${tel}`);
                             }}
                         >
-                            📞 Contacter {permanence.contact}
+                            <CustomView style={{flexDirection: "row"}}>
+                                <FontAwesome name="phone" size={20} color="red"/>
+                                <CustomText style={{marginLeft: 5}}>
+                                    Contacter {permanence.contact}
+                                </CustomText>
+                            </CustomView>
                         </CustomButtonText>
                         <CustomButtonText
                             type="secondary"

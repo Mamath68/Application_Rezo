@@ -1,18 +1,19 @@
 import CustomButton from './CustomButton';
 import CustomText from "./CustomText";
+import React from "react";
+import {isValidElement} from "react";
 
 const CustomButtonText = ({
-                              type = 'primary',
-                              onBackground = true,
-                              withBackground = true,
-                              withBorder = true,
-                              children,
-                              onPress = () => {
-                              },
-                              textStyle,
-                              buttonStyle,
-                              disabled = false,
-                          }) => {
+    type = 'primary',
+    onBackground = true,
+    withBackground = true,
+    withBorder = true,
+    children,
+    onPress = () => {},
+    textStyle,
+    buttonStyle,
+    disabled = false,
+}) => {
     return (
         <CustomButton
             type={type}
@@ -23,7 +24,12 @@ const CustomButtonText = ({
             style={buttonStyle}
             disabled={disabled}
         >
-            <CustomText level='p' style={textStyle}>{children}</CustomText>
+            {
+                // Si le contenu est un élément React (ex: <View><Icon /><Text /></View>)
+                isValidElement(children)
+                    ? children
+                    : <CustomText level='p' style={textStyle}>{children}</CustomText>
+            }
         </CustomButton>
     );
 };
