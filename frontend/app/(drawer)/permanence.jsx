@@ -6,6 +6,7 @@ import {getAllPermanences} from "../../utils";
 import {KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
 import 'dayjs/locale/fr'
+import 'dayjs/locale/de'
 import PermanenceDetailModal from "../../components/CustomModal";
 
 export default function Permanence() {
@@ -21,6 +22,9 @@ export default function Permanence() {
     const getBorderColorStyle = theme === 'dark'
         ? styles.borderColorLight
         : styles.borderColorDark;
+    const getColorStyle = theme === 'dark'
+        ? Theme.textDark
+        : Theme.textLight;
 
     const formatHour = (date) => {
         return date.toLocaleTimeString('fr-FR', {

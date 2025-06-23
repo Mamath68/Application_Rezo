@@ -19,7 +19,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
     if (!permanence) return null;
 
     return (
-        <Modal transparent visible={visible} animationType="slide">
+        <Modal transparent visible={visible} animationType="fade" >
             <View style={{flex: 1, justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: 20}}>
                 <View style={[{backgroundColor: '#fff', borderRadius: 12, padding: 20}, getThemeBackground]}>
                     <ScrollView showsVerticalScrollIndicator={false}>
