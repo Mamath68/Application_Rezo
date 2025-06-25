@@ -6,9 +6,10 @@ const IPs = {
     briand: "192.168.0.19",
     boat: "10.202.72.29",
     rdc: "192.168.103.33",
-    serfa: "10.31.252.240"
+    serfa: "10.31.252.240",
+    bibgr: "192.168.170.33",
 };
 
-const ACTIVE_ENV = "bourtz";
+const ACTIVE_ENV = "bibgr";
 
 export const CONFIG_API_BASE_URL_IP = `http://${IPs[ACTIVE_ENV]}:8080`;

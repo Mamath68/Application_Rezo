@@ -1,10 +1,5 @@
 import {Dimensions, StyleSheet, Platform, StatusBar} from "react-native";
 
-const topInset = Platform.select({
-    android: StatusBar.currentHeight || 35,
-    ios: 0,
-    default: 0
-});
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
@@ -12,9 +7,9 @@ const HeaderStyles = StyleSheet.create({
     container: {
         alignItems: "center",
         flexDirection: "row",
-        height: Math.min(60, height * 0.1),
+        height: 60,
         justifyContent: "space-between",
-        top: topInset,
+        paddingHorizontal: 15,
         width: "100%",
     },
     image: {
