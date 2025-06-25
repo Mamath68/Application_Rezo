@@ -13,10 +13,9 @@ const Header = ({ title }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     // Ajout du padding conditionnel pour Android
-    const paddingTop = Platform.OS === "android" ? (StatusBar.currentHeight || 35) : 0;
 
     return (
-        <SafeAreaView style={{ paddingTop }}>
+        <SafeAreaView>
             <CustomView style={styles.container}>
                 <CustomButtonIcon
                     type="primary"
