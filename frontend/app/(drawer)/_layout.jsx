@@ -25,6 +25,7 @@ export default function GuestDrawerLayout() {
             }}
         >
             <Drawer.Screen name="index" options={{title: "Accueil"}}/>
+            <Drawer.Screen name="about" options={{title: "À Propos"}}/>
             <Drawer.Screen name="permanence" options={{title: "Les Permanences"}}/>
         </Drawer>
     );

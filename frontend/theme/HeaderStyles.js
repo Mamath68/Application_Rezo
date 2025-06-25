@@ -1,6 +1,11 @@
-import {Dimensions, StyleSheet} from "react-native";
+import {Dimensions, StyleSheet, Platform, StatusBar} from "react-native";
 
-const width= Dimensions.get('window').width;
+const topInset = Platform.select({
+    android: StatusBar.currentHeight || 35,
+    ios: 0,
+    default: 0
+});
+const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
 const HeaderStyles = StyleSheet.create({
@@ -9,12 +14,8 @@ const HeaderStyles = StyleSheet.create({
         flexDirection: "row",
         height: Math.min(60, height * 0.1),
         justifyContent: "space-between",
-        left: 0,
-        paddingHorizontal: 15,
-        position: "absolute",
-        top: 0,
+        top: topInset,
         width: "100%",
-        zIndex: 10,
     },
     image: {
         height: "100%",

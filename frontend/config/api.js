@@ -9,6 +9,6 @@ const IPs = {
     serfa: "10.31.252.240"
 };
 
-const ACTIVE_ENV = "serfa";
+const ACTIVE_ENV = "bourtz";
 
 export const CONFIG_API_BASE_URL_IP = `http://${IPs[ACTIVE_ENV]}:8080`;

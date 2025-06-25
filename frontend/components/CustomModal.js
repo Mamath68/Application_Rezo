@@ -20,8 +20,8 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
 
     return (
         <Modal transparent visible={visible} animationType="fade" >
-            <View style={{flex: 1, justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: 20}}>
-                <View style={[{backgroundColor: '#fff', borderRadius: 12, padding: 20}, getThemeBackground]}>
+            <CustomView style={{flex: 1, justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: 20}}>
+                <CustomView style={[{backgroundColor: '#fff', borderRadius: 12, padding: 20}, getThemeBackground]}>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <CustomText level="h2" style={{textAlign: 'center', marginBottom: 10}}>
                             {permanence.local}
@@ -93,8 +93,8 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                             Fermer
                         </CustomButtonText>
                     </ScrollView>
-                </View>
-            </View>
+                </CustomView>
+            </CustomView>
         </Modal>
     );
 };
