@@ -3,6 +3,7 @@ export {default as CustomButtonIcon} from './CustomButtonIcon';
 export {default as CustomButtonText} from './CustomButtonText';
 export {default as CustomIcon} from './CustomIcon';
 export {default as CustomText} from './CustomText';
+export {default as CustomTextCenter} from './CustomTextCenter';
 export {default as Header} from './Header';
 export {default as ProgressBar} from './ProgressBar';
 export {default as SettingsModal} from './SettingsModal';

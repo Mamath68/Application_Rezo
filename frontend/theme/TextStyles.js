@@ -42,19 +42,7 @@ const TextStyles = StyleSheet.create({
         lineHeight: 24,
         fontWeight: "400",
         color: "#555",
-    },
-    note: {
-        fontSize: 14,
-        lineHeight: 18,
-        fontStyle: "italic",
-        color: "#888",
-    },
-    description: {
-        fontSize: 14,
-        lineHeight: 20,
-        color: "#666",
-        fontWeight: "300",
-    },
+    }
 });
 
 export default TextStyles;

@@ -8,6 +8,7 @@ import {useTheme} from "../../context/ThemeProvider";
 import 'dayjs/locale/fr'
 import 'dayjs/locale/de'
 import PermanenceDetailModal from "../../components/CustomModal";
+import React from "react";
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
@@ -121,7 +122,6 @@ export default function Permanence() {
                             setSelectedEvent(event);
                             setModalVisible(true);
                         }}
-
                     />
                     <PermanenceDetailModal
                         visible={modalVisible}

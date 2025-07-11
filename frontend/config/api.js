@@ -10,6 +10,6 @@ const IPs = {
     bibgr: "192.168.170.33",
 };
 
-const ACTIVE_ENV = "bibgr";
+const ACTIVE_ENV = "serfa";
 
 export const CONFIG_API_BASE_URL_IP = `http://${IPs[ACTIVE_ENV]}:8080`;

@@ -19,7 +19,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
     if (!permanence) return null;
 
     return (
-        <Modal transparent visible={visible} animationType="fade" >
+        <Modal transparent visible={visible} animationType="fade">
             <CustomView style={{flex: 1, justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: 20}}>
                 <CustomView style={[{backgroundColor: '#fff', borderRadius: 12, padding: 20}, getThemeBackground]}>
                     <ScrollView showsVerticalScrollIndicator={false}>
@@ -29,7 +29,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                         <CustomView style={{flexDirection: "row"}}>
                             <FontAwesome name="map-pin" size={20} color="red"/>
                             <CustomText style={{marginBottom: 4, marginLeft: 5}}>
-                               <CustomText style={Theme.Montserrat}>Adresse :</CustomText> {permanence.address}
+                                <CustomText style={Theme.Montserrat}>Adresse :</CustomText> {permanence.address}
                             </CustomText>
                         </CustomView>
                         <CustomView style={{flexDirection: "row"}}>
@@ -71,7 +71,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                             withBorder={true}
                             buttonStyle={{marginTop: 20}}
                             onPress={async () => {
-                                const tel = permanence.phoneNumber || "+33669142804"; // <-- adapte ici selon ta structure
+                                const tel = permanence.phoneNumber || "+33669142804";
                                 await Linking.openURL(`tel:${tel}`);
                             }}
                         >
@@ -82,6 +82,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                                 </CustomText>
                             </CustomView>
                         </CustomButtonText>
+
                         <CustomButtonText
                             type="secondary"
                             onBackground={false}
