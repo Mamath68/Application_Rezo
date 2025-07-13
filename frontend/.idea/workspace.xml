@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a734fb27-90b9-4933-9a3e-acabe45acd1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(drawer)/about.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/CustomTextCenter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/Application_Rezo.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
@@ -17,31 +15,6 @@
       <change beforePath="$PROJECT_DIR$/../backend/src/main/java/fr/rezo/backend/CommandLinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/fr/rezo/backend/CommandLinner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/src/main/java/fr/rezo/backend/service/PermanenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/fr/rezo/backend/service/PermanenceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(drawer)/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(drawer)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(drawer)/about.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(drawer)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(drawer)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(drawer)/permanence.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(drawer)/permanence.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomButtonIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomButtonIcon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomButtonText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomText.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CustomView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CustomView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/TextStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/theme/TextStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/authentification.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/authentification.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nativewindverse/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/adaptive-icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/dark/loading.png" beforeDir="false" />
@@ -180,6 +153,7 @@
       <workItem from="1751637183590" duration="66000" />
       <workItem from="1752231797118" duration="2252000" />
       <workItem from="1752234656755" duration="70000" />
+      <workItem from="1752398314450" duration="4203000" />
     </task>
     <servers />
   </component>

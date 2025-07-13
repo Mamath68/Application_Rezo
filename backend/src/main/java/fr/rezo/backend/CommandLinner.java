@@ -44,7 +44,7 @@ public class CommandLinner {
 
             createPermanencesIfNotExist(permRepo, "Collectif \"Quart lieu\"", "2 rue Jean Grimont", List.of(
                     "2025-06-05", "2025-06-12", "2025-06-19", "2025-06-26"
-            ), "09:00:00", "12:00:00", "grimz", "Elodie", "+33610494003");
+            ), "09:00:00", "12:00:00", "grim'z", "Elodie", "+33610494003");
 
             createPermanencesIfNotExist(permRepo, "Restos du Coeur", "36 rue Jean Jaurès", List.of(
                     "2025-06-06", "2025-06-13", "2025-06-20", "2025-06-27"
@@ -78,7 +78,6 @@ public class CommandLinner {
             }
         });
     }
-
 
     private void createPermanencesIfNotExist(PermanencesRepository repo, String nomLocal, String adresse, List<String> dates, String heureDebut, String heureFin, String shortLocal, String contact, String phoneContact) {
         if (repo.findByNomLocal(nomLocal).isEmpty()) {

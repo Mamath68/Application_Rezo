@@ -24,7 +24,7 @@ public class PermanenceService {
         return response;
     }
 
-    private Map<String, Object> response(Map<String, Object> data) {
+    private Map<String, Object> responseData(Map<String, Object> data) {
         data.put("message", "Request was successful");
         return data;
     }
@@ -66,6 +66,6 @@ public class PermanenceService {
         data.put("permanence", permanence);
 
         System.out.println("----- END | PermanenceService : getOneById -----");
-        return response(data);
+        return responseData(data);
     }
 }
