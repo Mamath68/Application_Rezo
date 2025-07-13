@@ -1,17 +1,6 @@
 import {Image} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
 import {IconStyles as styles} from "../theme";
-import loadingImageDark from "../assets/dark/rezo-logo.png";
-import loadingImageLight from "../assets/light/rezo-logo.png";
-
-import logoImageDark from "../assets/dark/logo.png";
-import logoImageLight from "../assets/light/logo.png";
-
-import settingsDark from "../assets/dark/settings.png";
-import settingsLight from "../assets/light/settings.png";
-
-import menuDark from "../assets/dark/menu.png";
-import menuLight from "../assets/light/menu.png";
 
 const CustomIcon = ({
                         icon = "loading",
@@ -30,17 +19,24 @@ const CustomIcon = ({
     // Récupération du style
     const getComponentStyle = defStyle[icon];
 
+    const loadingImageDark = require("../assets/dark/rezo-logo.png");
+    const loadingImageLight = require("../assets/light/rezo-logo.png");
+
+    const settingsDark = require("../assets/dark/settings.png");
+    const settingsLight = require("../assets/light/settings.png");
+
+    const menuDark = require("../assets/dark/menu.png");
+    const menuLight = require("../assets/light/menu.png");
+
     // Définition de la source avec un booléen
     const defSource = {
         dark: {
             loading: onBackground ? loadingImageLight : loadingImageDark,
-            logo: onBackground ? logoImageLight : logoImageDark,
             settings: onBackground ? settingsLight : settingsDark,
             menu: onBackground ? menuLight : menuDark,
         },
         light: {
             loading: onBackground ? loadingImageDark : loadingImageLight,
-            logo: onBackground ? logoImageDark : logoImageLight,
             settings: onBackground ? settingsDark : settingsLight,
             menu: onBackground ? menuDark : menuLight,
         },

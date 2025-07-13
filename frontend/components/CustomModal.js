@@ -1,11 +1,10 @@
-import {Modal, View, ScrollView, Linking} from "react-native";
+import {Modal, ScrollView, Linking} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
 import {FontAwesome} from '@expo/vector-icons';
 import {Theme} from "../theme";
 import CustomView from "./CustomView";
-import CustomButton from "./CustomButton";
 
 const PermanenceDetailModal = ({visible, onClose, permanence}) => {
     const {theme} = useTheme();

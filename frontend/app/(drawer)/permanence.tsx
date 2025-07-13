@@ -1,38 +1,57 @@
+import React, {useState, useEffect} from "react";
+import {Calendar, ICalendarEventBase} from "react-native-big-calendar";
+import {KeyboardAvoidingView, Platform, SafeAreaView, StyleProp, ViewStyle} from "react-native";
 import {CustomText, CustomView} from "../../components";
 import {PermanenceScreenStyles as styles, Theme} from "../../theme";
-import {Calendar} from "react-native-big-calendar";
-import {useState, useEffect} from "react";
 import {getAllPermanences} from "../../utils";
-import {KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
-import 'dayjs/locale/fr'
-import 'dayjs/locale/de'
 import PermanenceDetailModal from "../../components/CustomModal";
-import React from "react";
+import 'dayjs/locale/fr';
+import 'dayjs/locale/de';
+
+// === TYPES ===
+
+interface Savoir {
+    role: 'OFFRE' | 'DEMANDE';
+
+    [key: string]: any; // Adapter si tu connais la structure
+}
+
+interface PermanenceItem {
+    shortLocal: string;
+    nomLocal: string;
+    address: string;
+    date: string;
+    permanenceDebut: string;
+    permanenceFin: string;
+    contact: string;
+    phoneContact: string;
+    savoirs?: Savoir[];
+}
+
+interface CustomEvent extends ICalendarEventBase {
+    local: string;
+    address: string;
+    contact: string;
+    phoneNumber: string;
+    offres: Savoir[];
+    demandes: Savoir[];
+    color?: string;
+}
+
+// === COMPOSANT ===
 
 export default function Permanence() {
-    const [permanences, setPermanences] = useState([]);
-    const [, setLoading] = useState(true);
-    const [modalVisible, setModalVisible] = useState(false);
-    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [permanences, setPermanences] = useState<PermanenceItem[]>([]);
+    const [, setLoading] = useState<boolean>(true);
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
+    const [selectedEvent, setSelectedEvent] = useState<CustomEvent | null>(null);
     const {theme} = useTheme();
 
-    const getViewBackgroundColorStyle = theme === 'dark'
-        ? Theme.backgroundColorDark
-        : Theme.backgroundColorLight;
-    const getBorderColorStyle = theme === 'dark'
-        ? styles.borderColorLight
-        : styles.borderColorDark;
-    const getColorStyle = theme === 'dark'
-        ? Theme.textDark
-        : Theme.textLight;
+    const getViewBackgroundColorStyle: StyleProp<ViewStyle> =
+        theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
 
-    const formatHour = (date) => {
-        return date.toLocaleTimeString('fr-FR', {
-            hour: '2-digit',
-            minute: '2-digit',
-        });
-    };
+    const getBorderColorStyle = theme === "dark" ? styles.borderColorLight : styles.borderColorDark;
 
     useEffect(() => {
         const loadPermanences = async () => {
@@ -50,32 +69,25 @@ export default function Permanence() {
         loadPermanences();
     }, []);
 
-    const assignColors = (events) => {
+    const assignColors = (events: CustomEvent[]): CustomEvent[] => {
         const pastelColors = [
-            '#3B82F6',
-            '#10B981',
-            '#F59E0B',
-            '#EF4444',
-            '#6366F1',
-            '#14B8A6',
-            '#8B5CF6',
-            '#EC4899',
-            '#84CC16',
-            '#F97316'];
+            '#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#6366F1',
+            '#14B8A6', '#8B5CF6', '#EC4899', '#84CC16', '#F97316'
+        ];
         return events.map((event, index) => ({
             ...event,
             color: pastelColors[index % pastelColors.length],
         }));
     };
 
-    const rawEvents = permanences.map((p) => {
+    const rawEvents: CustomEvent[] = permanences.map((p) => {
         const savoirsOffres = p.savoirs?.filter(s => s.role === 'OFFRE') ?? [];
         const savoirsDemandes = p.savoirs?.filter(s => s.role === 'DEMANDE') ?? [];
 
         return {
             title: `${p.shortLocal.toUpperCase()}`,
-            local: `${p.nomLocal}`,
-            address: `${p.address}`,
+            local: p.nomLocal,
+            address: p.address,
             start: new Date(`${p.date}T${p.permanenceDebut}`),
             end: new Date(`${p.date}T${p.permanenceFin}`),
             contact: p.contact,
@@ -83,10 +95,9 @@ export default function Permanence() {
             offres: savoirsOffres,
             demandes: savoirsDemandes,
         };
-
     });
-    const events = assignColors(rawEvents);
 
+    const events = assignColors(rawEvents);
 
     return (
         <SafeAreaView style={styles.containerContent}>
@@ -109,7 +120,7 @@ export default function Permanence() {
                         overlapOffset={15}
                         height={650}
                         eventCellStyle={(event) => ({
-                            backgroundColor: event.color,
+                            backgroundColor: (event as CustomEvent).color || '#ccc',
                             borderRadius: 5,
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -119,10 +130,11 @@ export default function Permanence() {
                         showTime={false}
                         showAdjacentMonths={true}
                         onPressEvent={(event) => {
-                            setSelectedEvent(event);
+                            setSelectedEvent(event as CustomEvent);
                             setModalVisible(true);
                         }}
                     />
+
                     <PermanenceDetailModal
                         visible={modalVisible}
                         onClose={() => setModalVisible(false)}

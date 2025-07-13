@@ -4,13 +4,9 @@ import {useTheme} from "../context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
 import {SettingsModalStyles as styles, Theme} from "../theme";
-import {useRouter} from "expo-router";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import {useEffect, useState} from "react";
 
 const SettingsModal = ({visible, onClose}) => {
     const {theme, toggleTheme} = useTheme();
-    const router = useRouter();
 
     return (
         <Modal transparent visible={visible} animationType="slide">
