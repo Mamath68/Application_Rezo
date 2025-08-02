@@ -1,27 +1,17 @@
-import { CustomText, CustomView } from "../../components";
+import {CustomTextCenter, CustomView} from "../../components";
 import { Theme } from "../../theme";
-import { ScrollView, SafeAreaView, StyleSheet } from "react-native";
 
 export default function About() {
     return (
-        <SafeAreaView style={Theme.container}>
-            <ScrollView
-                showsVerticalScrollIndicator={false}
-            >
-                <CustomText level="h2">
-                    À Propos du «REZO!»
-                </CustomText>
+        <CustomView style={Theme.container}>
+            <CustomTextCenter level="p" style={{paddingVertical:40}}>
+                Le «REZO!» est une RERS, « Réseau d’échanges réciproques de savoirs».
+            </CustomTextCenter>
 
-                <CustomText level={"p"}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque...
-                </CustomText>
-
-                <CustomText level={"p"}>
-                    Nullam euismod, nisi vel consectetur cursus, nisl nunc egestas...
-                </CustomText>
-
-                {/* Ajoute ici autant de blocs que nécessaire */}
-            </ScrollView>
-        </SafeAreaView>
+            <CustomTextCenter level="p">
+                Le slogan de l'association est : «Tout le monde est porteur de savoirs, petit ou grand. Chacun
+                peut transmettre à l'autre et recevoir en échange un savoir de valeur équivalente.»
+            </CustomTextCenter>
+        </CustomView>
     );
 }

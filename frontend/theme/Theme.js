@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 
-const height = Dimensions.get("screen").height;
+const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const Theme = StyleSheet.create({
