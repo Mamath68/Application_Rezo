@@ -1,17 +1,6 @@
 import {Image} from "react-native";
 import {useTheme} from "../context/ThemeProvider";
 import {IconStyles as styles} from "../theme";
-import loadingImageDark from "../assets/dark/rezo-logo.png";
-import loadingImageLight from "../assets/light/rezo-logo.png";
-
-import logoImageDark from "../assets/dark/logo.png";
-import logoImageLight from "../assets/light/logo.png";
-
-import settingsDark from "../assets/dark/settings.png";
-import settingsLight from "../assets/light/settings.png";
-
-import menuDark from "../assets/dark/menu.png";
-import menuLight from "../assets/light/menu.png";
 
 const CustomIcon = ({
                         icon = "loading",
@@ -19,6 +8,17 @@ const CustomIcon = ({
                         style = {},
                     }) => {
     const {theme} = useTheme();
+    const loadingImageDark = require("../assets/dark/rezo-logo.png");
+    const loadingImageLight = require("../assets/light/rezo-logo.png");
+
+    const logoImageDark = require("../assets/dark/logo.png");
+    const logoImageLight = require("../assets/light/logo.png");
+
+    const settingsDark = require("../assets/dark/settings.png");
+    const settingsLight = require("../assets/light/settings.png");
+
+    const menuDark = require("../assets/dark/menu.png");
+    const menuLight = require("../assets/light/menu.png");
 
     // Définition du style
     const defStyle = {

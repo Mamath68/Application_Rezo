@@ -1,9 +1,9 @@
-import {CustomText, CustomView} from "../../components";
-import {PermanenceScreenStyles as styles, Theme} from "../../theme";
+import {CustomKeyboardAvoidingView, CustomText, CustomView} from "../../components";
+import {PermanenceScreenStyles as styles} from "../../theme";
 import {Calendar} from "react-native-big-calendar";
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import {getAllPermanences} from "../../utils";
-import {KeyboardAvoidingView, Platform, SafeAreaView} from "react-native";
+import {SafeAreaView} from "react-native";
 import {useTheme} from "../../context/ThemeProvider";
 import 'dayjs/locale/fr'
 import 'dayjs/locale/de'
@@ -16,22 +16,9 @@ export default function Permanence() {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const {theme} = useTheme();
 
-    const getViewBackgroundColorStyle = theme === 'dark'
-        ? Theme.backgroundColorDark
-        : Theme.backgroundColorLight;
     const getBorderColorStyle = theme === 'dark'
         ? styles.borderColorLight
         : styles.borderColorDark;
-    const getColorStyle = theme === 'dark'
-        ? Theme.textDark
-        : Theme.textLight;
-
-    const formatHour = (date) => {
-        return date.toLocaleTimeString('fr-FR', {
-            hour: '2-digit',
-            minute: '2-digit',
-        });
-    };
 
     useEffect(() => {
         const loadPermanences = async () => {
@@ -89,12 +76,9 @@ export default function Permanence() {
 
     return (
         <SafeAreaView style={styles.containerContent}>
-            <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={getViewBackgroundColorStyle}
-            >
+            <CustomKeyboardAvoidingView>
                 <CustomView style={{paddingVertical: 80}}>
-                    <CustomText level="p" style={{textAlign: "center"}}>
+                    <CustomText level="p" center>
                         Vous trouverez ci-dessous les permanences, présentées sous forme d’agenda.
                     </CustomText>
 
@@ -129,7 +113,7 @@ export default function Permanence() {
                         permanence={selectedEvent}
                     />
                 </CustomView>
-            </KeyboardAvoidingView>
+            </CustomKeyboardAvoidingView>
         </SafeAreaView>
     );
 }

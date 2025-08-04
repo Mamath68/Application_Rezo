@@ -6,6 +6,7 @@ const CustomText = ({
                         level = "p",
                         children,
                         style = {},
+                        center = false,
                     }) => {
     const {theme} = useTheme();
 
@@ -22,10 +23,11 @@ const CustomText = ({
     };
 
     const componentStyle = defStyle[level] || defStyle.p;
-    const textColor = theme === 'dark' ? Theme.textLight : Theme.textDark;
+    const textColor = theme === "dark" ? Theme.textLight : Theme.textDark;
+    const centerStyle = center ? {textAlign: "center"} : {};
 
     return (
-        <Text style={[componentStyle, textColor, style]}>
+        <Text style={[componentStyle, textColor, centerStyle, style]}>
             {children}
         </Text>
     );

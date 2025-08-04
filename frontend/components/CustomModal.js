@@ -1,16 +1,11 @@
-import {Modal, View, ScrollView, Linking} from "react-native";
-import {useTheme} from "../context/ThemeProvider";
+import {Linking, Modal, ScrollView} from "react-native";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
+import CustomView from "./CustomView";
 import {FontAwesome} from '@expo/vector-icons';
 import {Theme} from "../theme";
-import CustomView from "./CustomView";
-import CustomButton from "./CustomButton";
 
 const PermanenceDetailModal = ({visible, onClose, permanence}) => {
-    const {theme} = useTheme();
-
-    const getThemeBackground = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
     const formatHour = (date) => date?.toLocaleTimeString('fr-FR', {
         hour: '2-digit',
         minute: '2-digit',
@@ -21,9 +16,9 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
     return (
         <Modal transparent visible={visible} animationType="fade" >
             <CustomView style={{flex: 1, justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: 20}}>
-                <CustomView style={[{backgroundColor: '#fff', borderRadius: 12, padding: 20}, getThemeBackground]}>
+                <CustomView style={{borderRadius: 12, padding: 20}}>
                     <ScrollView showsVerticalScrollIndicator={false}>
-                        <CustomText level="h2" style={{textAlign: 'center', marginBottom: 10}}>
+                        <CustomText level="h2" center style={{marginBottom: 10}}>
                             {permanence.local}
                         </CustomText>
                         <CustomView style={{flexDirection: "row"}}>

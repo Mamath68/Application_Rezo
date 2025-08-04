@@ -1,7 +1,7 @@
-import { HeaderStyles as styles } from "../theme";
-import { useState } from "react";
-import { useNavigation } from "expo-router";
-import { SafeAreaView, Platform, StatusBar } from "react-native";
+import {HeaderStyles as styles} from "../theme";
+import {useState} from "react";
+import {useNavigation} from "expo-router";
+import {SafeAreaView} from "react-native";
 
 import SettingsModal from "./SettingsModal";
 import CustomButtonIcon from "./CustomButtonIcon";
@@ -11,8 +11,6 @@ import CustomView from "./CustomView";
 const Header = ({ title }) => {
     const navigation = useNavigation();
     const [modalVisible, setModalVisible] = useState(false);
-
-    // Ajout du padding conditionnel pour Android
 
     return (
         <SafeAreaView>
@@ -25,7 +23,7 @@ const Header = ({ title }) => {
                     onPress={() => navigation.dispatch(navigation.openDrawer())}
                 />
 
-                <CustomText level="h3">{title}</CustomText>
+                <CustomText level="h3" center>{title}</CustomText>
 
                 <CustomButtonIcon
                     type="primary"

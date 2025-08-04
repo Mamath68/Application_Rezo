@@ -5,7 +5,6 @@ import {Theme} from "../theme";
 const CustomView = ({children, style}) => {
     const {theme} = useTheme();
 
-    // Styles dynamiques basés sur le thème
     const dynamicStyle = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
 
     return (
