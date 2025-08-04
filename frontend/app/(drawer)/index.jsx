@@ -4,7 +4,7 @@ import {Theme} from "../../theme";
 export default function Home() {
     return (
         <CustomView style={Theme.container}>
-            <CustomText center level="h2">Accueil</CustomText>
+            <CustomText center level="h2">Accueil Typescript</CustomText>
         </CustomView>
     );
 }
