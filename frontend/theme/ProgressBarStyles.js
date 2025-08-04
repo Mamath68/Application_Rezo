@@ -1,8 +1,8 @@
 import {Dimensions, StyleSheet} from "react-native";
 
 const width = Dimensions.get('window').width;
+
 const ProgressBarStyles = StyleSheet.create({
-    //--- VIEW ----\\
     container: {
         alignItems: 'center',
         gap: 10,
@@ -12,7 +12,6 @@ const ProgressBarStyles = StyleSheet.create({
         maxWidth: width * 0.95,
         width: width * 0.9,
     },
-    //--- BAR ----\\
     animated: {
         height: 20,
         maxWidth: width * 0.95,

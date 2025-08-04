@@ -2,7 +2,7 @@ import {StyleSheet} from "react-native";
 
 const TextStyles = StyleSheet.create({
     h1: {
-        fontSize: 32, // Grande taille pour les titres principaux
+        fontSize: 32,
         fontWeight: "bold",
         lineHeight: 40,
         color: "#000",
@@ -20,19 +20,19 @@ const TextStyles = StyleSheet.create({
         color: "#444",
     },
     h4: {
-        fontSize: 16, // Taille légèrement inférieure pour sous-titres
+        fontSize: 16,
         fontWeight: "600",
         lineHeight: 30,
         color: "#555",
     },
     h5: {
-        fontSize: 13.28, // Proche des paragraphes pour plus de précision
-        fontWeight: "500", // Moins gras pour indiquer une hiérarchie basse
+        fontSize: 13.28,
+        fontWeight: "500",
         lineHeight: 22,
         color: "#666",
     },
     h6: {
-        fontSize: 10.72, // La plus petite pour un titre minimal
+        fontSize: 10.72,
         fontWeight: "500",
         lineHeight: 20,
         color: "#777",

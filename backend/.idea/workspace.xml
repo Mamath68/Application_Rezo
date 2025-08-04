@@ -5,9 +5,89 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0fbec4-9e2c-4e49-b5e7-bf3813dfd858" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/app/(drawer)/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/(drawer)/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/app/_layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/app/_layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/components/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/ProgressBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/config/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/HeaderStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/HeaderStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/IconStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/IconStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/ModalStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/ModalStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/ProgressBarStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/ProgressBarStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/TextStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/TextStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/theme/Theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/theme/Theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/adaptive-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/dark/loading.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/dark/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/dark/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/dark/rezo-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/dark/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/docs/Application Mobile CAHIER DES CHARGES.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/docs/Application Mobile CAHIER DES CHARGES.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/docs/chartes_graphique.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/light/loading.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/light/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/light/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/light/rezo-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/light/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/assets/splash-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/about.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-auth)/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/_layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/about.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/app/(nav-guest)/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButtonIcon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButtonLink.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomButtonText.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomIcon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomInput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomLink.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomText.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomTextarea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/CustomView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/Header2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/ProgressBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/SettingsModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/components/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/config/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/context/ThemeProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/DancingScript-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/DancingScript-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Jost-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Jost-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Jost-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Montserrat-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Montserrat-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Raleway-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Raleway-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/fonts/Raleway-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/service/ApiService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/ButtonStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/CustomStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/HeaderStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/IconStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/InputStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/LoginScreenStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/PermanenceScreenStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/ProgressBarStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/RegisterScreenStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/SettingsModalStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/SplashScreenStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/TextStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/TextareaStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/theme/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/apiRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/authentification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nativewindverse/src/utils/user.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +183,7 @@
     "ToolWindow.Running Devices.ShowToolbar": "false",
     "com.android.tools.idea.streaming.zoom.toolbar.visible": "false",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "v3",
+    "git-widget-placeholder": "v4",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/mathi/WebstormProjects/Application_Rezo/backend",
@@ -115,7 +195,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -154,7 +234,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.27812.49" />
       </set>
     </attachedChunks>
   </component>
@@ -274,6 +354,15 @@
       <workItem from="1750144499540" duration="4672000" />
       <workItem from="1750163710281" duration="7648000" />
       <workItem from="1750230530827" duration="3138000" />
+      <workItem from="1752582291472" duration="1223000" />
+      <workItem from="1752608141901" duration="199000" />
+      <workItem from="1752751619313" duration="3710000" />
+      <workItem from="1752831792076" duration="605000" />
+      <workItem from="1753259919833" duration="991000" />
+      <workItem from="1753261262877" duration="44000" />
+      <workItem from="1753262847518" duration="75000" />
+      <workItem from="1754139035026" duration="2969000" />
+      <workItem from="1754152024786" duration="658000" />
     </task>
     <servers />
   </component>

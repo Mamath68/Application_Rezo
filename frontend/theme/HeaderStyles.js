@@ -1,7 +1,6 @@
-import {Dimensions, StyleSheet, Platform, StatusBar} from "react-native";
+import {Dimensions, StyleSheet} from "react-native";
 
 const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
 
 const HeaderStyles = StyleSheet.create({
     container: {
