@@ -4,50 +4,57 @@ import {IconStyles as styles} from "../theme";
 
 const CustomIcon = ({
                         icon = "loading",
-                        onBackground = false, // Maintenant un booléen
+                        onBackground = false,
                         style = {},
                     }) => {
     const {theme} = useTheme();
-    const loadingImageDark = require("../assets/dark/rezo-logo.png");
-    const loadingImageLight = require("../assets/light/rezo-logo.png");
 
-    const logoImageDark = require("../assets/dark/logo.png");
-    const logoImageLight = require("../assets/light/logo.png");
+    // Vérification sécurisée de l'icône
+    const validIcons = ["loading", "logo", "settings", "menu"];
+    const safeIcon = validIcons.includes(icon) ? icon : "loading";
 
-    const settingsDark = require("../assets/dark/settings.png");
-    const settingsLight = require("../assets/light/settings.png");
+    // Chargement dynamique des images
+    const defSource = {
+        dark: {
+            loading: onBackground
+                ? require("../assets/light/rezo-logo.png")
+                : require("../assets/dark/rezo-logo.png"),
+            logo: onBackground
+                ? require("../assets/light/logo.png")
+                : require("../assets/dark/logo.png"),
+            settings: onBackground
+                ? require("../assets/light/settings.png")
+                : require("../assets/dark/settings.png"),
+            menu: onBackground
+                ? require("../assets/light/menu.png")
+                : require("../assets/dark/menu.png"),
+        },
+        light: {
+            loading: onBackground
+                ? require("../assets/dark/rezo-logo.png")
+                : require("../assets/light/rezo-logo.png"),
+            logo: onBackground
+                ? require("../assets/dark/logo.png")
+                : require("../assets/light/logo.png"),
+            settings: onBackground
+                ? require("../assets/dark/settings.png")
+                : require("../assets/light/settings.png"),
+            menu: onBackground
+                ? require("../assets/dark/menu.png")
+                : require("../assets/light/menu.png"),
+        },
+    };
 
-    const menuDark = require("../assets/dark/menu.png");
-    const menuLight = require("../assets/light/menu.png");
-
-    // Définition du style
+    // Style de base par type d’icône
     const defStyle = {
         loading: styles.loading,
+        logo: styles.logo ?? {}, // évite les erreurs si non définies
         settings: styles.settings,
         menu: styles.menu,
     };
 
-    // Récupération du style
-    const getComponentStyle = defStyle[icon];
-
-    // Définition de la source avec un booléen
-    const defSource = {
-        dark: {
-            loading: onBackground ? loadingImageLight : loadingImageDark,
-            logo: onBackground ? logoImageLight : logoImageDark,
-            settings: onBackground ? settingsLight : settingsDark,
-            menu: onBackground ? menuLight : menuDark,
-        },
-        light: {
-            loading: onBackground ? loadingImageDark : loadingImageLight,
-            logo: onBackground ? logoImageDark : logoImageLight,
-            settings: onBackground ? settingsDark : settingsLight,
-            menu: onBackground ? menuDark : menuLight,
-        },
-    };
-
-    // Récupération de la source
-    const getSource = defSource[theme][icon];
+    const getComponentStyle = defStyle[safeIcon] || {};
+    const getSource = defSource[theme][safeIcon];
 
     return (
         <Image

@@ -7,22 +7,24 @@ const CustomButtonIcon = ({
                               withBackground = false,
                               withBorder = false,
                               icon,
-                              onPress = () => {
-                              },
+                              onPress = () => {},
                               style,
                               disabled = false,
                           }) => {
+    const validIcons = ["loading", "logo", "settings", "menu"];
+    const safeIcon = validIcons.includes(icon) ? icon : "loading";
+
     return (
         <CustomButton
             type={type}
-            onBackground={onBackground}
             withBackground={withBackground}
             withBorder={withBorder}
             onPress={onPress}
             style={style}
             disabled={disabled}
+            accessibilityLabel={`Icon button: ${safeIcon}`}
         >
-            <CustomIcon icon={icon} onBackground={onBackground}/>
+            <CustomIcon icon={safeIcon} onBackground={onBackground} />
         </CustomButton>
     );
 };

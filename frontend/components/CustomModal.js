@@ -66,7 +66,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
                             withBorder={true}
                             buttonStyle={{marginTop: 20}}
                             onPress={async () => {
-                                const tel = permanence.phoneNumber || "+33669142804"; // <-- adapte ici selon ta structure
+                                const tel = permanence.phoneNumber || "+33669142804";
                                 await Linking.openURL(`tel:${tel}`);
                             }}
                         >

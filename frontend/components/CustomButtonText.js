@@ -1,33 +1,40 @@
 import CustomButton from './CustomButton';
 import CustomText from "./CustomText";
-import {isValidElement} from "react";
+import { isValidElement } from "react";
 
 const CustomButtonText = ({
-    type = 'primary',
-    onBackground = true,
-    withBackground = true,
-    withBorder = true,
-    children,
-    onPress = () => {},
-    textStyle,
-    buttonStyle,
-    disabled = false,
-}) => {
+                              type = 'primary',
+                              withBackground = true,
+                              withBorder = true,
+                              children,
+                              onPress = () => {},
+                              textStyle,
+                              buttonStyle,
+                              disabled = false,
+                          }) => {
+    const renderContent = () => {
+        if (!children) {
+            return <CustomText level='p' style={textStyle}>Button</CustomText>;
+        }
+
+        return isValidElement(children)
+            ? children
+            : <CustomText level='p' style={textStyle}>{children}</CustomText>;
+    };
+
     return (
         <CustomButton
             type={type}
-            onBackground={onBackground}
             withBackground={withBackground}
             withBorder={withBorder}
             onPress={onPress}
             style={buttonStyle}
             disabled={disabled}
-        >
-            {
-                isValidElement(children)
-                    ? children
-                    : <CustomText level='p' style={textStyle}>{children}</CustomText>
+            accessibilityLabel={
+                typeof children === "string" ? children : "Text button"
             }
+        >
+            {renderContent()}
         </CustomButton>
     );
 };
