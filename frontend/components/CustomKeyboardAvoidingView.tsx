@@ -1,13 +1,23 @@
-import React from "react";
-import { KeyboardAvoidingView, Platform } from "react-native";
-import { useTheme } from "@context/ThemeProvider";
-import { Theme } from "@theme/index";
+import React, {ReactNode} from "react";
+import {KeyboardAvoidingView, Platform, StyleProp, ViewStyle,} from "react-native";
+import {useTheme} from "@context/ThemeProvider";
+import {Theme} from "@theme/index";
 
-const CustomKeyboardAvoidingView = ({ children, style = {} }) => {
+type CustomKeyboardAvoidingViewProps = {
+    children?: ReactNode;
+    style?: StyleProp<ViewStyle>;
+};
+
+const CustomKeyboardAvoidingView: React.FC<CustomKeyboardAvoidingViewProps> = ({
+                                                                                   children,
+                                                                                   style = {},
+                                                                               }) => {
     const { theme } = useTheme();
 
     const getViewBackgroundColorStyle =
-        theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
+        theme === "dark"
+            ? Theme.backgroundColorDark
+            : Theme.backgroundColorLight;
 
     return (
         <KeyboardAvoidingView

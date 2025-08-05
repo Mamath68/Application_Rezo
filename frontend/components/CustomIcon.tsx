@@ -1,21 +1,30 @@
-import {Image} from "react-native";
+import React from "react";
+import {Image, ImageSourcePropType, ImageStyle, StyleProp} from "react-native";
 import {useTheme} from "@context/ThemeProvider";
 import {IconStyles as styles} from "@theme/index";
-import React from "react";
 
-const CustomIcon = ({
-                        icon = "loading",
-                        onBackground = false,
-                        style = {},
-                    }) => {
+// Les icônes autorisées
+type IconName = "loading" | "logo" | "settings" | "menu";
+
+type CustomIconProps = {
+    icon?: IconName;
+    onBackground?: boolean;
+    style?: StyleProp<ImageStyle>;
+};
+
+const CustomIcon: React.FC<CustomIconProps> = ({
+                                                   icon = "loading",
+                                                   onBackground = false,
+                                                   style = {},
+                                               }) => {
     const {theme} = useTheme();
 
     // Vérification sécurisée de l'icône
-    const validIcons = ["loading", "logo", "settings", "menu"];
-    const safeIcon = validIcons.includes(icon) ? icon : "loading";
+    const validIcons: IconName[] = ["loading", "logo", "settings", "menu"];
+    const safeIcon: IconName = validIcons.includes(icon) ? icon : "loading";
 
     // Chargement dynamique des images
-    const defSource = {
+    const defSource: Record<"light" | "dark", Record<IconName, ImageSourcePropType>> = {
         dark: {
             loading: onBackground
                 ? require("@assets/light/rezo-logo.png")
@@ -47,7 +56,7 @@ const CustomIcon = ({
     };
 
     // Style de base par type d’icône
-    const defStyle = {
+    const defStyle: Partial<Record<IconName, StyleProp<ImageStyle>>> = {
         loading: styles.loading,
         settings: styles.settings,
         menu: styles.menu,

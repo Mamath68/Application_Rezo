@@ -1,8 +1,24 @@
-import {TouchableOpacity} from "react-native";
+import React, {ReactNode} from "react";
+import {StyleProp, TouchableOpacity, ViewStyle} from "react-native";
 import {useTheme} from "@context/ThemeProvider";
 import {ButtonStyles as styles, Theme} from "@theme/index";
 import CustomText from "./CustomText";
-import React from "react";
+
+type ButtonType = "primary" | "secondary" | "tertiary";
+
+type CustomButtonProps = {
+    children: ReactNode;
+    type?: ButtonType;
+    withBackground?: boolean;
+    withBorder?: boolean;
+    onPress?: () => void;
+    disabled?: boolean;
+    style?: StyleProp<ViewStyle>;
+    accessibilityLabel?: string; // 👈 Ajout ici
+};
+
+const noop = () => {
+};
 
 const CustomButton = ({
                           children,
@@ -10,15 +26,14 @@ const CustomButton = ({
                           style,
                           withBackground = true,
                           withBorder = true,
-                          onPress = () => {
-                          },
+                          onPress = noop,
                           disabled = false,
-                      }) => {
+                          accessibilityLabel,
+                      }: CustomButtonProps) => {
     const {theme} = useTheme();
 
-    // Détermination des styles dynamiques
-    let effectiveBackground = null;
-    let effectiveBorder = null;
+    let effectiveBackground: "dark" | "light" | null = null;
+    let effectiveBorder: "dark" | "light" | null = null;
 
     if (theme === "light") {
         if (withBorder && !withBackground) effectiveBorder = "dark";
@@ -53,7 +68,7 @@ const CustomButton = ({
             ? Theme.textDark
             : Theme.textLight;
 
-    const getComponentStyle = {
+    const getComponentStyle: Record<ButtonType, any[]> = {
         primary: [...backgroundStyle, ...borderStyle],
         secondary: [...borderStyle],
         tertiary: [{borderWidth: 0}],
@@ -64,9 +79,10 @@ const CustomButton = ({
     return (
         <TouchableOpacity
             style={[styles.base, ...getComponentStyle[type], style, disabledStyle]}
-            onPress={disabled ? null : onPress}
+            onPress={disabled ? undefined : onPress}
             activeOpacity={disabled ? 1 : 0.7}
             disabled={disabled}
+            accessibilityLabel={accessibilityLabel}
         >
             <CustomText style={[Theme.text, textColor]}>{children}</CustomText>
         </TouchableOpacity>

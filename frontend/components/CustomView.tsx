@@ -1,9 +1,14 @@
-import {View} from "react-native";
+import {StyleProp, View, ViewStyle} from "react-native";
 import {useTheme} from "@context/ThemeProvider";
 import {Theme} from "@theme/index";
-import React from "react";
+import React, {ReactNode} from "react";
 
-const CustomView = ({children, style}) => {
+type CustomViewProps = {
+    children: ReactNode;
+    style?: StyleProp<ViewStyle>;
+};
+const CustomView = ({children, style}: CustomViewProps) => {
+
     const {theme} = useTheme();
 
     const dynamicStyle = theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;

@@ -4,12 +4,14 @@ import {useTheme} from "@context/ThemeProvider";
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
 import {SettingsModalStyles as styles, Theme} from "@theme/index";
-import {useRouter} from "expo-router";
 import React from "react";
 
-const SettingsModal = ({visible, onClose}) => {
+type ModalProps = {
+    visible?: boolean;
+    onClose?: () => void;
+}
+const SettingsModal = ({visible, onClose}: ModalProps) => {
     const {theme, toggleTheme} = useTheme();
-    const router = useRouter();
 
     return (
         <Modal transparent visible={visible} animationType="slide">

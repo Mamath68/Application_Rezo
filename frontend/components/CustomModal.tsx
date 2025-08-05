@@ -6,8 +6,14 @@ import {FontAwesome} from '@expo/vector-icons';
 import {Theme} from "@theme/index";
 import React from "react";
 
-const PermanenceDetailModal = ({visible, onClose, permanence}) => {
-    const formatHour = (date) => date?.toLocaleTimeString('fr-FR', {
+type ModalProps = {
+    visible?: boolean,
+    onClose?: () => void,
+    permanence: any
+}
+
+const PermanenceDetailModal = ({visible, onClose, permanence}: ModalProps) => {
+    const formatHour = (date: Date) => date?.toLocaleTimeString('fr-FR', {
         hour: '2-digit',
         minute: '2-digit',
     });
@@ -44,7 +50,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
 
                         <CustomText level="h4" style={Theme.Montserrat}>Offres :</CustomText>
                         {permanence?.offres?.length > 0 ? (
-                            permanence.offres.map((savoir, idx) => (
+                            permanence.offres.map((savoir: any, idx: number) => (
                                 <CustomText key={idx}>• {savoir.nom}</CustomText>
                             ))
                         ) : (
@@ -53,7 +59,7 @@ const PermanenceDetailModal = ({visible, onClose, permanence}) => {
 
                         <CustomText level="h4" style={[{marginTop: 10}, Theme.Montserrat]}>Demandes :</CustomText>
                         {permanence?.demandes?.length > 0 ? (
-                            permanence.demandes.map((savoir, idx) => (
+                            permanence.demandes.map((savoir: any, idx: number) => (
                                 <CustomText key={idx}>• {savoir.nom}</CustomText>
                             ))
                         ) : (

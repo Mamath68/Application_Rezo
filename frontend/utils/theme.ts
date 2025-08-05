@@ -24,7 +24,7 @@ export const loadTheme = async (defaultTheme: 'light' | 'dark' = 'light'): Promi
  * Sauvegarde le thème utilisateur ('light' ou 'dark').
  * @param {'light' | 'dark'} themeMode
  */
-export const saveTheme = async (themeMode) => {
+export const saveTheme = async (themeMode: string) => {
     try {
         const safeTheme = themeMode === 'dark' ? 'dark' : 'light';
         await AsyncStorage.setItem(THEME_KEY, safeTheme);

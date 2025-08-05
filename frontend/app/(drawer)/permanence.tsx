@@ -1,4 +1,4 @@
-import {CustomKeyboardAvoidingView, CustomText, CustomView} from "@components/index";
+import {CustomKeyboardAvoidingView, CustomText, CustomView, PermanenceDetailModal} from "@components/index";
 import {PermanenceScreenStyles as styles} from "@theme/index";
 import {Calendar} from "react-native-big-calendar";
 import React, {useEffect, useState} from "react";
@@ -7,7 +7,6 @@ import {SafeAreaView} from "react-native";
 import {useTheme} from "@context/ThemeProvider";
 import 'dayjs/locale/fr'
 import 'dayjs/locale/de'
-import {PermanenceDetailModal} from "@components/index";
 
 export default function Permanence() {
     const [permanences, setPermanences] = useState([]);
@@ -33,10 +32,10 @@ export default function Permanence() {
             }
         };
 
-        loadPermanences();
+        loadPermanences().then(r => console.log(r));
     }, []);
 
-    const assignColors = (events) => {
+    const assignColors = (events: any) => {
         const pastelColors = [
             '#3B82F6',
             '#10B981',
@@ -48,7 +47,7 @@ export default function Permanence() {
             '#EC4899',
             '#84CC16',
             '#F97316'];
-        return events.map((event, index) => ({
+        return events.map((event: any, index: any) => ({
             ...event,
             color: pastelColors[index % pastelColors.length],
         }));
