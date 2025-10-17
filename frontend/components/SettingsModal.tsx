@@ -1,27 +1,30 @@
-import {Modal, Switch, View} from "react-native";
+import React from "react";
+import {Modal, StyleProp, Switch, View, ViewStyle} from "react-native";
 import {useTheme} from "@context/ThemeProvider";
 
 import CustomText from "./CustomText";
 import CustomButtonText from "./CustomButtonText";
 import {SettingsModalStyles as styles, Theme} from "@theme/index";
-import React from "react";
 
-type ModalProps = {
+type SettingsModalProps = {
     visible?: boolean;
     onClose?: () => void;
-}
-const SettingsModal = ({visible, onClose}: ModalProps) => {
+};
+
+const SettingsModal: React.FC<SettingsModalProps> = ({
+                                                         visible = false,
+                                                         onClose = () => {
+                                                         },
+                                                     }) => {
     const {theme, toggleTheme} = useTheme();
+
+    const backgroundColorStyle: StyleProp<ViewStyle> =
+        theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight;
 
     return (
         <Modal transparent visible={visible} animationType="slide">
             <View style={styles.overlay}>
-                <View
-                    style={[
-                        styles.modalContainer,
-                        theme === "dark" ? Theme.backgroundColorDark : Theme.backgroundColorLight,
-                    ]}
-                >
+                <View style={[styles.modalContainer, backgroundColorStyle]}>
                     <CustomText style={styles.title}>Settings</CustomText>
 
                     {/* Langue */}

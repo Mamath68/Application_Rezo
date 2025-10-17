@@ -9,7 +9,7 @@ export default function SplashScreen() {
     const {theme} = useTheme();
 
     useEffect(() => {
-        checkAuthentication();
+        checkAuthentication().then(r => console.log(r));
     }, []);
 
     const getTextColorStyle = theme === 'dark' ? Theme.textLight : Theme.textDark;

@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import {CONFIG_API_BASE_URL_IP} from "@config/api";
 
 const API_BASE_URL: string = `${CONFIG_API_BASE_URL_IP}/api/`;
@@ -9,28 +8,17 @@ interface FetchOptions {
     url: string;
     method?: HTTPMethod;
     body?: unknown;
-    withAuth?: boolean;
 }
 
 const fetchData = async <T = unknown>({
                                           url,
                                           method = "GET",
                                           body = null,
-                                          withAuth = true,
-                                      }: FetchOptions): Promise<T | string> => {
+                                      }: FetchOptions): Promise<T> => {
     try {
         const headers: Record<string, string> = {
             "Content-Type": "application/json",
         };
-
-        if (withAuth) {
-            const token = await AsyncStorage.getItem("userToken");
-            if (token) {
-                headers.Authorization = `Bearer ${token}`;
-            } else {
-                new Error("Token not found! Please log in again.");
-            }
-        }
 
         const config: RequestInit = {
             method,
@@ -51,7 +39,7 @@ const fetchData = async <T = unknown>({
             } catch {
                 errorMessage += `, No JSON response.`;
             }
-            new Error(errorMessage);
+            throw new Error(errorMessage);
         }
 
         const contentType = response.headers.get("content-type");
@@ -59,7 +47,7 @@ const fetchData = async <T = unknown>({
             return await response.json();
         }
 
-        return "Operation completed successfully.";
+        throw new Error("Unexpected response: not JSON.");
     } catch (error: any) {
         console.error("API Fetch Error:", error.message);
         throw error;
@@ -67,17 +55,10 @@ const fetchData = async <T = unknown>({
 };
 
 const api = {
-    get: <T = unknown>(url: string, withAuth = true) =>
-        fetchData<T>({url, method: "GET", withAuth}),
-
-    post: <T = unknown>(url: string, body: unknown, withAuth = true) =>
-        fetchData<T>({url, method: "POST", body, withAuth}),
-
-    put: <T = unknown>(url: string, body: unknown, withAuth = true) =>
-        fetchData<T>({url, method: "PUT", body, withAuth}),
-
-    delete: <T = unknown>(url: string, withAuth = true) =>
-        fetchData<T>({url, method: "DELETE", withAuth}),
+    get: <T = unknown>(url: string) => fetchData<T>({url, method: "GET"}),
+    post: <T = unknown>(url: string, body: unknown) => fetchData<T>({url, method: "POST", body}),
+    put: <T = unknown>(url: string, body: unknown) => fetchData<T>({url, method: "PUT", body}),
+    delete: <T = unknown>(url: string) => fetchData<T>({url, method: "DELETE"}),
 };
 
 export default api;

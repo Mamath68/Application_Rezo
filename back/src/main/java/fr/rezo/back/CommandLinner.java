@@ -25,29 +25,29 @@ public class CommandLinner {
         return _ -> {
 
             createPermanencesIfNotExist(permRepo, "88 Briand", "88 avenue Briand", List.of(
-                    "2025-06-03", "2025-06-10", "2025-06-17", "2025-06-24"
+                    "2025-08-03", "2025-08-10", "2025-08-17", "2025-08-24"
             ), "14:00:00", "17:00:00", "88", "Elodie", "+33610494003");
 
             createPermanencesIfNotExist(permRepo, "Collectivité Européenne D'alsace", "61 rue de Pfastatt", List.of(
-                    "2025-06-16", "2025-06-30"
+                    "2025-08-16", "2025-08-30"
             ), "09:00:00", "11:00:00", "cea", "Tina", "+33648137046");
 
             createPermanencesIfNotExist(permRepo, "CSC Porte du Miroir", "3 rue saint Michel", List.of(
-                    "2025-06-05", "2025-06-12", "2025-06-19", "2025-06-26"
-            ), "19:00:00", "20:30:00", "miroir", "Sandrine", "+33625853376");
+                    "2025-08-07", "2025-08-20"
+            ), "17:00:00", "20:00:00", "miroir", "Sandrine", "+33625853376");
 
             createPermanencesIfNotExist(permRepo, "CSC Drouot-Barbanègre", "67 rue de Sausheim", List.of(
-                    "2025-06-02", "2025-06-09", "2025-06-16", "2025-06-23", "2025-06-30"
+                    "2025-08-02", "2025-08-09", "2025-08-16", "2025-08-23", "2025-08-30"
             ), "14:30:00", "16:30:00", "boat", "Sandrine", "+33625853376");
 
-            createPermanencesIfNotExist(permRepo, "Maison des Association Bourtzwiller", "62 rue de Soultz", List.of("2025-06-03", "2025-06-10", "2025-06-17", "2025-06-24"), "10:00:00", "12:00:00", "mda", "Sandrine", "+33625853376");
+            createPermanencesIfNotExist(permRepo, "Maison des Association Bourtzwiller", "62 rue de Soultz", List.of("2025-08-03", "2025-08-10", "2025-08-17", "2025-08-24"), "10:00:00", "12:00:00", "mda", "Sandrine", "+33625853376");
 
             createPermanencesIfNotExist(permRepo, "Collectif \"Quart lieu\"", "2 rue Jean Grimont", List.of(
-                    "2025-06-05", "2025-06-12", "2025-06-19", "2025-06-26"
+                    "2025-08-05", "2025-08-12", "2025-08-19", "2025-08-26"
             ), "09:00:00", "12:00:00", "grimz", "Elodie", "+33610494003");
 
             createPermanencesIfNotExist(permRepo, "Restos du Coeur", "36 rue Jean Jaurès", List.of(
-                    "2025-06-06", "2025-06-13", "2025-06-20", "2025-06-27"
+                    "2025-08-06", "2025-08-13", "2025-08-31", "2025-08-27"
             ), "10:00:00", "12:00:00", "rdc", "Sandrine", "+33625853376");
 
             createSavoirsIfNotExist(savoirRepo, List.of("Informatique", "Patchwork", "Maquillage", "Tricot", "Couture", "Comptabilité", "Peinture", "Français (FLE)", "Français (FLE) Niveau Avancé", "Arabe", "Jeux de Société", "Ecologie", "Boxe", "Basket", "Crochet", "Bricolage", "Excel", "Football"), "OFFRE");

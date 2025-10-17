@@ -2,12 +2,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const THEME_KEY = 'theme';
 
+export type ThemeMode = 'light' | 'dark';
+
 /**
  * Charge le thème sauvegardé ou retourne le thème par défaut.
- * @param {'light' | 'dark'} defaultTheme - Thème à utiliser par défaut si rien n’est stocké
- * @returns {Promise<'light' | 'dark'>}
+ * @param defaultTheme - Thème à utiliser par défaut si rien n’est stocké
  */
-export const loadTheme = async (defaultTheme: 'light' | 'dark' = 'light'): Promise<'light' | 'dark'> => {
+export const loadTheme = async (defaultTheme: ThemeMode = 'light'): Promise<ThemeMode> => {
     try {
         const savedTheme = await AsyncStorage.getItem(THEME_KEY);
         if (savedTheme === 'dark' || savedTheme === 'light') {
@@ -22,12 +23,11 @@ export const loadTheme = async (defaultTheme: 'light' | 'dark' = 'light'): Promi
 
 /**
  * Sauvegarde le thème utilisateur ('light' ou 'dark').
- * @param {'light' | 'dark'} themeMode
+ * @param themeMode
  */
-export const saveTheme = async (themeMode: string) => {
+export const saveTheme = async (themeMode: ThemeMode): Promise<void> => {
     try {
-        const safeTheme = themeMode === 'dark' ? 'dark' : 'light';
-        await AsyncStorage.setItem(THEME_KEY, safeTheme);
+        await AsyncStorage.setItem(THEME_KEY, themeMode);
     } catch (error) {
         console.error("Erreur lors de l'enregistrement du thème :", error);
     }
